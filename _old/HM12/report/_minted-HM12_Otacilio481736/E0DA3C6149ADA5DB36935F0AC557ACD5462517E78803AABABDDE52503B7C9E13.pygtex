@@ -1,0 +1,42 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{} ==== FUNCTIONS ====}
+\PYG{c}{\PYGZsh{} The Tensor\PYGZhy{}Train product function}
+\PYG{k}{function} \PYG{n}{×¹}\PYG{p}{(}\PYG{n}{G}\PYG{o}{...}\PYG{p}{)}
+    \PYG{c}{\PYGZsh{} Auxiliary variables with dimension/rank information}
+    \PYG{n}{IR}  \PYG{o}{=} \PYG{p}{[}\PYG{n}{size}\PYG{p}{(}\PYG{n}{G}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]);} \PYG{p}{[}\PYG{n}{size}\PYG{p}{(}\PYG{n}{G}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])[}\PYG{l+m+mi}{2}\PYG{o}{:}\PYG{k}{end}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{o}{:}\PYG{n}{length}\PYG{p}{(}\PYG{n}{G}\PYG{p}{)]}\PYG{o}{...}\PYG{p}{]}
+    \PYG{n+nb}{I}\PYG{p}{,}\PYG{n}{R} \PYG{o}{=} \PYG{p}{([}\PYG{n}{IR}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{o}{:}\PYG{n}{length}\PYG{p}{(}\PYG{n}{G}\PYG{p}{)],} \PYG{p}{[}\PYG{n}{IR}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{o}{:}\PYG{n}{length}\PYG{p}{(}\PYG{n}{G}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{])}
+
+    \PYG{c}{\PYGZsh{} Tensor\PYGZhy{}train product loop}
+    \PYG{n}{𝓧} \PYG{o}{=} \PYG{n}{zeros}\PYG{p}{(}\PYG{n+nb}{I}\PYG{o}{...}\PYG{p}{)}
+    \PYG{k}{for} \PYG{n}{i} \PYG{k+kp}{in} \PYG{n}{CartesianIndices}\PYG{p}{(}\PYG{n}{𝓧}\PYG{p}{),} \PYG{n}{r} \PYG{k+kp}{in} \PYG{n}{CartesianIndices}\PYG{p}{((}\PYG{n}{R}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{n}{R}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{],}\PYG{n}{R}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]))}
+        \PYG{n}{𝓧}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{G}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{n}{i}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{n}{r}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]]}\PYG{o}{*}\PYG{n}{G}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{][}\PYG{n}{r}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{n}{i}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{],}\PYG{n}{r}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]]}\PYG{o}{*}\PYG{n}{G}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{][}\PYG{n}{r}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{],}\PYG{n}{i}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{],}\PYG{n}{r}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]]}\PYG{o}{*}\PYG{n}{G}\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{][}\PYG{n}{r}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{],}\PYG{n}{i}\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{]]}
+    \PYG{k}{end}
+    \PYG{k}{return} \PYG{n}{𝓧}    \PYG{c}{\PYGZsh{} Returns the resulting tensor}
+\PYG{k}{end}
+
+\PYG{c}{\PYGZsh{} The Tensor\PYGZhy{}Train Singular Value Decomposition (TTSVD) algorithm}
+\PYG{k}{function} \PYG{n}{TTSVD}\PYG{p}{(}\PYG{n}{𝓧}\PYG{p}{)}
+    \PYG{n+nb}{I} \PYG{o}{=} \PYG{n}{size}\PYG{p}{(}\PYG{n}{𝓧}\PYG{p}{)}                                     \PYG{c}{\PYGZsh{} Auxiliary variable}
+                                                    \PYG{c}{\PYGZsh{}}
+    \PYG{n}{X¹} \PYG{o}{=} \PYG{n}{reshape}\PYG{p}{(}\PYG{n}{𝓧}\PYG{p}{,} \PYG{p}{(}\PYG{n+nb}{I}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{n}{Π}\PYG{p}{(}\PYG{n+nb}{I}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{:}\PYG{l+m+mi}{4}\PYG{p}{])))}               \PYG{c}{\PYGZsh{} Unfolds the tensor [𝓧]₁ ∈ ℝ(I₁,I₂I₃I₄)}
+    \PYG{n}{U}\PYG{p}{,}\PYG{n}{Σ}\PYG{p}{,}\PYG{n}{V} \PYG{o}{=} \PYG{n}{svd}\PYG{p}{(}\PYG{n}{X¹}\PYG{p}{);}    \PYG{n}{Σ} \PYG{o}{=} \PYG{k+kt}{Diagonal}\PYG{p}{(}\PYG{n}{Σ}\PYG{p}{);}            \PYG{c}{\PYGZsh{} Computes the SVD [𝓧]₁ = UΣVᴴ}
+    \PYG{n}{R₁} \PYG{o}{=} \PYG{n}{sum}\PYG{p}{(}\PYG{n}{diag}\PYG{p}{(}\PYG{n}{Σ}\PYG{p}{)} \PYG{o}{.\PYGZgt{}} \PYG{l+m+mf}{1e\PYGZhy{}6}\PYG{p}{)}                       \PYG{c}{\PYGZsh{} Gets the number of nonzero singular\PYGZhy{}values}
+    \PYG{n}{U₁} \PYG{o}{=} \PYG{n}{U}\PYG{p}{[}\PYG{o}{:}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{o}{:}\PYG{n}{R₁}\PYG{p}{];}  \PYG{n}{V₁} \PYG{o}{=} \PYG{p}{(}\PYG{n}{Σ}\PYG{o}{*}\PYG{p}{(}\PYG{n}{V}\PYG{p}{)}\PYG{n}{ᴴ}\PYG{p}{)[}\PYG{l+m+mi}{1}\PYG{o}{:}\PYG{n}{R₁}\PYG{p}{,}\PYG{o}{:}\PYG{p}{]}          \PYG{c}{\PYGZsh{} Truncates pair (U,V) given R₁}
+    \PYG{n}{G₁} \PYG{o}{=} \PYG{n}{U₁}                                         \PYG{c}{\PYGZsh{} Stores the 1st factor G₁ ∈ ℝ(I₁,R₁)}
+                                                    \PYG{c}{\PYGZsh{}}
+    \PYG{n}{X²} \PYG{o}{=} \PYG{n}{reshape}\PYG{p}{(}\PYG{n}{V₁}\PYG{p}{,} \PYG{p}{(}\PYG{n}{R₁}\PYG{o}{*}\PYG{n+nb}{I}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{],} \PYG{n}{Π}\PYG{p}{(}\PYG{n+nb}{I}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{o}{:}\PYG{l+m+mi}{4}\PYG{p}{])))}          \PYG{c}{\PYGZsh{} Unfolds the matrix X² = [V₁]₁ ∈ ℝ(R₁I₂,I₃I₄)}
+    \PYG{n}{U}\PYG{p}{,}\PYG{n}{Σ}\PYG{p}{,}\PYG{n}{V} \PYG{o}{=} \PYG{n}{svd}\PYG{p}{(}\PYG{n}{X²}\PYG{p}{);}    \PYG{n}{Σ} \PYG{o}{=} \PYG{k+kt}{Diagonal}\PYG{p}{(}\PYG{n}{Σ}\PYG{p}{);}            \PYG{c}{\PYGZsh{} Computes the SVD X² = UΣVᴴ}
+    \PYG{n}{R₂} \PYG{o}{=} \PYG{n}{sum}\PYG{p}{(}\PYG{n}{diag}\PYG{p}{(}\PYG{n}{Σ}\PYG{p}{)} \PYG{o}{.\PYGZgt{}} \PYG{l+m+mf}{1e\PYGZhy{}6}\PYG{p}{)}                       \PYG{c}{\PYGZsh{} Gets the number of nonzero singular\PYGZhy{}values}
+    \PYG{n}{U₂} \PYG{o}{=} \PYG{n}{U}\PYG{p}{[}\PYG{o}{:}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{o}{:}\PYG{n}{R₂}\PYG{p}{];}  \PYG{n}{V₂} \PYG{o}{=} \PYG{p}{(}\PYG{n}{Σ}\PYG{o}{*}\PYG{p}{(}\PYG{n}{V}\PYG{p}{)}\PYG{n}{ᴴ}\PYG{p}{)[}\PYG{l+m+mi}{1}\PYG{o}{:}\PYG{n}{R₂}\PYG{p}{,}\PYG{o}{:}\PYG{p}{]}          \PYG{c}{\PYGZsh{} Truncates pair (U,V) given R₂}
+    \PYG{n}{𝓖₂} \PYG{o}{=} \PYG{n}{reshape}\PYG{p}{(}\PYG{n}{U₂}\PYG{p}{,} \PYG{p}{(}\PYG{n}{R₁}\PYG{p}{,} \PYG{n+nb}{I}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{],} \PYG{n}{R₂}\PYG{p}{))}                \PYG{c}{\PYGZsh{} Reshapes the 2nd factor 𝓖₂ ∈ ℝ(R₁,I₂,R₂)}
+                                                    \PYG{c}{\PYGZsh{}}
+    \PYG{n}{X³} \PYG{o}{=} \PYG{n}{reshape}\PYG{p}{(}\PYG{n}{V₂}\PYG{p}{,} \PYG{p}{(}\PYG{n}{R₂}\PYG{o}{*}\PYG{n+nb}{I}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{],} \PYG{n+nb}{I}\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{]))}               \PYG{c}{\PYGZsh{} Unfolds the matrix X³ = [V₂]₁ ∈ ℝ(R₂I₃,I₄)}
+    \PYG{n}{U}\PYG{p}{,}\PYG{n}{Σ}\PYG{p}{,}\PYG{n}{V} \PYG{o}{=} \PYG{n}{svd}\PYG{p}{(}\PYG{n}{X³}\PYG{p}{);}    \PYG{n}{Σ} \PYG{o}{=} \PYG{k+kt}{Diagonal}\PYG{p}{(}\PYG{n}{Σ}\PYG{p}{);}            \PYG{c}{\PYGZsh{} Computes the SVD X³ = UΣVᴴ}
+    \PYG{n}{R₃} \PYG{o}{=} \PYG{n}{sum}\PYG{p}{(}\PYG{n}{diag}\PYG{p}{(}\PYG{n}{Σ}\PYG{p}{)} \PYG{o}{.\PYGZgt{}} \PYG{l+m+mf}{1e\PYGZhy{}6}\PYG{p}{)}                       \PYG{c}{\PYGZsh{} Gets the number of nonzero singular\PYGZhy{}values}
+    \PYG{n}{U₃} \PYG{o}{=} \PYG{n}{U}\PYG{p}{[}\PYG{o}{:}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{o}{:}\PYG{n}{R₃}\PYG{p}{];}  \PYG{n}{V₃} \PYG{o}{=} \PYG{p}{(}\PYG{n}{Σ}\PYG{o}{*}\PYG{p}{(}\PYG{n}{V}\PYG{p}{)}\PYG{n}{ᴴ}\PYG{p}{)[}\PYG{l+m+mi}{1}\PYG{o}{:}\PYG{n}{R₃}\PYG{p}{,}\PYG{o}{:}\PYG{p}{]}          \PYG{c}{\PYGZsh{} Truncates pair (U,V) given R₃}
+    \PYG{n}{𝓖₃} \PYG{o}{=} \PYG{n}{reshape}\PYG{p}{(}\PYG{n}{U₃}\PYG{p}{,} \PYG{p}{(}\PYG{n}{R₂}\PYG{p}{,} \PYG{n+nb}{I}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{],} \PYG{n}{R₃}\PYG{p}{))}                \PYG{c}{\PYGZsh{} Reshapes the 3rd factor 𝓖₃ ∈ ℝ(R₂,I₃,R₃)}
+    \PYG{n}{G₄} \PYG{o}{=} \PYG{n}{V₃}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{o}{:}\PYG{n}{R₃}\PYG{p}{,}\PYG{o}{:}\PYG{p}{]}                                 \PYG{c}{\PYGZsh{} Stores the 4th factor G₄ ∈ ℝ(R₃,I₄)}
+
+    \PYG{k}{return} \PYG{p}{(}\PYG{n}{G₁}\PYG{p}{,} \PYG{n}{𝓖₂}\PYG{p}{,} \PYG{n}{𝓖₃}\PYG{p}{,} \PYG{n}{G₄}\PYG{p}{)}                         \PYG{c}{\PYGZsh{} Returns the decomposition factors}
+\PYG{k}{end}
+\end{Verbatim}

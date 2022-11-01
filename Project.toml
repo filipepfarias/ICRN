@@ -1,0 +1,11 @@
+name = "CME"
+uuid = "6b022647-0fd5-4cd4-be49-ed10bcb401ee"
+authors = ["filipepfarias <filipepfarias@alu.ufc.br>"]
+version = "0.1.0"
+
+[deps]
+Arpack = "7d9fca2a-8960-54d3-9f78-7d1dccf2cb97"
+DifferentialEquations = "0c46a032-eb83-5123-abaf-570d42b7fbaa"
+ITensors = "9136182c-28ba-11e9-034c-db9fb085ebd5"
+PROPACK = "b169e327-5944-5131-97a6-5d3d3f0a476a"
+SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"

@@ -1,0 +1,253 @@
+% --------------------------------------------------------------------
+% Packages
+% --------------------------------------------------------------------
+\usepackage[a4paper, margin=1.5cm]{geometry}
+
+% Text, input, language-related packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[protrusion=true,expansion=true]{microtype} 
+
+% Math packages
+\usepackage{amsmath,amsfonts,amsthm,amssymb,bm,mathdots,mathtools,bigints}
+
+% TiKz packages
+\usepackage{tikz, pgfplots, tikzsymbols, tikzducks}
+
+% Graphic and color packages
+\usepackage[export]{adjustbox}				% Environment to adjust LaTeX objects
+\usepackage[skins]{tcolorbox}				% Coloured boxes for LaTeX objects
+\usepackage{graphicx} 						% Enhanced support for graphics
+\usepackage{color, xcolor}					% Driver-independent color extensions
+\usepackage{wrapfig}						% Environment to wrap figures/tables
+\usepackage{subcaption}						% Environment to create subcaptions
+
+% General utilities
+\usepackage[nodayofweek]{datetime}			% Customize date commands
+\usepackage[printwatermark]{xwatermark}		% Watermarks the document
+\usepackage[document]{ragged2e}				% Text-alignment (\centering, ...)
+\usepackage{stfloats}						% Control presentation of floats
+\usepackage{framed, mdframed}				% Framed and shaded environments
+\usepackage{multicol}						% Multicolumn environment
+\usepackage{environ}						% Better interface for environments
+\usepackage{minted, listings}				% Coding environments
+\usepackage{hyperref}				        % Support for hypertext and links
+\usepackage{enumerate}				        % Options for enumerate environments
+\usepackage{etoolbox}						% Environment hooks (\BeforeBegin...)
+\usepackage{parskip}						% Manages paragraph spacing stuff
+% --------------------------------------------------------------------
+% Packages Configurations
+% --------------------------------------------------------------------
+% (general): Define general paragraphing spaces and mono font
+\setlength{\parskip}{0cm}
+\setlength{\parindent}{0cm}
+
+% (tikz): Imports some custom libraries and pgfplot settings
+\usetikzlibrary{shapes, arrows, decorations.pathmorphing}
+\usetikzlibrary{backgrounds, positioning, fit, calc}
+\usetikzlibrary{bayesnet, graphs}
+
+\pgfplotsset{compat=1.16} 
+
+% (minted): Set styling configurations
+\usemintedstyle{pastie}
+\setminted{ linenos=true,             % Line numbers
+            autogobble=true,          % Automatically remove common white space
+            frame=lines,
+            framesep=2mm}
+
+\renewcommand{\theFancyVerbLine}{\sffamily {\normalsize \oldstylenums{\arabic{FancyVerbLine}}}}
+
+% (listings): Defines the code styling and formatting
+\lstset{
+    backgroundcolor=\color[RGB]{39,40,34},
+    language=matlab, keywordstyle=\color[RGB]{102,217,239},
+    basicstyle=\footnotesize \ttfamily,breaklines=true,
+    escapeinside={\%*}{*)}
+}
+
+% (datetime): Personalized date commands (apply them before a \today)
+\newdateformat{datenum}{\twodigit{\THEDAY}/\twodigit{\THEMONTH}/\THEYEAR}
+\newdateformat{datefull}{\twodigit{\THEDAY}{ }\monthname[\THEMONTH], \THEYEAR}
+
+% (hyperref): Setup link colors and other properties
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black!95!white,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+
+% --------------------------------------------------------------------
+% Other Definitions
+% --------------------------------------------------------------------
+% Additional cool colors
+\definecolor{stateColor}{cmyk}{0.82,0,0.92,0}
+\definecolor{inputColor}{RGB}{73,158,255}
+\definecolor{disturbanceColor}{RGB}{102,43,153}
+\definecolor{outputColor}{RGB}{224,60,48}
+
+% --------------------------------------------------------------------
+% Commands
+% --------------------------------------------------------------------
+
+% A light title-page header
+\newcommand*{\thetitle}{%
+    \vskip0.5cm%
+    \begin{minipage}{0.3\textwidth} % Left side of title section
+        \raggedright
+        \institute\\\course\\[0.5ex]\footnotesize\professor
+        \medskip\hrule
+    \end{minipage}\hfill
+    \begin{minipage}{0.4\textwidth} % Center of title section
+        \centering 
+        {\huge \bfseries Homework \assnumber}\\[1ex]{\LARGE\title}\\
+    \end{minipage}\hfill
+    \begin{minipage}{0.3\textwidth} % Right side of title section
+        \raggedleft
+        {\author$\ $(\authorid)}\\\texttt{(\email)}\\[0.5ex]\footnotesize\today
+        \medskip\hrule
+    \end{minipage}
+    \vskip1cm 
+}
+
+% Colored hyperlinks
+\newcommand{\chref}[2]{
+  \href{#1}{{\usebeamercolor[bg]{Feather}#2}}
+}
+
+% A cooler transpose symbol 'T'
+\newcommand*{\tran}{{\mkern-1.5mu\mathsf{T}}}
+
+% Cool tensor sub- and super-scripts (\tend and \tenq, respectively)
+\newcommand{\tend}[1]{\hbox{\oalign{$\bm{#1}$\crcr\hidewidth$\scriptscriptstyle\bm{\sim}$\hidewidth}}}
+\newcommand{\tenq}[1]{\hbox{\oalign{$\bm{#1}$\crcr\hidewidth$\scriptscriptstyle\bm{\sim}$\hidewidth}}}
+
+% Argmax and Argmin math operators
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+% --------------------------------------------------------------------
+% Environments
+% --------------------------------------------------------------------
+
+% Boxed-enviroment with counter for each problem
+\newcounter{problem}
+\makeatletter
+\newenvironment{problem}
+    {%
+    \refstepcounter{problem} \begin{tcolorbox}[
+    fuzzy shadow={0.2mm}{-0.2mm}{0mm}{0.1mm}{black!50!white},
+    enhanced, shrink tight, 
+    extrude by=3mm, 
+    colframe=black,
+    colback=black!5!white,
+    arc=1pt,
+    boxrule=0.5pt]
+    {\bf Problem~\theproblem.}%
+    }%
+    {%
+    \end{tcolorbox}\vskip0.5cm
+    }
+
+% Simple solution environment with end square
+\makeatletter
+\newenvironment{solution}
+    {%
+    {\bf Solution.}%
+    }%
+    {%
+    \hfill$\square$
+    }%
+
+% Wrapper for the minted environment
+\makeatletter
+\newenvironment{code}[3][0.8\textwidth]
+    {%
+    \VerbatimEnvironment
+    \begin{minipage}{\textwidth} \centering%
+    \begin{minipage}{#1}%
+    \begin{listing}[H]%
+    \caption{#2}\label{#3}%
+    \begin{minted}{julia}%
+    }%
+    {%
+    \end{minted}
+    \end{listing}%
+    \end{minipage}%
+    \end{minipage}%
+    \vskip0.5cm
+    }
+
+% --------------------------------------------------------------------
+% Unicode Characters Definition (for Julia Minted)
+% --------------------------------------------------------------------
+\DeclareUnicodeCharacter{3B4}{$\bm{\delta}$}
+\DeclareUnicodeCharacter{3B8}{$\bm{\theta}$}
+\DeclareUnicodeCharacter{3BB}{$\lambda$}
+\DeclareUnicodeCharacter{3BC}{$\mu$}
+\DeclareUnicodeCharacter{3BC}{$\pi$}
+\DeclareUnicodeCharacter{3C3}{$\sigma$}
+\DeclareUnicodeCharacter{3C0}{$\pi$}
+\DeclareUnicodeCharacter{3D5}{$\bm{\phi}$}
+\DeclareUnicodeCharacter{2208}{$\in$}
+\DeclareUnicodeCharacter{2297}{$\otimes$}
+\DeclareUnicodeCharacter{2A02}{$\bigotimes$}
+\DeclareUnicodeCharacter{2299}{$\odot$}
+\DeclareUnicodeCharacter{22C4}{$\diamond$}
+\DeclareUnicodeCharacter{209A}{$_{p}$}
+\DeclareUnicodeCharacter{221A}{$\sqrt{}$}
+\DeclareUnicodeCharacter{2248}{$\approx$}
+\DeclareUnicodeCharacter{2080}{$_o$}
+\DeclareUnicodeCharacter{2090}{$_a$}
+\DeclareUnicodeCharacter{03B1}{$\alpha$}
+\DeclareUnicodeCharacter{1D65}{$_v$}
+\DeclareUnicodeCharacter{2096}{$_k$}
+\DeclareUnicodeCharacter{1D63}{$_r$}
+\DeclareUnicodeCharacter{2081}{$_1$}
+\DeclareUnicodeCharacter{2082}{$_2$}
+\DeclareUnicodeCharacter{2083}{$_3$}
+\DeclareUnicodeCharacter{2084}{$_4$}
+\DeclareUnicodeCharacter{208C}{$_=$}
+\DeclareUnicodeCharacter{208B}{$_-$}
+\DeclareUnicodeCharacter{208A}{$_+$}
+\DeclareUnicodeCharacter{2211}{$\Sigma$}
+\DeclareUnicodeCharacter{03A3}{$\Sigma$}
+\DeclareUnicodeCharacter{03A0}{$\Pi$}
+\DeclareUnicodeCharacter{1D4E7}{$\mathcal{X}$}
+\DeclareUnicodeCharacter{2093}{$_x$}
+\DeclareUnicodeCharacter{1D67}{$_y$}
+\DeclareUnicodeCharacter{2260}{$\neq$}
+\DeclareUnicodeCharacter{208D}{$_($}
+\DeclareUnicodeCharacter{2099}{$_n$}
+\DeclareUnicodeCharacter{2C7C}{$_i$}
+\DeclareUnicodeCharacter{209C}{$_t$}
+\DeclareUnicodeCharacter{208E}{$_)$}
+\DeclareUnicodeCharacter{1D4E8}{$\mathcal{Y}$}
+\DeclareUnicodeCharacter{2A09}{$\times$}
+\DeclareUnicodeCharacter{207D}{$^($}
+\DeclareUnicodeCharacter{2074}{$^4$}
+\DeclareUnicodeCharacter{2075}{$^5$}
+\DeclareUnicodeCharacter{207F}{$^n$}
+\DeclareUnicodeCharacter{1D48}{$^d$}
+\DeclareUnicodeCharacter{1D3A}{$^N$}
+\DeclareUnicodeCharacter{1D34}{$^H$}
+\DeclareUnicodeCharacter{207E}{$^)$}
+\DeclareUnicodeCharacter{207B}{$^-$}
+\DeclareUnicodeCharacter{207A}{$^+$}
+\DeclareUnicodeCharacter{1D4E2}{$\mathcal{S}$}
+\DeclareUnicodeCharacter{1D4E4}{$\mathcal{U}$}
+\DeclareUnicodeCharacter{1D40}{$^T$}
+\DeclareUnicodeCharacter{03F5}{$\epsilon$}
+\DeclareUnicodeCharacter{022EF}{$\cdots$}
+\DeclareUnicodeCharacter{1D62}{$_i$}
+\DeclareUnicodeCharacter{2218}{$\circ$}
+\DeclareUnicodeCharacter{1D4E5}{$\mathcal{V}$}
+\DeclareUnicodeCharacter{1D4D8}{$\mathcal{I}$}
+\DeclareUnicodeCharacter{1D4D0}{$\mathcal{A}$}
+\DeclareUnicodeCharacter{1D4D6}{$\mathcal{G}$}
+\DeclareUnicodeCharacter{211D}{$\mathbb{R}$}
+
+% --------------------------------------------------------------------
