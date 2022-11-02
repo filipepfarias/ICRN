@@ -21,15 +21,11 @@ for i in 1:4, j in 1:4
         heatmap!(ax[i,j],mat[i,j])
     elseif j == i
         ax[i,j] = Axis(fig[i,j],title=specie[i])
-        barplot!(ax[i,j],1:𝗻ₖ[i],mat[i,j])
+        barplot!(ax[i,j],0:(𝗻ₖ[i]-1),mat[i,j])
         ylims!(ax[i,j],[0 1])
     end
 end
 fig
-
-# fig,ax,hm = heatmap(mat)
-# mat = Observable(Matrix{Float64}(undef,𝗻ₖ...,))
-
 
 for t in eachindex(p)
     𝓅  = reshape(p[t],𝗻ₖ...,);
@@ -44,8 +40,24 @@ for t in eachindex(p)
         end
     end
     # mat[] = reshape(p[t],𝗻ₖ);
-    sleep(.25)
+    sleep(.5)
 end
+
+fig = Figure(resolution = (600,600));
+
+𝔼 = zeros(length(𝗻ₖ),size(p)...,);
+
+for t in eachindex(p)
+    𝓅  = reshape(p[t],𝗻ₖ...,);
+    𝓅ₙ = sum(𝓅);
+    𝔼[:,t] = [
+        sum(collect(0:(𝗻ₖ[i]-1)) .* sum(𝓅,dims=deleteat!(collect(1:length(𝗻ₖ)),i))[:] ./ 𝓅ₙ )
+        for i in 1:length(𝗻ₖ)]   
+end
+
+fig, ax, sp = series(𝔼, labels=specie);
+axislegend(ax);
+fig
 
 # # Entropy
 # g = Figure();

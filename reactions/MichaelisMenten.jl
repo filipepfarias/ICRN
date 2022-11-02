@@ -19,8 +19,8 @@ Pr = [0  1  0  0;   # k₁
 # k1 = 1 × 10⁶, k2 = 1 × 10⁻⁴, k3 = 0.1
 # From Wilkinson, Stochastic Modelling for
 # System Biology
-V   = 5e-18;                 # Original 1e-15
-nₐ  = 6.023e24;              # Avogadro's number
+V   = 1e-15;                 # Original 1e-15
+nₐ  = 6.022e23;              # Avogadro's number
 k₁  = 1e6 / nₐ / V;          # 2nd order reaction
 k₋₁ = 1e-4;                  # 1st order reaction 
 k₂  = 0.1;                   # 1st order reaction 
@@ -30,16 +30,19 @@ K = [k₁;  # K₁
      k₂]; # K₂
 
 # Initial conditions
-ℰ, ℰ𝒜, 𝒜, ℬ = V * nₐ .* (5e-7, 0, 2e-7, 0);
-ℰ, ℰ𝒜, 𝒜, ℬ = floor.(Int,(ℰ, ℰ𝒜, 𝒜, ℬ)) .+ 1 # Convertion to state-space index
+# ℰ, ℰ𝒜, 𝒜, ℬ = V * nₐ .* (2e-7, 0, 5e-7, 0);
+# ℰ, ℰ𝒜, 𝒜, ℬ = floor.(Int,(ℰ, ℰ𝒜, 𝒜, ℬ)) .+ 1 # Convertion to state-space index
+ℰ, ℰ𝒜, 𝒜, ℬ = (7, 1, 16, 1);
 
 𝛎 = Pr - Re;                  # Stoichiometric balance
 
 𝗻ₖ = (30,30,30,30);           # State-space size
 
-p₀ = ones(𝗻ₖ);
-p₀ ./= sum(p₀); 
-p₀[end] = 1 - sum(p₀[1:end-1]);
-# p₀[ℰ, ℰ𝒜, 𝒜, ℬ] = 1.0;       # Initial condition
+p₀ = zeros(𝗻ₖ);                # Initial condition for Section 7.3
+p₀[ℰ, ℰ𝒜, 𝒜, ℬ] = 1.0;
+
+# p₀ = ones(𝗻ₖ);              # Uniform distribution
+# p₀ ./= sum(p₀); 
+# p₀[end] = 1 - sum(p₀[1:end-1]);
 
 A = CMEOperator(𝛎,Re,K,𝗻ₖ);    # CME Operator
