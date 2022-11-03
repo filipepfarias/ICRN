@@ -32,14 +32,15 @@ K = [k₁;  # K₁
 # Initial conditions
 # ℰ, ℰ𝒜, 𝒜, ℬ = V * nₐ .* (2e-7, 0, 5e-7, 0);
 # ℰ, ℰ𝒜, 𝒜, ℬ = floor.(Int,(ℰ, ℰ𝒜, 𝒜, ℬ)) .+ 1 # Convertion to state-space index
-ℰ, ℰ𝒜, 𝒜, ℬ = (7, 1, 16, 1);
+ℰ, ℰ𝒜, 𝒜, ℬ = (7-2:7+2, 1, 16-2:16+2, 1);
 
 𝛎 = Pr - Re;                  # Stoichiometric balance
 
 𝗻ₖ = (30,30,30,30);           # State-space size
 
 p₀ = zeros(𝗻ₖ);                # Initial condition for Section 7.3
-p₀[ℰ, ℰ𝒜, 𝒜, ℬ] = 1.0;
+p₀[ℰ, ℰ𝒜, 𝒜, ℬ] .= 1.0;
+p₀ ./= sum(p₀);
 
 # p₀ = ones(𝗻ₖ);              # Uniform distribution
 # p₀ ./= sum(p₀); 

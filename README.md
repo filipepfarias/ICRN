@@ -1,4 +1,4 @@
-# Reaction Network Statistics
+# Information of Chemical Reaction Networks
 
 Run `CMESolver.jl` to run the simulations.
 

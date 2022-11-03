@@ -44,7 +44,5 @@ module CME
         return ℐ
     end
 
-    include("src/utils.jl")
-
     export CMEOperator, CMEEntropy, CMEMutualInformation
 end
