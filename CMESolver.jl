@@ -57,9 +57,12 @@ for iT in eachindex(T)
         end
     end
 
-    𝔼[:,iT] = [
+    𝔼[:,iT+1] = [
         sum(collect(0:(𝗻ₖ[i]-1)) .* sum(𝓅,dims=deleteat!(collect(1:length(𝗻ₖ)),i))[:] ./ 𝓅ₙ )
         for i in 1:length(𝗻ₖ)]
-    
-    jldsave(flname*"_mean", E=𝔼, t=T[iT+1])
 end
+flname = path*"/MichaelisMenten_mean";
+jldsave(flname, E=𝔼)
+
+## Plotting
+include("misc_plotting.jl")

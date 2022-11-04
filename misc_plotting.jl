@@ -1,8 +1,10 @@
 ## Plotting
-using GLMakie
+using GLMakie, CairoMakie
 
+# path = "outputs/ZLajP_20221103/"
 
 ## For Michaelis-Menten reaction network
+GLMakie.activate!()
 fig = Figure(resolution = (1000,1000));
 
 specie = ["E", "EA", "A", "B"];
@@ -27,37 +29,33 @@ for i in 1:4, j in 1:4
 end
 fig
 
-for t in eachindex(p)
-    𝓅  = reshape(p[t],𝗻ₖ...,);
-    𝓅ₙ = sum(𝓅);
+mkdir(path*"/plots");
+
+record(fig, path*"/plots/MichaelisMenten_anim.mp4", eachindex(T);
+        framerate = 4) do iT
+    iT -= 1;
+    flname = path*"/MichaelisMenten_t"*string(iT)*"_marg_";
     for i in 1:4, j in 1:4
         if j > i
-            d = deleteat!(collect(1:4), [i j])
-            mat[i,j][] = reshape(sum(𝓅,dims=d) ./ 𝓅ₙ ,𝗻ₖ[i],𝗻ₖ[j])'
+            flsuffix = specie[i]*"_x_"*specie[j];
+            mat[i,j][] = jldopen(flname*flsuffix)["p"]
         elseif i == j
+            flsuffix = specie[i];
             ind = collect(1:4)
-            mat[i,j][] = sum(𝓅,dims=deleteat!(ind,i))[:] ./𝓅ₙ ;
+            mat[i,j][] = jldopen(flname*flsuffix)["p"];
         end
-    end
-    # mat[] = reshape(p[t],𝗻ₖ);
-    sleep(.5)
+    end 
 end
 
-fig = Figure(resolution = (600,600));
+CairoMakie.activate!()
+fig2 = Figure(resolution = (300,300));
 
-𝔼 = zeros(length(𝗻ₖ),size(p)...,);
+flname = path*"/MichaelisMenten_mean";
+𝔼 = jldopen(flname)["E"];
 
-for t in eachindex(p)
-    𝓅  = reshape(p[t],𝗻ₖ...,);
-    𝓅ₙ = sum(𝓅);
-    𝔼[:,t] = [
-        sum(collect(0:(𝗻ₖ[i]-1)) .* sum(𝓅,dims=deleteat!(collect(1:length(𝗻ₖ)),i))[:] ./ 𝓅ₙ )
-        for i in 1:length(𝗻ₖ)]   
-end
-
-fig, ax, sp = series(𝔼, labels=specie);
+fig2, ax, sp = series(𝔼, labels=specie);
 axislegend(ax);
-fig
+save(path*"/plots/MichaelisMenten_mean_evol.pdf", fig2, pt_per_unit = 2)
 
 # # Entropy
 # g = Figure();
