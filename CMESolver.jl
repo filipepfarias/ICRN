@@ -23,41 +23,32 @@ f(u,p,t) = A*u ;
 
 begin
     u0 = p₀[:];
-    # p = Vector{Vector{Float64}}([u0]);
+
     p = u0;
     flname = path*"/MichaelisMenten_t"*string(0);
-    comp_time = @elapsed jldsave(flname, p=p, t=0.0)
-    println("Saving "*flname*" (Elapsed time: "*string(comp_time)*"s).")
-    p = Progress(length(T)-1; showspeed=true, desc="Solving the CME...")
-    # @showprogress 1 "Solving the CME..." for iT in eachindex(T)[1:end-1]
+    jldsave(flname, p=p, t=0.0)
+    
+    println("Saving on "*path*".")
+    pgres = Progress(length(T)-1; showspeed=true, desc="Solving the CME...")
+
     for iT in eachindex(T)[1:end-1]
-        global u0, flname, comp_time
-        comp_timeJ = @elapsed begin
-            prob = ODEProblem(f,u0, (T[iT],T[iT+1]));
-            sol = solve(prob, RK4();dt=.5/2,saveat=T[iT+1],adaptive=false);
-            sol.u[end][sol.u[end] .< 0] .= 0;
-            # append!(p,[sol.u[end]]);
-            u0 = sol.u[end]/sum(sol.u[end]);
-        end
-        # println("Step "*string(iT)*" of Julia solver Runge-Kutta ("*string(comp_time)*"s).")
-        comp_time = @elapsed begin
-            sol = CMERK(A,u0,(T[iT],T[iT+1]));
-            sol[sol .< 0] .= 0;
-            u0 = sol/sum(sol);
-        end
-        # println("Step "*string(iT)*" of naive solver Runge-Kutta ("*string(comp_time)*"s).")
-        # flname = path*"/MichaelisMenten_t"*string(iT);
-        # comp_time = @elapsed jldsave(flname, p=u0, t=T[iT+1])
-        # jldsave(flname, p=u0, t=T[iT+1])
-        # println("Saving "*flname*" (Elapsed time: "*string(comp_time)*"s).")
-        ProgressMeter.next!(p, showvalues = [(:J,comp_timeJ), (:N,comp_time)])
+        global u0, flname
+        prob = ODEProblem(f,u0, (T[iT],T[iT+1]));
+        sol = solve(prob, RK4();dt=.5/2,saveat=T[iT+1],adaptive=false);
+        sol.u[end][sol.u[end] .< 0] .= 0;
+        # append!(p,[sol.u[end]]);
+        u0 = sol.u[end]/sum(sol.u[end]);
+
+        flname = path*"/MichaelisMenten_t"*string(iT);
+        jldsave(flname, p=u0, t=T[iT+1])
+        ProgressMeter.next!(pgres)
     end
 end
 
 specie = ["E", "EA", "A", "B"];
 𝔼 = zeros(length(𝗻ₖ),size(T)...,);
 
-p = Progress(length(T)-1; showspeed=true, desc="Computing statistics...")
+pgres = Progress(length(T)-1; showspeed=true, desc="Computing statistics...")
 for iT in eachindex(T)
     iT -= 1;
     local flname, p
@@ -84,7 +75,7 @@ for iT in eachindex(T)
         sum(collect(0:(𝗻ₖ[i]-1)) .* sum(𝓅,dims=deleteat!(collect(1:length(𝗻ₖ)),i))[:] ./ 𝓅ₙ )
         for i in 1:length(𝗻ₖ)]
     
-    ProgressMeter.next!(p)
+    ProgressMeter.next!(pgres)
 end
 flname = path*"/MichaelisMenten_mean";
 jldsave(flname, E=𝔼)

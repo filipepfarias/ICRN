@@ -37,7 +37,7 @@ K = [k₁;  # K₁
 
 𝛎 = Pr - Re;                  # Stoichiometric balance
 
-𝗻ₖ = (32,32,32,32);           # State-space size
+𝗻ₖ = (128,128,128,128);           # State-space size
 
 p₀ = zeros(𝗻ₖ);                # Initial condition for Section 7.3
 # p₀[ℰ, ℰ𝒜, 𝒜, ℬ] .= 1.0;
