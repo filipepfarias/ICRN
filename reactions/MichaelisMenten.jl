@@ -49,25 +49,3 @@ p₀ ./= sum(p₀);
 # p₀[end] = 1 - sum(p₀[1:end-1]);
 
 A = CMEOperator(𝛎,Re,K,𝗻ₖ);   # CME Operator      
-
-# t1 = @elapsed begin
-#       𝛂 = SharedArray{Float64}(prod(𝗻ₖ));
-#       function α(re,k,𝛂::SharedArray)
-#             @sync @distributed for i in eachindex(𝛂)
-#                 𝛂[i] = k * prod(binomial.([CartesianIndices(𝗻ₖ)[i].I...,],re));
-#             end
-#             return 𝛂
-#         end
-#         α(Re[1,:],K[1],𝛂)
-# end
-
-# println(t1)
-
-# t2 = @elapsed begin
-#       𝓘 = hcat((:).(1,𝗻ₖ)...,);
-#       α(𝓘,Re,m) = binomial.(𝓘,Re[m,:]')
-#       W(𝓘,Re,m,𝛎) = reduce(kron,Diagonal.(eachcol(α(𝓘,Re,m))));
-#       𝛂₂ = K[1]*W(𝓘,Re,1,𝛎)
-# end
-
-# println(t2)

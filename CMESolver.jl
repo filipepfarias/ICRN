@@ -32,24 +32,25 @@ begin
     # @showprogress 1 "Solving the CME..." for iT in eachindex(T)[1:end-1]
     for iT in eachindex(T)[1:end-1]
         global u0, flname, comp_time
-        # comp_time = @elapsed begin
-        #     prob = ODEProblem(f,u0, (T[iT],T[iT+1]));
-        #     sol = solve(prob, RK4(),dt=.5/2,saveat=T[iT+1]);
-        #     sol.u[end][sol.u[end] .< 0] .= 0;
-        #     # append!(p,[sol.u[end]]);
-        #     u0 = sol.u[end]/sum(sol.u[end]);
-        # end
+        comp_timeJ = @elapsed begin
+            prob = ODEProblem(f,u0, (T[iT],T[iT+1]));
+            sol = solve(prob, RK4();dt=.5/2,saveat=T[iT+1],adaptive=false);
+            sol.u[end][sol.u[end] .< 0] .= 0;
+            # append!(p,[sol.u[end]]);
+            u0 = sol.u[end]/sum(sol.u[end]);
+        end
         # println("Step "*string(iT)*" of Julia solver Runge-Kutta ("*string(comp_time)*"s).")
-        sol = CMERK(A,u0,(T[iT],T[iT+1]));
-        sol[sol .< 0] .= 0;
-        u0 = sol/sum(sol);
+        comp_time = @elapsed begin
+            sol = CMERK(A,u0,(T[iT],T[iT+1]));
+            sol[sol .< 0] .= 0;
+            u0 = sol/sum(sol);
+        end
         # println("Step "*string(iT)*" of naive solver Runge-Kutta ("*string(comp_time)*"s).")
         # flname = path*"/MichaelisMenten_t"*string(iT);
-        flname = path*"/MichaelisMenten_t"*string(iT);
         # comp_time = @elapsed jldsave(flname, p=u0, t=T[iT+1])
-        jldsave(flname, p=u0, t=T[iT+1])
+        # jldsave(flname, p=u0, t=T[iT+1])
         # println("Saving "*flname*" (Elapsed time: "*string(comp_time)*"s).")
-        ProgressMeter.next!(p)
+        ProgressMeter.next!(p, showvalues = [(:J,comp_timeJ), (:N,comp_time)])
     end
 end
 

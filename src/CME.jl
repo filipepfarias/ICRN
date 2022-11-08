@@ -5,17 +5,9 @@ module CME
         return νi > 0 ? sparse(I,n+νi,n+νi)[1:end-νi,νi+1:end] : sparse(I,n-νi,n-νi)[1-νi:end,1:(end+νi)]
     end
 
-    # function Jᵀ(νi,n) # νi per reaction
-    #     return νi > 0 ?  sparse(I,n+νi,n+νi)[νi+1:end,1:end-νi] : sparse(I,n-νi,n-νi)[1:(end+νi),1-νi:end]
-    # end
-
     function 𝗝(ν,n)
         return reduce(kron,J.(ν,n))
     end
-
-    # function 𝗝ᵀ(ν,n)
-    #     return reduce(kron,Jᵀ.(ν,n))
-    # end
 
     α(𝓘,Re,m) = binomial.(𝓘,Re[m,:]')
     η(𝓘,Re,m,𝛎) = binomial.(𝓘,Re[m,:]') .* (𝓘 .<= (𝓘[end,:]' - 𝛎[m,:]')) .* (𝓘 .>= (𝓘[1,:]' - 𝛎[m,:]'));
@@ -26,11 +18,6 @@ module CME
         𝓘 = hcat((:).(1,𝗻ₖ)...,);
         return (sum([(𝗝(𝝼[m,:],𝗻ₖ) - I)*K[m]*W(𝓘,Re,m,𝝼) for m in eachindex(𝝼[:,1])]));
     end
-
-    # function CMEOperatorᵀ(𝝼,Re,K,𝗻ₖ)
-    #     𝓘 = hcat((:).(1,𝗻ₖ)...,);
-    #     return (sum([K[m]*W(𝓘,Re,m,𝝼)*(𝗝ᵀ(𝝼[m,:],𝗻ₖ) - I) for m in eachindex(𝝼[:,1])]));
-    # end
 
     function CMEEntropy(Xₖ)
         return -sum(filter(!isnan,Xₖ/sum(Xₖ) .* log.(Xₖ/sum(Xₖ))))
