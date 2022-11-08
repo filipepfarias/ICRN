@@ -5,44 +5,69 @@ module CME
         return νi > 0 ? sparse(I,n+νi,n+νi)[1:end-νi,νi+1:end] : sparse(I,n-νi,n-νi)[1-νi:end,1:(end+νi)]
     end
 
+    # function Jᵀ(νi,n) # νi per reaction
+    #     return νi > 0 ?  sparse(I,n+νi,n+νi)[νi+1:end,1:end-νi] : sparse(I,n-νi,n-νi)[1:(end+νi),1-νi:end]
+    # end
+
     function 𝗝(ν,n)
         return reduce(kron,J.(ν,n))
     end
 
+    # function 𝗝ᵀ(ν,n)
+    #     return reduce(kron,Jᵀ.(ν,n))
+    # end
+
     α(𝓘,Re,m) = binomial.(𝓘,Re[m,:]')
     η(𝓘,Re,m,𝛎) = binomial.(𝓘,Re[m,:]') .* (𝓘 .<= (𝓘[end,:]' - 𝛎[m,:]')) .* (𝓘 .>= (𝓘[1,:]' - 𝛎[m,:]'));
-    W(𝓘,Re,m,𝛎) = reduce(kron,spdiagm.(eachcol(α(𝓘,Re,m))));
-    H(𝓘,Re,m,𝛎) = reduce(kron,spdiagm.(eachcol(η(𝓘,Re,m,𝛎))));
+    W(𝓘,Re,m,𝛎) = reduce(kron,Diagonal.(eachcol(α(𝓘,Re,m))));
+    H(𝓘,Re,m,𝛎) = reduce(kron,Diagonal.(eachcol(η(𝓘,Re,m,𝛎))));
 
     function CMEOperator(𝝼,Re,K,𝗻ₖ)
         𝓘 = hcat((:).(1,𝗻ₖ)...,);
-        return (sum([(𝗝(𝝼[m,:],𝗻ₖ) - I)*K[m]*W(𝓘,Re,m,𝝼) for m in eachindex(𝝼[:,1])]))
+        return (sum([(𝗝(𝝼[m,:],𝗻ₖ) - I)*K[m]*W(𝓘,Re,m,𝝼) for m in eachindex(𝝼[:,1])]));
     end
 
-    function CMEEntropy(X)
-        return map(x -> -sum(filter(!isnan,x/sum(x) .* log.(x/sum(x)))),X)
+    # function CMEOperatorᵀ(𝝼,Re,K,𝗻ₖ)
+    #     𝓘 = hcat((:).(1,𝗻ₖ)...,);
+    #     return (sum([K[m]*W(𝓘,Re,m,𝝼)*(𝗝ᵀ(𝝼[m,:],𝗻ₖ) - I) for m in eachindex(𝝼[:,1])]));
+    # end
+
+    function CMEEntropy(Xₖ)
+        return -sum(filter(!isnan,Xₖ/sum(Xₖ) .* log.(Xₖ/sum(Xₖ))))
     end
 
-    function CMEMutualInformation(p,A,dt)
+    function CMEMutualInformation(Xₖ₋₁,Xₖ,A,dt)
         
-        ℐ = 0.0 .* p[1];
-        for i in eachindex(p)[2:end]
-            Pₖ₋₁ = repeat(p[i-1]', length(p[i-1]),1);
-            Q = (I + A*dt) .* Pₖ₋₁;
-            Pₖ = repeat(sum(Q,dims=2),1,length(p[i-1]));
+        ℐ = 0.0;
+
+        for i in eachindex(Xₖ), j in eachindex(Xₖ₋₁)
+            expA = (I[i,j]+A[i,j]*dt);
+            logXₖₖ₋₁ = log(expA*Xₖ₋₁[j]);
+            logXₖ₋₁  = log(Xₖ₋₁[j]);
+            logXₖ   = log(Xₖ[i]);
             
-            
-            # Pₖ₋₁Pₖ = (I + A*dt) .* Pₖ₋₁;
-            # Pₖ = sum(Pₖ₋₁Pₖ, dims=2);
-            # Pₖ₋₁Pₖ[ Pₖ₋₁Pₖ .< 0 ] .= 0;
-            Pₖ[ Pₖ .< 0 ] .= 0;
-            Pₖ₋₁[ Pₖ₋₁ .< 0 ] .= 0;
-            Q[ Q .< 0 ] .= 0;
-            # Pₖ = repeat(Pₖ,1,length(Pₖ));
-            ℐ[i] = sum( Q .* ( log.(Q) .- log.(Pₖ) .- log.(Pₖ₋₁) ) )
+            if !any(isinf.([logXₖₖ₋₁, logXₖ₋₁, logXₖ]))
+                ℐ += expA*Xₖ₋₁[j] * (logXₖₖ₋₁ - logXₖ₋₁ - logXₖ)
+            end
         end
+
         return ℐ
     end
 
-    export CMEOperator, CMEEntropy, CMEMutualInformation
+    function CMERK(A,p,ΔT, N=3)
+        δt = (ΔT[2] - ΔT[1])/N;
+        k1 = k2 = k3 = k4 = similar(p);
+        A *= δt; 
+        for n in 1:N
+            k1 = A*p;
+            k2 = k1 + A*k1/2;
+            k3 = k1 + A*k2/2;
+            k4 = k1 + A*k3;
+
+            p += (k1+2*k2+2*k3+k4)/6;
+        end
+        return p
+    end
+
+    export CMEOperator, CMEEntropy, CMEMutualInformation, CMERK
 end
