@@ -1,11 +1,11 @@
 ## Plotting
 using GLMakie, CairoMakie, FileIO, JLD2
 
-# path = "outputs/Us4qi_20221108"
+# path = "outputs/4x3Po_20221109"
 
 ## For Michaelis-Menten reaction network
 GLMakie.activate!()
-fig = Figure(resolution = (1000,1000));
+fig = Figure(resolution = (1600,1600));
 
 specie = ["E", "EA", "A", "B"];
 
