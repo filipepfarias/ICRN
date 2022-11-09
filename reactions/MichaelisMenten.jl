@@ -19,7 +19,7 @@ Pr = [0  1  0  0;   # k₁
 # k1 = 1 × 10⁶, k2 = 1 × 10⁻⁴, k3 = 0.1
 # From Wilkinson, Stochastic Modelling for
 # System Biology
-V   = 5e-17;                 # Original 1e-15
+V   = 4.5e-16;                 # Original 1e-15
 nₐ  = 6.022e23;              # Avogadro's number
 k₁  = 1e6 / nₐ / V;          # 2nd order reaction
 k₋₁ = 1e-4;                  # 1st order reaction 
@@ -32,12 +32,12 @@ K = [k₁;  # K₁
 # Initial conditions
 ℰ, ℰ𝒜, 𝒜, ℬ = V * nₐ .* (2e-7, 0, 5e-7, 0);
 ℰ, ℰ𝒜, 𝒜, ℬ = floor.(Int,(ℰ, ℰ𝒜, 𝒜, ℬ)) .+ 1; # Convertion to state-space index
-ℰ, ℰ𝒜, 𝒜, ℬ = (ℰ-2:ℰ+2, ℰ𝒜, 𝒜-2:𝒜+2, ℬ)
-# ℰ, ℰ𝒜, 𝒜, ℬ = (12-1:12+1, 1, 30-1:30+1, 1)
+ℰ, ℰ𝒜, 𝒜, ℬ = (ℰ-10:ℰ+10, ℰ𝒜, 𝒜-10:𝒜+10, ℬ)
 
 𝛎 = Pr - Re;                  # Stoichiometric balance
 
-𝗻ₖ = (33,33,33,33);           # State-space size
+n = maximum(maximum.((ℰ, ℰ𝒜, 𝒜, ℬ)));
+𝗻ₖ = (n,n,n,n);                # State-space size
 
 p₀ = zeros(𝗻ₖ);                # Initial condition for Section 7.3
 p₀[ℰ, ℰ𝒜, 𝒜, ℬ] .= 1.0;

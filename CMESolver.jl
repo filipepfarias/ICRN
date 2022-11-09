@@ -34,7 +34,7 @@ begin
     for iT in eachindex(T)[1:end-1]
         global u0, flname
         prob = ODEProblem(f,u0, (T[iT],T[iT+1]));
-        sol = solve(prob, RK4();dt=.5/5,saveat=T[iT+1],adaptive=false);
+        sol = solve(prob, RK4();dt=.5/3,saveat=T[iT+1],adaptive=false);
         # sol.u[end][sol.u[end] .< 0] .= 0;
         # append!(p,[sol.u[end]]);
         u0 = sol.u[end]/sum(sol.u[end]);
@@ -82,4 +82,4 @@ jldsave(flname, E=𝔼)
 
 # # Plotting
 # println("Saving plots...")
-include("misc_plotting.jl")
+# include("misc_plotting.jl")
