@@ -6,7 +6,7 @@ module CME
     end
 
     function 𝗝(ν,n)
-        return reduce(kron,Jm.(ν,n))
+        return reduce(kron,J.(ν,n))
     end
 
     α(𝓘,Re,m) = binomial.(𝓘,Re[m,:]')
