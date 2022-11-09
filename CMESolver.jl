@@ -4,7 +4,7 @@ Pkg.instantiate();
 
 using CME
 using Random, Dates, FileIO, JLD2
-using DifferentialEquations
+using DifferentialEquations: solve, ODEProblem, RK4
 using ProgressMeter
 
 path = "outputs/"*randstring(5)*"_"*Dates.format(now(),"yyyymmdd")

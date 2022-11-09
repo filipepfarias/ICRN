@@ -1,7 +1,7 @@
 ## Plotting
-using GLMakie, CairoMakie
+using GLMakie, CairoMakie, FileIO, JLD2
 
-# path = "outputs/ZLajP_20221103/"
+# path = "outputs/Us4qi_20221108"
 
 ## For Michaelis-Menten reaction network
 GLMakie.activate!()
@@ -29,7 +29,11 @@ for i in 1:4, j in 1:4
 end
 fig
 
-mkdir(path*"/plots");
+try 
+    mkdir(path*"/plots")
+    catch
+        nothing
+    end
 
 record(fig, path*"/plots/MichaelisMenten_anim.mp4", eachindex(T);
         framerate = 4) do iT
