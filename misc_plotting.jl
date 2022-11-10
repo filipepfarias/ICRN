@@ -3,23 +3,21 @@ Pkg.activate(".")
 ## Plotting
 using GLMakie, CairoMakie, FileIO, JLD2
 
-path = "outputs/KjeNq_20221109"
+# path = "outputs/AIzkJ_20221109"
 
 ## For Michaelis-Menten reaction network
 GLMakie.activate!()
 fig = Figure(resolution = (1600,1600));
 
-specie = ["E", "EA", "A", "B"];
-
 mat = [j > i ? 
         Observable(Matrix{Float64}(undef,𝗻ₖ[i],𝗻ₖ[j])) : 
         (j == i ? 
             Observable(Vector{Float64}(undef,𝗻ₖ[i])) : nothing)
-        for i in 1:4, j in 1:4];
+        for i in eachindex(specie), j in eachindex(specie)];
 
 ax = Array{Any}(undef,4,4);
 
-for i in 1:4, j in 1:4
+for i in eachindex(specie), j in eachindex(specie)
     if j > i
         ax[i,j] = Axis(fig[i,j])
         heatmap!(ax[i,j],mat[i,j])
@@ -27,6 +25,7 @@ for i in 1:4, j in 1:4
         ax[i,j] = Axis(fig[i,j],title=specie[i])
         barplot!(ax[i,j],0:(𝗻ₖ[i]-1),mat[i,j])
         ylims!(ax[i,j],[0 1])
+        xlims!(ax[i,j],[0 𝗻ₖ[i]]);
     end
 end
 fig
@@ -41,13 +40,13 @@ record(fig, path*"/plots/MichaelisMenten_anim.mp4", eachindex(T);
         framerate = 4) do iT
     iT -= 1;
     flname = path*"/MichaelisMenten_t"*string(iT)*"_marg_";
-    for i in 1:4, j in 1:4
+    for i in eachindex(specie), j in eachindex(specie)
         if j > i
             flsuffix = specie[i]*"_x_"*specie[j];
             mat[i,j][] = jldopen(flname*flsuffix)["p"]
         elseif i == j
             flsuffix = specie[i];
-            ind = collect(1:4)
+            ind = collect(eachindex(specie))
             mat[i,j][] = jldopen(flname*flsuffix)["p"];
         end
     end 

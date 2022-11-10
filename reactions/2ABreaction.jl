@@ -6,6 +6,8 @@
 # ∅      → 𝒜
 # ∅      → ℬ
 
+specie = ["A", "B"];
+
 #     𝒜  ℬ
 Re = [2  0;   # K₁
       1  1;   # K₂
@@ -24,5 +26,9 @@ K = [1e-3;  # K₁
      1];    # K₄
 𝛎 = Pr - Re; # Stoichiometric balance
 
-𝗻ₖ = (50,50); # State-space size
+𝗻ₖ = (80,80); # State-space size
 A = CMEOperator(𝛎,Re,K,𝗻ₖ);
+
+p₀ = zeros(𝗻ₖ);
+p₀[1,1] = 1.0;
+p₀ ./= sum(p₀);
