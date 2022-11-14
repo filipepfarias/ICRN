@@ -71,20 +71,20 @@ K = [k₁;  # K₁
 # Initial conditions
 ℰ, ℰ𝒜, 𝒜, ℬ = V * nₐ .* (2e-7, 0, 5e-7, 0);
 ℰ, ℰ𝒜, 𝒜, ℬ = floor.(Int,(ℰ, ℰ𝒜, 𝒜, ℬ)) .+ 1; # Convertion to state-space index
-ℰ, ℰ𝒜, 𝒜, ℬ = (ℰ-2:ℰ+2, ℰ𝒜, 𝒜-2:𝒜+2, ℬ)
+# ℰ, ℰ𝒜, 𝒜, ℬ = (ℰ-2:ℰ+2, ℰ𝒜, 𝒜-2:𝒜+2, ℬ)
 
 𝛎 = Pr - Re;                  # Stoichiometric balance
 
 n = maximum(maximum.((ℰ, ℰ𝒜, 𝒜, ℬ)));
 𝗻ₖ = (n,n,n,n);                # State-space size
 
-p₀ = zeros(𝗻ₖ);                # Initial condition for Section 7.3
-p₀[ℰ, ℰ𝒜, 𝒜, ℬ] .= 1.0;
+# p₀ = zeros(𝗻ₖ);                # Initial condition for Section 7.3
+# # p₀[ℰ, ℰ𝒜, 𝒜, ℬ] .= 1.0;
 # p₀[ℰ, ℰ𝒜, 𝒜, ℬ] = 1.0;
-p₀ ./= sum(p₀);
+# p₀ ./= sum(p₀);
 
-# p₀ = ones(𝗻ₖ);              # Uniform distribution
-# p₀ ./= sum(p₀); 
-# p₀[end] = 1 - sum(p₀[1:end-1]);
+p₀ = ones(𝗻ₖ);              # Uniform distribution
+p₀ ./= sum(p₀); 
+p₀[end] = 1 - sum(p₀[1:end-1]);
 
 A = CMEOperator(𝛎,Re,K,𝗻ₖ);   # CME Operator      

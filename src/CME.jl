@@ -7,7 +7,8 @@ module CME
     end
 
     function 𝗝(ν,n)
-        return reduce(kron,reverse(J.(ν,n)))
+        # return reduce(kron,reverse(J.(ν,n)))
+        return kron(reverse(J.(ν,n))...)
     end
 
     α(𝓘,Re,m) = binomial.(𝓘,Re[m,:]') .* factorial.(Re[m,:]')
