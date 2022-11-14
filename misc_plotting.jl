@@ -36,10 +36,10 @@ catch
     nothing
 end
 
-record(fig, path*"/plots/MichaelisMenten_anim.mp4", eachindex(T);
+record(fig, path*"/plots/"*model_nm*"_anim.mp4", eachindex(T);
         framerate = 4) do iT
     iT -= 1;
-    flname = path*"/MichaelisMenten_t"*string(iT)*"_marg_";
+    flname = path*"/"*model_nm*"_t"*string(iT)*"_marg_";
     for i in eachindex(specie), j in eachindex(specie)
         if j > i
             flsuffix = specie[i]*"_x_"*specie[j];
@@ -55,20 +55,20 @@ end
 CairoMakie.activate!()
 fig2 = Figure(resolution = (300,300));
 
-flname = path*"/MichaelisMenten_mean";
+flname = path*"/"*model_nm*"_mean";
 𝔼 = jldopen(flname)["E"];
 
 fig2, ax, sp = series(𝔼, labels=specie);
 axislegend(ax);
-save(path*"/plots/MichaelisMenten_mean_evol.pdf", fig2, pt_per_unit = 2)
+save(path*"/plots/"*model_nm*"_mean_evol.pdf", fig2, pt_per_unit = 2)
 
 fig3 = Figure(resolution = (300,300));
 
-flname = path*"/MichaelisMenten_entropy";
+flname = path*"/"*model_nm*"_entropy";
 ℍ = jldopen(flname)["H"];
 
 fig3 = lines(ℍ[:]);
-save(path*"/plots/MichaelisMenten_entrop_evol.pdf", fig3, pt_per_unit = 2)
+save(path*"/plots/"*model_nm*"_entrop_evol.pdf", fig3, pt_per_unit = 2)
 
 # # Entropy
 # g = Figure();

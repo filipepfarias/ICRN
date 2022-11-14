@@ -8,11 +8,12 @@ module CME
 
     function 𝗝(ν,n)
         # return reduce(kron,reverse(J.(ν,n)))
+        # return reduce(kron,J.(ν,n))
         return kron(reverse(J.(ν,n))...)
     end
 
     α(𝓘,Re,m) = binomial.(𝓘,Re[m,:]') .* factorial.(Re[m,:]')
-    η(𝓘,Re,m,𝛎) = binomial.(𝓘,Re[m,:]') .* (𝓘 .<= (𝓘[end,:]' - 𝛎[m,:]')) .* (𝓘 .>= (𝓘[1,:]' - 𝛎[m,:]'));
+    η(𝓘,Re,m,𝛎) = α(𝓘,Re,m) .* (𝓘 .<= (𝓘[end,:]' - 𝛎[m,:]')) .* (𝓘 .>= (𝓘[1,:]' - 𝛎[m,:]'));
     W(𝓘,Re,m,𝛎) = reduce(kron,Diagonal.(eachcol(α(𝓘,Re,m))));
     H(𝓘,Re,m,𝛎) = reduce(kron,Diagonal.(eachcol(η(𝓘,Re,m,𝛎))));
 

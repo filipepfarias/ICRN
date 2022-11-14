@@ -12,7 +12,8 @@ mkdir(path)
 
 println("Building the CME operator...")
 comp_time = @elapsed begin
-    model = "reactions/MichaelisMenten.jl";
+    model_nm = "MichaelisMenten"
+    model = "reactions/"*model_nm*".jl";
     include(model);
     cp(model,path*"/model.jl")
 end
@@ -27,7 +28,7 @@ begin
     𝔼 = zeros(length(𝗻ₖ),size(T)...,);
     ℍ = zeros(1,size(T)...,);
 
-    flname = path*"/MichaelisMenten_t"*string(0);
+    flname = path*"/"*model_nm*"_t"*string(0);
     # jldsave(flname, p=p, t=0.0)
     E = CMEMarginals(u0,𝗻ₖ,specie,flname,0.0)
     
@@ -40,13 +41,13 @@ begin
     for iT in eachindex(T)[1:end-1]
         global u0, flname, 𝔼, E, ℍ
         prob = ODEProblem(f,u0, (T[iT],T[iT+1]));
-        sol = solve(prob, RK4();dt=.5/4,saveat=T[iT+1],adaptive=false);
+        sol = solve(prob, RK4();dt= .5/8, saveat=T[iT+1],adaptive=false);
         # sol.u[end][sol.u[end] .< 0] .= 0;
         # append!(p,[sol.u[end]]);
         u0 = sol.u[end]/sum(sol.u[end]);
         # u0 = sol.u[end]
 
-        flname = path*"/MichaelisMenten_t"*string(iT);
+        flname = path*"/"*model_nm*"_t"*string(iT);
         # jldsave(flname, p=u0, t=T[iT+1])
         E = CMEMarginals(u0,𝗻ₖ,specie,flname,T[iT])
 
@@ -54,10 +55,10 @@ begin
         # ℍ[iT+1] = CMEEntropy(u0);
         ProgressMeter.next!(pgres)
     end
-    flname = path*"/MichaelisMenten_mean";
+    flname = path*"/"*model_nm*"_mean";
     jldsave(flname, E=𝔼)
 
-    flname = path*"/MichaelisMenten_entropy";
+    flname = path*"/"*model_nm*"_entropy";
     jldsave(flname, H=ℍ)
 end
 
@@ -66,7 +67,7 @@ end
 # for iT in eachindex(T)
 #     iT -= 1;
 #     local flname, p, mat
-#     flname = path*"/MichaelisMenten_t"*string(iT);
+#     flname = path*"/"*model_nm*"_t"*string(iT);
 #     p = jldopen(flname)["p"];
 #     rm(flname)
 #     CMEMarginals(p,𝗻ₖ,specie,flname,T[iT+1])
@@ -75,7 +76,7 @@ end
     
 #     ProgressMeter.next!(pgres)
 # end
-# flname = path*"/MichaelisMenten_mean";
+# flname = path*"/"*model_nm*"_mean";
 # jldsave(flname, E=𝔼)
 
 # Plotting
