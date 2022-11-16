@@ -3,9 +3,10 @@ Pkg.activate(".")
 ## Plotting
 using GLMakie, CairoMakie, FileIO, JLD2
 
-# path = "outputs/00Hil_20221111"
+# path = "outputs/5ckiA_20221115"
+# model_nm = "MichaelisMenten"
 
-## For Michaelis-Menten reaction network
+# For Michaelis-Menten reaction network
 GLMakie.activate!()
 fig = Figure(resolution = (1600,1600));
 
@@ -65,20 +66,9 @@ save(path*"/plots/"*model_nm*"_mean_evol.pdf", fig2, pt_per_unit = 2)
 fig3 = Figure(resolution = (300,300));
 
 flname = path*"/"*model_nm*"_entropy";
-ℍ = jldopen(flname)["H"];
+𝕊 = jldopen(flname)["S"];
+d𝕊dt = jldopen(flname)["dSdt"];
 
-fig3 = lines(ℍ[:]);
+fig3, ax, sp = series([𝕊;d𝕊dt; 0 diff(𝕊[:])'], labels=["Entropy","Entropy balance","Test"]); 
+axislegend(ax);
 save(path*"/plots/"*model_nm*"_entrop_evol.pdf", fig3, pt_per_unit = 2)
-
-# # Entropy
-# g = Figure();
-# ax = Axis(g[1,1], yscale=log10)
-# ylims!(ax, 0.1,100) 
-# lines!(ax,)
-# current_figure()
-
-# g = Figure();
-# ax = Axis(g[1,1], yscale=log10)
-# ylims!(ax, 0.01,10) 
-# lines!(ax,)
-# current_figure()
