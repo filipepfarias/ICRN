@@ -7,14 +7,12 @@ module CME
     end
 
     function 𝗝(ν,n)
-        # return reduce(kron,reverse(J.(ν,n)))
-        # return reduce(kron,J.(ν,n))
         return kron(reverse(J.(ν,n))...)
     end
 
     α(𝓘,Re,m) = binomial.(𝓘,Re[m,:]') .* factorial.(Re[m,:]')
     η(𝓘,Re,m,𝛎) = α(𝓘,Re,m) .* (𝓘 .<= (𝓘[end,:]' - 𝛎[m,:]')) .* (𝓘 .>= (𝓘[1,:]' - 𝛎[m,:]'));
-    W(𝓘,Re,m,𝛎) = reduce(kron,Diagonal.(eachcol(α(𝓘,Re,m))));
+    W(𝓘,Re,m,𝛎) = reduce(kron,reverse(Diagonal.(eachcol(α(𝓘,Re,m)))));
     H(𝓘,Re,m,𝛎) = reduce(kron,Diagonal.(eachcol(η(𝓘,Re,m,𝛎))));
 
     function CMEOperator(𝝼,Re,K,𝗻ₖ)
@@ -22,8 +20,10 @@ module CME
         return (sum([(𝗝(𝝼[m,:],𝗻ₖ) - I)*K[m]*W(𝓘,Re,m,𝝼) for m in eachindex(𝝼[:,1])]));
     end
 
-    function CMEEntropy(Xₖ)
-        return -sum(filter(!isnan,Xₖ/sum(Xₖ) .* log.(Xₖ/sum(Xₖ))))
+    function CMEEntropy(p,A)
+        p = p .* log.(p)
+        p[isnan.(p)] .= 0.0;
+        return (-sum(p),-sum(A*p))
     end
 
     function CMEMutualInformation(Xₖ₋₁,Xₖ,A,dt)
