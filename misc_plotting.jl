@@ -58,8 +58,9 @@ fig2 = Figure(resolution = (300,300));
 
 flname = path*"/"*model_nm*"_mean";
 𝔼 = jldopen(flname)["E"];
+T = jldopen(flname)["T"];
 
-fig2, ax, sp = series(𝔼, labels=specie);
+fig2, ax, sp = series(T,𝔼, labels=specie);
 axislegend(ax);
 save(path*"/plots/"*model_nm*"_mean_evol.pdf", fig2, pt_per_unit = 2)
 
@@ -69,6 +70,6 @@ flname = path*"/"*model_nm*"_entropy";
 𝕊 = jldopen(flname)["S"];
 d𝕊dt = jldopen(flname)["dSdt"];
 
-fig3, ax, sp = series([𝕊;d𝕊dt; 0 diff(𝕊[:])'], labels=["Entropy","Entropy balance","Test"]); 
+fig3, ax, sp = series(T,[𝕊;d𝕊dt; 0 diff(𝕊[:])'], labels=["Entropy","Entropy balance","Test"]); 
 axislegend(ax);
 save(path*"/plots/"*model_nm*"_entrop_evol.pdf", fig3, pt_per_unit = 2)
