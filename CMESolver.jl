@@ -12,7 +12,7 @@ path = "outputs/"*randstring(5)*"_"*Dates.format(now(),"yyyymmdd")
 
 println("Building the CME operator...")
 comp_time = @elapsed begin
-    model_nm = "2ABreaction"
+    model_nm = "MichaelisMenten"
     model = "reactions/"*model_nm*".jl";
     include(model);
     # cp(model,path*"/model.jl")
@@ -75,7 +75,10 @@ begin
         pb[:,iT+1] = ub;
     end
 
-    SS = [sum(pf[:,iT] .* ( log.(pf[:,iT]) - log.(pb[:,iT]) )) for iT in eachindex(T)]
+    # SS = [sum(pf[:,iT] .* ( log.(pf[:,iT]) - log.(pb[:,iT]) ) .* (pf[:,iT] .!= 0.0) .* (pb[:,iT] .!= 0.0))  for iT in eachindex(T)]
+    # dS = [-sum(A*pf[:,iT] .* ( log.(pf[:,iT]))  .* (pf[:,iT] .!= 0.0) ) for iT in eachindex(T)]
+    # dS = [sum(A*pf[:,iT] .* (log.(pf[:,iT])) .* (pf[:,iT] .!= 0.0))  for iT in eachindex(T)[1:end-1]]
+    # lines(dS)
 end
 
 # Plotting
