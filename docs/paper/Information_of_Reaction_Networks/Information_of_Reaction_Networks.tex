@@ -41,222 +41,68 @@ component, formatting, style, styling, insert
 \end{IEEEkeywords}
 
 \section{Introduction}
-%In a living cell, countless biochemical reactions occur regularly, orderly and endlessly, which would not happen in a non-living system. For a system without living activity, for example, a box of gas mixture, when put into a fixed environment its intrinsic reactions will soon enter the inactive, stable, orderless, dead thermodynamic equilibrium state where all the ordered intrinsic activities will stop and the entropy of the system reaches maximum, whereas living system maintains an ordered and relatively steady state and never reaches equilibrium. Why could this ordered steady state for living systems be maintained? According to the 2nd law of thermodynamics, the entropy of an isolated system would never decrease. Hence, as Schrödinger pointed out, the key reason is that living cells exchange energy and materials with external environment, absorb necessary energy and nutrients for biochemical reactions and expel waste and heat from the reactions. In terms of statistical physics, the system is maintained at a low entropy state to make a living, by absorbing “negative entropy” from environment to nullify the entropy production from its necessary biological activities. [Nonequilibrium Thermodynamics in Biochemical Systems and Its Application
-%- Dongliang Zhang and Qi Ouyang]
-%
-%The earliest quantitative definition of irreversibility occurs in the formulation of the second law of thermodynamics. Here the introduction of the entropy concepts permits the classification of natural events into reversible processes, in which entripy remains constant, and irreversible processes, in which the entropy increases with time. The classification is purely phenomenological, however, and is clearly inssufficient to establish the connection between irreversibility and the laws of mechanics. [Non-equilibrium statistical mechanics -  Ilya Prigogine]
-%
-%Earth system processes perform work by degrading sources of free energy, thereby producing entropy. For instance, the atmospheric circulation is slowed down by friction at the surface, so that it requires continuous input of work to maintain a steady-state circulation. The work to drive the atmospheric circulation is derived from the temperature gradient between the equator and the pole. The associated transport of heat from warmer to colder regions leads to a downgrading of the energy and entropy production. The global hydrological cycle is driven by energy conversions associated with evapora- tion from a warmer surface into an unsaturated atmosphere and subsequent condensation of water at a cooler temperature in the atmosphere. And life requires sources of free energy to build complex organisms. These three exam- ples do not operate in isolation, but are highly interactive: Upward motion in the atmosphere often leads to condensation of water and cloud forma- tion, so that the large-scale patterns of precipitation and uplift are highly correlated. Through its metabolisms, biotic activity substantially affects the chemical composition of the Earth’s environment and physical characteristics of the land surface, such as surface albedo and aerodynamic roughness. All these examples involve transformations of energy of different forms, and these transformations are governed by the laws of thermodynamics. This leads us to the question whether thermodynamics can provide us with meaningful insights into how the steady-state of the complex Earth system operates at a macroscopic, planetary scale. However, most systems are not isolated, but exchange energy and/or mat- ter with their environment. For instance, planet Earth exchanges energy with its surroundings by radiation of different wavelengths. The formulations from classical thermodynamics can be applied to non-equilibrium systems which are not isolated (e.g., Prigogine 1962). By exchanging energy of different entropy (or mass) across the system boundary, these systems maintain states that do not represent thermodynamic equilibrium. For these systems, the second law then takes the form of a continuity equation, in which the overall change of entropy of the system $dS/dt$ is determined from the local increase in entropy within the system $dSi/dt$ and the entropy flux convergence $dSe/dt$ (i.e., the net flux of entropy across the system boundary):
-%$$dS/dt = dSi/dt + dSe/dt$$
-%In steady state, with no change of the internal entropy S of the system, the production of entropy within the system $\sigma$ that leads to the increase $dSi/dt$ balances the net flux of entropy across the system boundary $dSe/dt$. The second law in this form then states that $\sigma	\geq $. A non-equilibrium system can maintain a state of low entropy by “discarding” high entropy fluxes out of the system. [Entropy Production
-%by Earth System Processes - Axel Kleidon and Ralph Lorenz]
 
 \noindent - Definition of chemical reaction networks\\
 - Definition of the (Chemical) Master Equation;\\
 - Evaluation of statistical moments of the CME;\\
 - Entropy analysis of the solution of the CME;\\
-- Thermodynamical analysis of equilibrium and non-equilibrium systems 
+- Thermodynamical analysis of equilibrium and non-equilibrium systems \\
 
-\section{Ease of Use}
-
-\subsection{Maintaining the Integrity of the Specifications}
-
-\cite{Gillespie,Gillespie2000}
-
-{\color{red}
-\section{Prepare Your Paper Before Styling}
-Before you begin to format your paper, first write and save the content as a 
-separate text file. Complete all content and organizational editing before 
-formatting. Please note sections \ref{AA}--\ref{SCM} below for more information on 
-proofreading, spelling and grammar.
-
-Keep your text and graphic files separate until after the text has been 
-formatted and styled. Do not number text heads---{\LaTeX} will do that 
-for you.
-
-\subsection{Abbreviations and Acronyms}\label{AA}
-Define abbreviations and acronyms the first time they are used in the text, 
-even after they have been defined in the abstract. Abbreviations such as 
-IEEE, SI, MKS, CGS, ac, dc, and rms do not have to be defined. Do not use 
-abbreviations in the title or heads unless they are unavoidable.
-
-\subsection{Units}
-\begin{itemize}
-\item Use either SI (MKS) or CGS as primary units. (SI units are encouraged.) English units may be used as secondary units (in parentheses). An exception would be the use of English units as identifiers in trade, such as ``3.5-inch disk drive''.
-\item Avoid combining SI and CGS units, such as current in amperes and magnetic field in oersteds. This often leads to confusion because equations do not balance dimensionally. If you must use mixed units, clearly state the units for each quantity that you use in an equation.
-\item Do not mix complete spellings and abbreviations of units: ``Wb/m\textsuperscript{2}'' or ``webers per square meter'', not ``webers/m\textsuperscript{2}''. Spell out units when they appear in text: ``. . . a few henries'', not ``. . . a few H''.
-\item Use a zero before decimal points: ``0.25'', not ``.25''. Use ``cm\textsuperscript{3}'', not ``cc''.)
-\end{itemize}
-
-\subsection{Equations}
-Number equations consecutively. To make your 
-equations more compact, you may use the solidus (~/~), the exp function, or 
-appropriate exponents. Italicize Roman symbols for quantities and variables, 
-but not Greek symbols. Use a long dash rather than a hyphen for a minus 
-sign. Punctuate equations with commas or periods when they are part of a 
-sentence, as in:
+We define a chemical reaction network as a set of $M$ reaction channels such that
+%
 \begin{equation}
-a+b=\gamma\label{eq}
+\underline{s}_{\mu,1}\underline{S}_1 + ... + \underline{s}_{\mu,N_r}\underline{S}_{N_r} \overset{k_\mu}{\longrightarrow} \overline{s}_{\mu,1}\overline{S}_1 + ... + \overline{s}_{\mu,N_r}\overline{S}_{N_r}.
 \end{equation}
+%
+The species $S$ acts like a reactant $\underline{S}$ through a channel $\mu = 1,...,M$, producing $\overline{S}$. The stoichiometric coefficients are indicated by $\underline{s}$ and $\overline{s}$ for the reactants and the products. We define a stoichiometric matrix $\nu \in \mathbb{Z}^{M \times N_r}$, such that
+%
+\begin{equation}
+[\nu]_{ij} = \overline{s}_{i,j} - \underline{s}_{i,j}.
+\end{equation}
+%
+We also define $\alpha_{\mu}(x)$ as the probability reaction channel $\mu$ be activated\cite{Gillespie}, to the $\mu$-th reaction to occur. Armed with this we define a chemical master equation as
+%
+\begin{equation}
+\label{eq CME}
+\frac{\partial P(x,t | x_0, t_0)}{\partial t} = \sum_{\mu = 1}^M \alpha_\mu(x - \nu_\mu) P(x - \nu_\mu | x_0,t_0) - \alpha_\mu(x) P(x,t|x_0,t_0),
+\end{equation}
+%
+with $\nu_\mu = [\nu]_{\mu,:}$. [Define x].
 
-Be sure that the 
-symbols in your equation have been defined before or immediately following 
-the equation. Use ``\eqref{eq}'', not ``Eq.~\eqref{eq}'' or ``equation \eqref{eq}'', except at 
-the beginning of a sentence: ``Equation \eqref{eq} is . . .''
+The chemical master equation is a set of differential equations for the evolution of the transition probability $P(x,t | x_0, t_0)$, between the states $x$ and $x_0$. We are not able to find an analytical solution for $P(x,t | x_0, t_0)$ in general but for special cases[Jahnke]. To obtain solutions numerically, one needs to crop the infinite state space.[Cropping and out-flow]
 
-\subsection{\LaTeX-Specific Advice}
+The system is said {\it closed}, if there is no production or degradation of species. Otherwise the system is said {\it open}. In the closed case the system can only change its state according to $x = x_0 + \xi \nu, \xi \in \mathbb{Z}$. Thus, once defined the initial state $x_0$ of the system, the states in which the system can be are restricted to the transitions that the reactions allow.
 
-Please use ``soft'' (e.g., \verb|\eqref{Eq}|) cross references instead
-of ``hard'' references (e.g., \verb|(1)|). That will make it possible
-to combine sections, add equations, or change the order of figures or
-citations without having to go through the file line by line.
+The CME operator $A$ (?) is {\it irreducible} if and only if the adjacency matrix of $A$ is strongly connected\cite{Brualdi}. Otherwise, the strongly connected components of $A$ will form a set of the irreducible parts of the system. Each of them has its own unique stationary probability distribution. Thus, the system has a limiting distribution which is a linear combination of those stationary distributions.
 
-Please don't use the \verb|{eqnarray}| equation environment. Use
-\verb|{align}| or \verb|{IEEEeqnarray}| instead. The \verb|{eqnarray}|
-environment leaves unsightly spaces around relation symbols.
+A necessary condition for strong connection is that every state to be reachable from every other state, which for closed systems will be always wrong once the system is restricted to a subset of the states. This subset correspond to the states in which the number of species of the systems is conserved. This has another implications as the non-ergodicity of closed systems. The subset of possible states of the system will always be dependent on the initial condition once the later defines the [copy number] of the species. For instance, in reactions like
 
-Please note that the \verb|{subequations}| environment in {\LaTeX}
-will increment the main equation counter even when there are no
-equation numbers displayed. If you forget that, you might write an
-article in which the equation numbers skip from (17) to (20), causing
-the copy editors to wonder if you've discovered a new method of
-counting.
+\begin{equation}
+E + A \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} EA \overset{k_2}{\rightarrow} E + B,
+\end{equation}
+%
+known as Michaelis-Menten enzyme mechanism reaction, a state which has zero copy number of enzyme molecules $E$ can be reached, but the system will never transition from it. This state is said to absorb the probability through the evolution of the Markov chain, and is not strongly connected with the other states. Thus the system is not irreducible.
 
-{\BibTeX} does not work by magic. It doesn't get the bibliographic
-data from thin air but from .bib files. If you use {\BibTeX} to produce a
-bibliography you must send the .bib files. 
+For open systems, the uniqueness of the stationary distribution is not assured. But for reactions like
+%
+\begin{equation}
+\emptyset \rightarrow A, \quad A \rightarrow \emptyset
+\end{equation}
+%
+called production and degradation, all the states are connected given there will always be a reaction to drive the system the every state. Thus the system is irreducible. The system can be ergodic if all the states are aperiodic [citation needed]. For this, one needs to prove if the states have periodicity equals the unity.
+%
 
-{\LaTeX} can't read your mind. If you assign the same label to a
-subsubsection and a table, you might find that Table I has been cross
-referenced as Table IV-B3. 
+\section{Statistics of the solution of the CME}
 
-{\LaTeX} does not have precognitive abilities. If you put a
-\verb|\label| command before the command that updates the counter it's
-supposed to be using, the label will pick up the last counter to be
-cross referenced instead. In particular, a \verb|\label| command
-should not go before the caption of a figure or a table.
-
-Do not use \verb|\nonumber| inside the \verb|{array}| environment. It
-will not stop equation numbers inside \verb|{array}| (there won't be
-any anyway) and it might stop a wanted equation number in the
-surrounding equation.
-
-\subsection{Some Common Mistakes}\label{SCM}
-\begin{itemize}
-\item The word ``data'' is plural, not singular.
-\item The subscript for the permeability of vacuum $\mu_{0}$, and other common scientific constants, is zero with subscript formatting, not a lowercase letter ``o''.
-\item In American English, commas, semicolons, periods, question and exclamation marks are located within quotation marks only when a complete thought or name is cited, such as a title or full quotation. When quotation marks are used, instead of a bold or italic typeface, to highlight a word or phrase, punctuation should appear outside of the quotation marks. A parenthetical phrase or statement at the end of a sentence is punctuated outside of the closing parenthesis (like this). (A parenthetical sentence is punctuated within the parentheses.)
-\item A graph within a graph is an ``inset'', not an ``insert''. The word alternatively is preferred to the word ``alternately'' (unless you really mean something that alternates).
-\item Do not use the word ``essentially'' to mean ``approximately'' or ``effectively''.
-\item In your paper title, if the words ``that uses'' can accurately replace the word ``using'', capitalize the ``u''; if not, keep using lower-cased.
-\item Be aware of the different meanings of the homophones ``affect'' and ``effect'', ``complement'' and ``compliment'', ``discreet'' and ``discrete'', ``principal'' and ``principle''.
-\item Do not confuse ``imply'' and ``infer''.
-\item The prefix ``non'' is not a word; it should be joined to the word it modifies, usually without a hyphen.
-\item There is no period after the ``et'' in the Latin abbreviation ``et al.''.
-\item The abbreviation ``i.e.'' means ``that is'', and the abbreviation ``e.g.'' means ``for example''.
-\end{itemize}
-An excellent style manual for science writers is \cite{b7}.
-
-\subsection{Authors and Affiliations}
-\textbf{The class file is designed for, but not limited to, six authors.} A 
-minimum of one author is required for all conference articles. Author names 
-should be listed starting from left to right and then moving down to the 
-next line. This is the author sequence that will be used in future citations 
-and by indexing services. Names should not be listed in columns nor group by 
-affiliation. Please keep your affiliations as succinct as possible (for 
-example, do not differentiate among departments of the same organization).
-
-\subsection{Identify the Headings}
-Headings, or heads, are organizational devices that guide the reader through 
-your paper. There are two types: component heads and text heads.
-
-Component heads identify the different components of your paper and are not 
-topically subordinate to each other. Examples include Acknowledgments and 
-References and, for these, the correct style to use is ``Heading 5''. Use 
-``figure caption'' for your Figure captions, and ``table head'' for your 
-table title. Run-in heads, such as ``Abstract'', will require you to apply a 
-style (in this case, italic) in addition to the style provided by the drop 
-down menu to differentiate the head from the text.
-
-Text heads organize the topics on a relational, hierarchical basis. For 
-example, the paper title is the primary text head because all subsequent 
-material relates and elaborates on this one topic. If there are two or more 
-sub-topics, the next level head (uppercase Roman numerals) should be used 
-and, conversely, if there are not at least two sub-topics, then no subheads 
-should be introduced.
-
-\subsection{Figures and Tables}
-\paragraph{Positioning Figures and Tables} Place figures and tables at the top and 
-bottom of columns. Avoid placing them in the middle of columns. Large 
-figures and tables may span across both columns. Figure captions should be 
-below the figures; table heads should appear above the tables. Insert 
-figures and tables after they are cited in the text. Use the abbreviation 
-``Fig.~\ref{fig}'', even at the beginning of a sentence.
-
-\begin{table}[htbp]
-\caption{Table Type Styles}
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{Table}&\multicolumn{3}{|c|}{\textbf{Table Column Head}} \\
-\cline{2-4} 
-\textbf{Head} & \textbf{\textit{Table column subhead}}& \textbf{\textit{Subhead}}& \textbf{\textit{Subhead}} \\
-\hline
-copy& More table copy$^{\mathrm{a}}$& &  \\
-\hline
-\multicolumn{4}{l}{$^{\mathrm{a}}$Sample of a Table footnote.}
-\end{tabular}
-\label{tab1}
-\end{center}
-\end{table}
-
-\begin{figure}[htbp]
-\centerline{\includegraphics{fig1.png}}
-\caption{Example of a figure caption.}
-\label{fig}
-\end{figure}
-
-Figure Labels: Use 8 point Times New Roman for Figure labels. Use words 
-rather than symbols or abbreviations when writing Figure axis labels to 
-avoid confusing the reader. As an example, write the quantity 
-``Magnetization'', or ``Magnetization, M'', not just ``M''. If including 
-units in the label, present them within parentheses. Do not label axes only 
-with units. In the example, write ``Magnetization (A/m)'' or ``Magnetization 
-\{A[m(1)]\}'', not just ``A/m''. Do not label axes with a ratio of 
-quantities and units. For example, write ``Temperature (K)'', not 
-``Temperature/K''.
-
-\section*{Acknowledgment}
-
-The preferred spelling of the word ``acknowledgment'' in America is without 
-an ``e'' after the ``g''. Avoid the stilted expression ``one of us (R. B. 
-G.) thanks $\ldots$''. Instead, try ``R. B. G. thanks$\ldots$''. Put sponsor 
-acknowledgments in the unnumbered footnote on the first page.
-
-\section*{References}
-
-Please number citations consecutively within brackets \cite{b1}. The 
-sentence punctuation follows the bracket \cite{b2}. Refer simply to the reference 
-number, as in \cite{b3}---do not use ``Ref. \cite{b3}'' or ``reference \cite{b3}'' except at 
-the beginning of a sentence: ``Reference \cite{b3} was the first $\ldots$''
-
-Number footnotes separately in superscripts. Place the actual footnote at 
-the bottom of the column in which it was cited. Do not put footnotes in the 
-abstract or reference list. Use letters for table footnotes.
-
-Unless there are six authors or more give all authors' names; do not use 
-``et al.''. Papers that have not been published, even if they have been 
-submitted for publication, should be cited as ``unpublished'' \cite{b4}. Papers 
-that have been accepted for publication should be cited as ``in press'' \cite{b5}. 
-Capitalize only the first word in a paper title, except for proper nouns and 
-element symbols.
-
-For papers published in translation journals, please give the English 
-citation first, followed by the original foreign-language citation \cite{b6}.
 
 \begin{thebibliography}{100} % 100 is a random guess of the total number of %references
 \bibitem{Gillespie} Gillespie, Daniel T. ``A rigorous derivation of the chemical master equation.'' {\it Physica A: Statistical Mechanics and its Applications}, 188.1-3 (1992): 404-425.
+
 \bibitem{Gillespie2000} Gillespie, Daniel T. ``The chemical Langevin equation.'', {\it The Journal of Chemical Physics} 113.1 (2000): 297-306.
+
+\bibitem{Brualdi} Richard A. Brualdi, Herbert J. Ryser. {\it Combinatorial Matrix Theory}, Cambridge University Press, 1991
+
+\bibitem{vanKampen} van, Kampen N G. {\it Stochastic Processes in Physics and Chemistry}. Elsevier, 2010. 
 
 \bibitem{Kazeev} Kazeev, Vladimir, et al. ``Direct solution of the chemical master equation using quantized tensor trains.'' {\it PLoS computational} biology 10.3 (2014): e1003359.
 
@@ -289,7 +135,7 @@ citation first, followed by the original foreign-language citation \cite{b6}.
 \end{thebibliography}
 
 \vspace{12pt}
-\color{red}
+
 IEEE conference templates contain guidance text for composing and formatting conference papers. Please ensure that all template text is removed from your conference paper prior to submission to the conference. Failure to remove the template text from your paper may result in your paper not being published.
-}
+
 \end{document}
