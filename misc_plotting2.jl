@@ -3,8 +3,8 @@
 ## Plotting
 using GLMakie, CairoMakie, FileIO, JLD2
 
-# path = "outputs/5ckiA_20221115"
-# model_nm = "MichaelisMenten"
+path = "outputs/FdUlD_20221215"
+model_nm = "MichaelisMenten"
 
 GLMakie.activate!()
 fig = Figure(resolution = (1600,1600));
@@ -41,6 +41,8 @@ end
 ℝ = zeros(length(𝗻ₖ),length(T),length(𝗻ₖ));
 Sk = zeros(length(𝗻ₖ),length(T));
 𝕊 = zeros(1,length(T));
+Si = zeros(1,length(T));
+Se = zeros(1,length(T));
 
 record(fig, path*"/plots/"*model_nm*"_anim.mp4", eachindex(T);
         framerate = 4) do iT
@@ -58,6 +60,8 @@ record(fig, path*"/plots/"*model_nm*"_anim.mp4", eachindex(T);
     ℝ[:,iT+1,:] = data["R"];
     Sk[:,iT+1] = data["Sk"];
     𝕊[1,iT+1] = data["S"];
+    Si[1,iT+1] = data["Si"];
+    Se[1,iT+1] = data["Se"];
     T = data["T"];
 
     idm = 1;
@@ -81,6 +85,6 @@ save(path*"/plots/"*model_nm*"_mean_evol.pdf", fig2, pt_per_unit = 2)
 
 fig3 = Figure(resolution = (300,300));
 
-fig3, ax, sp = series(T,𝕊, labels=["Entropy"]); 
+fig3, ax, sp = series(T,[𝕊; Si; Se], labels=["Entropy change"; "Entropy production"; "Entropy flow"]); 
 axislegend(ax);
 save(path*"/plots/"*model_nm*"_entrop_evol.pdf", fig3, pt_per_unit = 2)

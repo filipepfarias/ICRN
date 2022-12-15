@@ -1,14 +1,14 @@
-using Pkg
-Pkg.activate(".")
+# using Pkg
+# Pkg.activate(".")
 ## Plotting
 using GLMakie, CairoMakie, FileIO, JLD2
 
-# path = "outputs/5ckiA_20221115"
-# model_nm = "MichaelisMenten"
+path = "outputs/gv4Yl_20221117"
+model_nm = "MichaelisMenten"
 
 # For Michaelis-Menten reaction network
 GLMakie.activate!()
-fig = Figure(resolution = (1600,1600));
+fig = Figure(resolution = (1000,1000));
 
 mat = [j > i ? 
         Observable(Matrix{Float64}(undef,𝗻ₖ[i],𝗻ₖ[j])) : 

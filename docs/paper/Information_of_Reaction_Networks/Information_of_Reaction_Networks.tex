@@ -94,6 +94,32 @@ called production and degradation, all the states are connected given there will
 
 \section{Statistics of the solution of the CME}
 
+The solution of the ODE is
+%
+\begin{equation}
+\label{eq CME solution}
+P(x,t|x_0,t_0) = e^{At}P(x,t_0|x_0,t_0), \quad P(x,t_0|x_0,t_0) = I.
+\end{equation}
+%
+The evaluation of \eqref{eq CME solution} depends on the computation of the matrix exponential $e^{At}$, which can be hard for a large $A$.
+
+In possession of the probability vector $p(x,t) = P(x,t|x_0,t_0)p(x_0,t_0)$, we obtain the statistical moments of it.
+
+\begin{equation}
+\mu(x,t) = \sum_i i [p(x,t)]_i
+\end{equation}
+
+\begin{equation}
+\sigma^2(x,t) = \sum_i (i - \mathbb{E}[x,t])^2 [p(x,t)]_i
+\end{equation}
+
+\begin{equation}
+sk(x,t) = \sum_i \left(\frac{i - \mu(x,t)}{\sigma(x,t)}\right)^3 [p(x,t)]_i
+\end{equation}
+
+\begin{equation}
+S(x,t) = \sum_i -\log([p(x,t)]_i) [p(x,t)]_i
+\end{equation}
 
 \begin{thebibliography}{100} % 100 is a random guess of the total number of %references
 \bibitem{Gillespie} Gillespie, Daniel T. ``A rigorous derivation of the chemical master equation.'' {\it Physica A: Statistical Mechanics and its Applications}, 188.1-3 (1992): 404-425.
