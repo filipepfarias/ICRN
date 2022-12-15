@@ -9,14 +9,14 @@ module CME
         return kron(reverse(J.(ν,n))...)
     end
 
-    α(𝓘,Re,m) = binomial.(𝓘,Re[m,:]') .* factorial.(Re[m,:]')
+    α(𝓘,Re,m) = binomial.(𝓘,Re[m,:]') .* factorial.(Re[m,:]');
     η(𝓘,Re,m,𝛎) = α(𝓘,Re,m) .* (𝓘 .<= (𝓘[end,:]' - 𝛎[m,:]')) .* (𝓘 .>= (𝓘[1,:]' - 𝛎[m,:]'));
     W(𝓘,Re,m,𝛎) = reduce(kron,reverse(Diagonal.(eachcol(α(𝓘,Re,m)))));
     H(𝓘,Re,m,𝛎) = reduce(kron,reverse(Diagonal.(eachcol(η(𝓘,Re,m,𝛎)))));
 
     function CMEOperator(𝝼,Re,K,𝗻ₖ)
         𝓘 = hcat((:).(1,𝗻ₖ)...,);
-        return (sum([(𝗝(𝝼[m,:],𝗻ₖ) - I)*K[m]*W(𝓘,Re,m,𝝼) for m in eachindex(𝝼[:,1])]));
+        return (sum([(𝗝(𝝼[m,:],𝗻ₖ) - I)*K[m]*H(𝓘,Re,m,𝝼) for m in eachindex(𝝼[:,1])]));
     end
 
     # function CMEEntropy(p,A)
@@ -43,13 +43,29 @@ module CME
         return ℐ
     end
 
-    function CMEStatistics(p,𝗻ₖ,specie)
+    function CMEStatistics(p,A,𝗻ₖ,specie)
         𝓅  = reshape(p,𝗻ₖ...,);
         𝓅ₙ = sum(𝓅);
 
         𝕊 = p .* log.(p)
         𝕊[isnan.(𝕊)] .= 0.0;
         𝕊 = -sum(𝕊);
+
+        Q = A - spdiagm(diag(A));
+        logA = copy(Q);
+        nzlogA = nonzeros(logA); nzlogA .= log.(nonzeros(logA));
+
+        logAp = Q*dropzeros(spdiagm(p));
+        nzlogAp = nonzeros(logAp); nzlogAp .= log.(nonzeros(logAp));
+
+        J = A*dropzeros(spdiagm(p)) - (A*dropzeros(spdiagm(p)))';
+        X = logAp - logAp';
+
+        Se = .5 * sum(J .* (logA - logA'));
+        Si = .5 * sum( J .* X );
+
+        # Si = .5* sum( (A*spdiagm(p) - (A*spdiagm(p))') .* (log.(Q * spdiagm(p)) .* ((Q * spdiagm(p)) .!= 0) - log.(Q * spdiagm(p))' .* ((Q * spdiagm(p)) .!= 0)' ) )
+        # Se = .5* sum( (A*spdiagm(p) - (A*spdiagm(p))') .* (log.(Q) .* (Q .!= 0) - log.(Q') .* (Q' .!= 0) ) ) 
 
         𝔼 = zeros(length(𝗻ₖ),1);
         𝕍ar = zeros(length(𝗻ₖ),1);
@@ -86,7 +102,7 @@ module CME
             end
         end
 
-        return marg_labels, marg, 𝔼, 𝕍ar, ℝ, Sk, 𝕊
+        return marg_labels, marg, 𝔼, 𝕍ar, ℝ, Sk, 𝕊, Si, Se
     end
 
     export CMEOperator, CMEStatistics

@@ -27,6 +27,9 @@ K = [1e-3;  # K₁
 𝛎 = Pr - Re; # Stoichiometric balance
 
 𝗻ₖ = (20,20); # State-space size
+
+T = 0.0:.4:100.0;
+
 A = CMEOperator(𝛎,Re,K,𝗻ₖ);
 
 p₀ = zeros(𝗻ₖ);
