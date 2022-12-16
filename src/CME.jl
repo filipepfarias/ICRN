@@ -47,8 +47,7 @@ module CME
         𝓅  = reshape(p,𝗻ₖ...,);
         𝓅ₙ = sum(𝓅);
 
-        𝕊 = p .* log.(p)
-        𝕊[isnan.(𝕊)] .= 0.0;
+        𝕊 = dropzeros(p) .* log.(dropzeros(p))
         𝕊 = -sum(𝕊);
 
         Q = A - spdiagm(diag(A));
@@ -58,11 +57,11 @@ module CME
         logAp = Q*dropzeros(spdiagm(p));
         nzlogAp = nonzeros(logAp); nzlogAp .= log.(nonzeros(logAp));
 
-        J = A*dropzeros(spdiagm(p)) - (A*dropzeros(spdiagm(p)))';
+        J = Q*dropzeros(spdiagm(p)) - (Q*dropzeros(spdiagm(p)))';
         X = logAp - logAp';
 
-        Se = .5 * sum(J .* (logA - logA'));
-        Si = .5 * sum( J .* X );
+        Se = .5 * sum(J .* (logA - logA')); # h_ex
+        Si = .5 * sum( J .* X ); # e_p
 
         # Si = .5* sum( (A*spdiagm(p) - (A*spdiagm(p))') .* (log.(Q * spdiagm(p)) .* ((Q * spdiagm(p)) .!= 0) - log.(Q * spdiagm(p))' .* ((Q * spdiagm(p)) .!= 0)' ) )
         # Se = .5* sum( (A*spdiagm(p) - (A*spdiagm(p))') .* (log.(Q) .* (Q .!= 0) - log.(Q') .* (Q' .!= 0) ) ) 
