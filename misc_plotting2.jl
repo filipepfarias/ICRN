@@ -3,7 +3,7 @@
 ## Plotting
 using GLMakie, CairoMakie, FileIO, JLD2
 
-path = "outputs/FdUlD_20221215"
+path = "outputs/lmswj_20221215"
 model_nm = "MichaelisMenten"
 
 GLMakie.activate!()
@@ -85,6 +85,6 @@ save(path*"/plots/"*model_nm*"_mean_evol.pdf", fig2, pt_per_unit = 2)
 
 fig3 = Figure(resolution = (300,300));
 
-fig3, ax, sp = series(T,[𝕊; Si; Se], labels=["Entropy change"; "Entropy production"; "Entropy flow"]); 
+fig3, ax, sp = series(T,[𝕊; Si+Se; Si; Se], labels=["Entropy"; "Entropy change"; "Entropy production"; "Entropy flow"]); 
 axislegend(ax);
 save(path*"/plots/"*model_nm*"_entrop_evol.pdf", fig3, pt_per_unit = 2)

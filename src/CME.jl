@@ -16,7 +16,7 @@ module CME
 
     function CMEOperator(𝝼,Re,K,𝗻ₖ)
         𝓘 = hcat((:).(1,𝗻ₖ)...,);
-        return (sum([(𝗝(𝝼[m,:],𝗻ₖ) - I)*K[m]*H(𝓘,Re,m,𝝼) for m in eachindex(𝝼[:,1])]));
+        return (sum([(𝗝(𝝼[m,:],𝗻ₖ) - I)*K[m]*W(𝓘,Re,m,𝝼) for m in eachindex(𝝼[:,1])]));
     end
 
     # function CMEEntropy(p,A)
@@ -105,5 +105,30 @@ module CME
         return marg_labels, marg, 𝔼, 𝕍ar, ℝ, Sk, 𝕊, Si, Se
     end
 
-    export CMEOperator, CMEStatistics
+    function Gillespie(K, 𝛎, S₀, T) # Gillespie
+        t = 0
+        t_vec = [0.0]
+        Sₜ = S₀;
+        S = S₀;
+        # δ = [-2 -1 1 0; 0 -1 0 +1]';
+        d = size(𝛎,2);
+    
+        while t <= T
+            # α = k .* [Sₜ[1]*(Sₜ[1]-1) Sₜ[1]*Sₜ[2] 1 1]
+            𝛂 = [K[m] * α(Sₜ,Re,m) for m in 1:d]
+            α₀ = sum(𝛂);
+            # αᵣ = cumsum(α,dims=1)/α₀;
+        
+            r = rand(Uniform(),1)
+            τ = log(1 / r[1]) / α₀;
+            t += τ
+            append!(t_vec,t)
+    
+            Sₜ += 𝛎[rand(Multinomial(1,vec(𝛂/α₀))) .!= 0,:];
+            S = cat(S,Sₜ,dims=1)
+        end
+        return t_vec,S
+    end
+
+    export CMEOperator, CMEStatistics, Gillespie
 end

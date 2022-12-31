@@ -15,6 +15,7 @@ comp_time = @elapsed begin
     model_nm = "MichaelisMenten"
     model = "reactions/"*model_nm*".jl";
     include(model);
+    A = CMEOperator(𝛎,Re,K,𝗻ₖ);   # CME Operator      
     cp(model,path*"/model.jl")
 end
 println("Computation time for the assemble of the operator: "*string(comp_time)*"s.")

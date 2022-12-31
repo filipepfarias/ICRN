@@ -71,6 +71,7 @@ K = [k₁;  # K₁
 # Initial conditions
 ℰ, ℰ𝒜, 𝒜, ℬ = V * nₐ .* (2e-7, 0, 5e-7, 0);
 ℰ, ℰ𝒜, 𝒜, ℬ = floor.(Int,(ℰ, ℰ𝒜, 𝒜, ℬ)) .+ 1; # Convertion to state-space index
+S₀ = [ℰ, ℰ𝒜, 𝒜, ℬ] .- 1;
 ℰ, ℰ𝒜, 𝒜, ℬ = (ℰ-5:ℰ+5, ℰ𝒜, 𝒜-5:𝒜+5, ℬ)
 
 𝛎 = Pr - Re;                  # Stoichiometric balance
@@ -88,5 +89,3 @@ p₀ ./= sum(p₀);
 # p₀[end] = 1 - sum(p₀[1:end-1]);
 
 T = 0.0:.5:100.0;
-
-A = CMEOperator(𝛎,Re,K,𝗻ₖ);   # CME Operator      
