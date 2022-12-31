@@ -26,7 +26,7 @@ K = [1e-3;  # K₁
      1];    # K₄
 𝛎 = Pr - Re; # Stoichiometric balance
 
-𝗻ₖ = (20,20); # State-space size
+𝗻ₖ = (25,25); # State-space size
 
 T = 0.0:.4:100.0;
 

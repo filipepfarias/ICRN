@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.6)  15 DEC 2022 10:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.6)  15 DEC 2022 11:21
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -340,6 +340,11 @@ Underfull \hbox (badness 5022) in paragraph at lines 106--107
 10 p\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; t\OT1/cmr/m/n/10 ) =
  []
 
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
+35.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -353,11 +358,11 @@ Before submitting the final camera ready copy, remember to:
 
 [2] (./Information_of_Reaction_Networks.aux) ) 
 Here is how much of TeX's memory you used:
- 4177 strings out of 478268
- 65169 string characters out of 5846348
+ 4202 strings out of 478268
+ 65547 string characters out of 5846348
  372971 words of memory out of 5000000
- 22352 multiletter control sequences out of 15000+600000
- 511521 words of font info for 116 fonts, out of 8000000 for 9000
+ 22373 multiletter control sequences out of 15000+600000
+ 511835 words of font info for 117 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,11n,62p,615b,332s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-di
@@ -377,7 +382,7 @@ bols/msam10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts
 tmb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb
 ></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/loc
 al/texlive/2022/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Information_of_Reaction_Networks.pdf (2 pages, 170795 bytes).
+Output written on Information_of_Reaction_Networks.pdf (2 pages, 171773 bytes).
 
 PDF statistics:
  92 PDF objects out of 1000 (max. 8388607)

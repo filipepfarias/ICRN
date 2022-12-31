@@ -69,4 +69,4 @@ end
 
 # Plotting
 # println("Saving plots...")
-# include("misc_plotting2.jl")
+include("misc_plotting2.jl")
