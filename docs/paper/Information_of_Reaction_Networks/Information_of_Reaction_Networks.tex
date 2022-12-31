@@ -121,6 +121,19 @@ sk(x,t) = \sum_i \left(\frac{i - \mu(x,t)}{\sigma(x,t)}\right)^3 [p(x,t)]_i
 S(x,t) = \sum_i -\log([p(x,t)]_i) [p(x,t)]_i
 \end{equation}
 
+\subsection{Entropy balance}
+The Shannon's entropy can be defined in terms of the Boltzmann's entropy considering $k_B = 1$
+%
+\begin{equation}
+S(t) = - \sum_i \log([p(x,t)]_i)[p(x,t)]_i.
+\end{equation}
+%
+Taking the derivative w.r.t. we obtain
+%
+\begin{equation}
+\frac{dS}{dt} = - \sum_i \frac{\partial [p(x,t)]_i}{\partial t} \log([p(x,t)]_i)
+\end{equation}•
+
 \begin{thebibliography}{100} % 100 is a random guess of the total number of %references
 \bibitem{Gillespie} Gillespie, Daniel T. ``A rigorous derivation of the chemical master equation.'' {\it Physica A: Statistical Mechanics and its Applications}, 188.1-3 (1992): 404-425.
 
