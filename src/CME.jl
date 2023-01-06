@@ -16,7 +16,7 @@ module CME
 
     function CMEOperator(𝝼,Re,K,𝗻ₖ)
         𝓘 = hcat((:).(1,𝗻ₖ)...,);
-        return (sum([(𝗝(𝝼[m,:],𝗻ₖ) - I)*K[m]*W(𝓘,Re,m,𝝼) for m in eachindex(𝝼[:,1])]));
+        return (sum([(𝗝(𝝼[m,:],𝗻ₖ) - I)*K[m]*H(𝓘,Re,m,𝝼) for m in eachindex(𝝼[:,1])]));
     end
 
     # function CMEEntropy(p,A)
@@ -47,7 +47,8 @@ module CME
         𝓅  = reshape(p,𝗻ₖ...,);
         𝓅ₙ = sum(𝓅);
 
-        𝕊 = dropzeros(p) .* log.(dropzeros(p))
+        ip = p .!= 0.0
+        𝕊 = p[ip] .* log.(p[ip])
         𝕊 = -sum(𝕊);
 
         Q = A - spdiagm(diag(A));
@@ -104,27 +105,34 @@ module CME
         return marg_labels, marg, 𝔼, 𝕍ar, ℝ, Sk, 𝕊, Si, Se
     end
 
-    function Gillespie(K, 𝛎, S₀, T) # Gillespie
+    using Random, Distributions
+
+    function Gillespie(K, 𝛎, Re, S₀, T, save=false) # Gillespie
         t = 0
         t_vec = [0.0]
         Sₜ = S₀;
         S = S₀;
         # δ = [-2 -1 1 0; 0 -1 0 +1]';
-        d = size(𝛎,2);
+        M = size(𝛎,1);
     
         while t <= T
             # α = k .* [Sₜ[1]*(Sₜ[1]-1) Sₜ[1]*Sₜ[2] 1 1]
-            𝛂 = [K[m] * α(Sₜ,Re,m) for m in 1:d]
+            𝛂 = [K[m] * prod(α(Sₜ,Re,m)) for m in 1:M]
             α₀ = sum(𝛂);
             # αᵣ = cumsum(α,dims=1)/α₀;
         
+            α₀ == 0.0 ? break : nothing
+
             r = rand(Uniform(),1)
             τ = log(1 / r[1]) / α₀;
             t += τ
-            append!(t_vec,t)
+            
+            save ? append!(t_vec,t) : t_vec = t
     
             Sₜ += 𝛎[rand(Multinomial(1,vec(𝛂/α₀))) .!= 0,:];
-            S = cat(S,Sₜ,dims=1)
+            
+            save ? S = cat(S,Sₜ,dims=1) : S = Sₜ
+            
         end
         return t_vec,S
     end

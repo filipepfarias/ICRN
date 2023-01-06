@@ -3,8 +3,8 @@
 ## Plotting
 using GLMakie, CairoMakie, FileIO, JLD2
 
-path = "outputs/lmswj_20221215"
-model_nm = "MichaelisMenten"
+# path = "outputs/Cm7hL_20230102"
+# model_nm = "MichaelisMenten"
 
 GLMakie.activate!()
 fig = Figure(resolution = (1600,1600));
