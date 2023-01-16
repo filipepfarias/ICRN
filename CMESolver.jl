@@ -1,3 +1,7 @@
+using Pkg
+Pkg.activate(".")
+Pkg.instantiate();
+
 using CME
 using Random, Dates, FileIO, JLD2
 using DifferentialEquations: solve, ODEProblem, RK4
