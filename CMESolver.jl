@@ -1,6 +1,6 @@
-# using Pkg
-# Pkg.activate(".")
-# Pkg.instantiate();
+using Pkg
+Pkg.activate(".")
+Pkg.instantiate();
 
 using CME
 using Random, Dates, FileIO, JLD2
@@ -25,11 +25,6 @@ f(u,p,t) = A*u ;
 uf = p₀[:];
 p = uf;
 
-# flname = path*"/"*model_nm*"_t"*string(iT);
-# jldsave(flname, p=uf, t=0)
-
-# pf = zeros(length(uf),length(T));
-
 marg_labels, marg, 𝔼, 𝕍ar, ℝ, Sk, 𝕊, Si, Se = CMEStatistics(uf,A,𝗻ₖ,specie);
 
 println("Saving on "*path*".")
@@ -38,7 +33,6 @@ flname = path*"/"*model_nm*"_statistics_t"*string(0);
 jldsave(flname, specie=specie,
     marg_labels=marg_labels, 
     marg=marg, E=𝔼, Var=𝕍ar, R=ℝ, Sk=Sk, S=𝕊, Si=Si, Se=Se, t=0, T=T)
-# pf[:,1] = uf;
 
 pgres = Progress(length(T)-1; showspeed=true, desc="Solving the CME...")
 
@@ -48,10 +42,10 @@ for iT in eachindex(T)[1:end-1]
     sol = solve(prob, RK4();dt= .5/20, saveat=T[iT+1],adaptive=false);
     uf = sol.u[end]/sum(sol.u[end]);
     # u0 = sol.u[end]
-    # pf[:,iT+1] = uf;
+    pf[:,iT+1] = uf;
 
-    # flname = path*"/"*model_nm*"_t"*string(iT);
-    # jldsave(flname, p=uf, t=T[iT+1])
+    flname = path*"/"*model_nm*"_t"*string(iT);
+    jldsave(flname, p=uf, t=T[iT+1])
     marg_labels, marg, 𝔼, 𝕍ar, ℝ, Sk, 𝕊, Si, Se = CMEStatistics(uf,A,𝗻ₖ,specie)
 
     flname = path*"/"*model_nm*"_statistics_t"*string(iT);
@@ -62,11 +56,6 @@ for iT in eachindex(T)[1:end-1]
     ProgressMeter.next!(pgres)
 end
 
-# Q = A - diagm(diag(A)); 
-# Si = [ .5* sum( (A*diagm(pf[:,iT]) - (A'*diagm(pf[:,iT]))') .* (log.(Q * diagm(pf[:,iT])) .* .!isinf.(log.(Q * diagm(pf[:,iT]))) - log.(Q' * diagm(pf[:,iT]))' .* .!isinf.(log.(Q' * diagm(pf[:,iT])))' ) )  for iT in eachindex(T)]
-# Se = [ .5* sum( (A*diagm(pf[:,iT]) - (A'*diagm(pf[:,iT]))') .* (log.(Q) .* .!isinf.(log.(Q)) - log.(Q')' .* .!isinf.(log.(Q'))' ) )  for iT in eachindex(T)]
-
-
 # Plotting
-# println("Saving plots...")
+println("Saving plots...")
 include("misc_plotting2.jl")
