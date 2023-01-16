@@ -9,7 +9,8 @@ module CME
         return kron(reverse(J.(ν,n))...)
     end
 
-    α(𝓘,Re,m) = binomial.(𝓘,Re[m,:]') .* factorial.(Re[m,:]');
+    # α(𝓘,Re,m) = binomial.(𝓘,Re[m,:]') .* factorial.(Re[m,:]');
+    α(𝓘,Re,m) = binomial.(𝓘,Re[m,:]');
     η(𝓘,Re,m,𝛎) = α(𝓘,Re,m) .* (𝓘 .<= (𝓘[end,:]' - 𝛎[m,:]')) .* (𝓘 .>= (𝓘[1,:]' - 𝛎[m,:]'));
     W(𝓘,Re,m,𝛎) = reduce(kron,reverse(Diagonal.(eachcol(α(𝓘,Re,m)))));
     H(𝓘,Re,m,𝛎) = reduce(kron,reverse(Diagonal.(eachcol(η(𝓘,Re,m,𝛎)))));
@@ -48,8 +49,8 @@ module CME
         𝓅ₙ = sum(𝓅);
 
         ip = p .!= 0.0
-        𝕊 = p[ip] .* log.(p[ip])
-        𝕊 = -sum(𝕊);
+        𝕊 = -p[ip] .* log.(p[ip])
+        𝕊 = sum(𝕊);
 
         Q = A - spdiagm(diag(A));
         logA = copy(Q);
@@ -135,6 +136,28 @@ module CME
             
         end
         return t_vec,S
+    end
+
+    function concentration2mol(K,Re,V,binv=1)
+        nₐ  = 6.022e23; # Avogadro number
+        c = factorial.(Re);
+        # c[Re .== 0] = 1;
+        c = prod(c, dims = 2);
+
+        i0 = map(x -> all(x .== 0),eachrow(Re)); # 0th order
+        c[i] .= K[i] * (nₐ * V)^(binv);
+
+        i1 = map(x -> sum(x) == 1,eachrow(Re)); # 1st order
+        c[i] .= K[i];
+
+        i0i1 = i0 .* i1; # Higher order
+        c[i0i1] .= K[i0i1] * (r[i0i1]).^(binv) / (nₐ * V)^(binv)
+
+        return c
+    end
+
+    function mol2concentration(K,Re,V,binv=-1)
+        K = concentration2mol(K,Re,V,binv)
     end
 
     export CMEOperator, CMEStatistics, Gillespie
