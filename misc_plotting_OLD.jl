@@ -1,13 +1,16 @@
+# DEPRECATED !!!
+
 # using Pkg
 # Pkg.activate(".")
 ## Plotting
 using GLMakie, CairoMakie, FileIO, JLD2
 
-# path = "outputs/Cm7hL_20230102"
-# model_nm = "MichaelisMenten"
+path = "outputs/gv4Yl_20221117"
+model_nm = "MichaelisMenten"
 
+# For Michaelis-Menten reaction network
 GLMakie.activate!()
-fig = Figure(resolution = (1600,1600));
+fig = Figure(resolution = (1000,1000));
 
 mat = [j > i ? 
         Observable(Matrix{Float64}(undef,𝗻ₖ[i],𝗻ₖ[j])) : 
@@ -36,42 +39,18 @@ catch
     nothing
 end
 
-𝔼 = zeros(length(𝗻ₖ),length(T));
-𝕍ar = zeros(length(𝗻ₖ),length(T));
-ℝ = zeros(length(𝗻ₖ),length(T),length(𝗻ₖ));
-Sk = zeros(length(𝗻ₖ),length(T));
-𝕊 = zeros(1,length(T));
-Si = zeros(1,length(T));
-Se = zeros(1,length(T));
-
 record(fig, path*"/plots/"*model_nm*"_anim.mp4", eachindex(T);
         framerate = 4) do iT
     iT -= 1;
-    global 𝔼, 𝕍ar, ℝ, Sk, 𝕊
-
-    flname = path*"/"*model_nm*"_statistics_t"*string(iT);
-    data = jldopen(flname);
-
-    specie=data["specie"];
-    marg_labels=data["marg_labels"];
-    marg=data["marg"];
-    𝔼[:,iT+1] = data["E"];
-    𝕍ar[:,iT+1] = data["Var"];
-    ℝ[:,iT+1,:] = data["R"];
-    Sk[:,iT+1] = data["Sk"];
-    𝕊[1,iT+1] = data["S"];
-    Si[1,iT+1] = data["Si"];
-    Se[1,iT+1] = data["Se"];
-    T = data["T"];
-
-    idm = 1;
+    flname = path*"/"*model_nm*"_t"*string(iT)*"_marg_";
     for i in eachindex(specie), j in eachindex(specie)
         if j > i
-            mat[i,j][] = marg[idm]'
-            idm += 1;
+            flsuffix = specie[i]*"_x_"*specie[j];
+            mat[i,j][] = jldopen(flname*flsuffix)["p"]
         elseif i == j
-            mat[i,j][] = marg[idm];
-            idm += 1;
+            flsuffix = specie[i];
+            ind = collect(eachindex(specie))
+            mat[i,j][] = jldopen(flname*flsuffix)["p"];
         end
     end 
 end
@@ -79,12 +58,20 @@ end
 CairoMakie.activate!()
 fig2 = Figure(resolution = (300,300));
 
+flname = path*"/"*model_nm*"_mean";
+𝔼 = jldopen(flname)["E"];
+T = jldopen(flname)["T"];
+
 fig2, ax, sp = series(T,𝔼, labels=specie);
 axislegend(ax);
 save(path*"/plots/"*model_nm*"_mean_evol.pdf", fig2, pt_per_unit = 2)
 
 fig3 = Figure(resolution = (300,300));
 
-fig3, ax, sp = series(T,[𝕊; Si-Se; Si; Se], labels=["Entropy"; "Entropy change"; "Entropy production"; "Entropy flow"]); 
+flname = path*"/"*model_nm*"_entropy";
+𝕊 = jldopen(flname)["S"];
+d𝕊dt = jldopen(flname)["dSdt"];
+
+fig3, ax, sp = series(T,[𝕊;d𝕊dt; 0 diff(𝕊[:])'], labels=["Entropy","Entropy balance","Test"]); 
 axislegend(ax);
 save(path*"/plots/"*model_nm*"_entrop_evol.pdf", fig3, pt_per_unit = 2)

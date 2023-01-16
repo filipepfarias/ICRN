@@ -1,7 +1,3 @@
-using Pkg
-Pkg.activate(".")
-Pkg.instantiate();
-
 using CME
 using Random, Dates, FileIO, JLD2
 using DifferentialEquations: solve, ODEProblem, RK4
@@ -58,4 +54,4 @@ end
 
 # Plotting
 println("Saving plots...")
-include("misc_plotting2.jl")
+include("misc_plotting.jl")
