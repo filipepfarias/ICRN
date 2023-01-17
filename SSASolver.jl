@@ -1,31 +1,26 @@
 using CME
+using Distributed
 
 model_nm = "MichaelisMenten"
 model = "reactions/"*model_nm*".jl";
 include(model);
 
 evol_𝕊 = zeros(length(T),1);
-
+ 
 for iT in eachindex(T)
-    pS = p₀;
-    p = p₀;
-    sim = 0; max_sim = 2500;
+    global A, marg, evol_𝕊
+    pS = zeros(size(p₀)...);
+    sim = 0; max_sim = 500;
 
-    while sim < max_sim
-        global p, sim
+    for _ in 1:max_sim
         𝒮 = [rand(ℰ),ℰ𝒜,rand(𝒜),ℬ]' .-1;
         t,S = Gillespie(K, 𝛎, Re, 𝒮, T[iT]);
-        pS[(S .+ 1)...] = 1;
-        p += pS;
-        pS[(S .+ 1)...] = 0;
-
-        sim += 1;
+        pS[(S .+ 1)...] += 1;
     end
 
-    p = p ./ sum(p);
-
-    # A = CMEOperator(𝛎,Re,K,𝗻ₖ); 
-    marg_labels, marg, 𝔼, 𝕍ar, ℝ, Sk, 𝕊, Si, Se = CMEStatistics(p[:],A,𝗻ₖ,specie);
+    pS ./= sum(pS);
+    
+    marg_labels, marg, = CMEMarginals(𝗻ₖ,p,specie);
 
     evol_𝕊[iT] = 𝕊;
 end
