@@ -38,7 +38,7 @@ end
 
 𝔼 = zeros(length(𝗻ₖ),length(T));
 𝕍ar = zeros(length(𝗻ₖ),length(T));
-ℝ = zeros(length(𝗻ₖ),length(T),length(𝗻ₖ));
+# ℝ = zeros(length(𝗻ₖ),length(T),length(𝗻ₖ));
 Sk = zeros(length(𝗻ₖ),length(T));
 𝕊 = zeros(1,length(T));
 Si = zeros(1,length(T));
@@ -47,7 +47,7 @@ Se = zeros(1,length(T));
 record(fig, path*"/plots/"*model_nm*"_anim.mp4", eachindex(T);
         framerate = 4) do iT
     iT -= 1;
-    global 𝔼, 𝕍ar, ℝ, Sk, 𝕊
+    global 𝔼, 𝕍ar, Sk, 𝕊
 
     flname = path*"/"*model_nm*"_statistics_t"*string(iT);
     data = jldopen(flname);
@@ -57,7 +57,7 @@ record(fig, path*"/plots/"*model_nm*"_anim.mp4", eachindex(T);
     marg=data["marg"];
     𝔼[:,iT+1] = data["E"];
     𝕍ar[:,iT+1] = data["Var"];
-    ℝ[:,iT+1,:] = data["R"];
+    # ℝ[:,iT+1,:] = data["R"];
     Sk[:,iT+1] = data["Sk"];
     𝕊[1,iT+1] = data["S"];
     Si[1,iT+1] = data["Si"];

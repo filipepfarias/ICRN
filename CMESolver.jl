@@ -30,7 +30,7 @@ p = uf;
 
 # pf = zeros(length(uf),length(T));
 
-marg_labels, marg, 𝔼, 𝕍ar, ℝ, Sk, 𝕊, Si, Se = CMEStatistics(uf,A,𝗻ₖ,specie);
+marg_labels, marg, 𝔼, 𝕍ar, Sk, 𝕊, Si, Se = CMEStatistics(uf,A,𝗻ₖ,specie);
 
 println("Saving on "*path*".")
 
@@ -43,7 +43,7 @@ jldsave(flname, specie=specie,
 pgres = Progress(length(T)-1; showspeed=true, desc="Solving the CME...")
 
 for iT in eachindex(T)[1:end-1]
-    global pf, uf, flname, marg_labels, marg, 𝔼, 𝕍ar, ℝ, Sk, 𝕊, Si, Se, sol
+    global pf, uf, flname, marg_labels, marg, 𝔼, 𝕍ar, Sk, 𝕊, Si, Se, sol
     prob = ODEProblem(f,uf, (T[iT],T[iT+1]));
     sol = solve(prob, RK4();dt= .5/20, saveat=T[iT+1],adaptive=false);
     uf = sol.u[end]/sum(sol.u[end]);
@@ -52,7 +52,7 @@ for iT in eachindex(T)[1:end-1]
 
     # flname = path*"/"*model_nm*"_t"*string(iT);
     # jldsave(flname, p=uf, t=T[iT+1])
-    marg_labels, marg, 𝔼, 𝕍ar, ℝ, Sk, 𝕊, Si, Se = CMEStatistics(uf,A,𝗻ₖ,specie)
+    marg_labels, marg, 𝔼, 𝕍ar, Sk, 𝕊, Si, Se = CMEStatistics(uf,A,𝗻ₖ,specie)
 
     flname = path*"/"*model_nm*"_statistics_t"*string(iT);
     jldsave(flname, specie=specie,
@@ -69,4 +69,4 @@ end
 
 # Plotting
 # println("Saving plots...")
-include("misc_plotting2.jl")
+include("misc_plotting.jl")
