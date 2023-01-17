@@ -139,7 +139,7 @@ module CME
         𝕍ar = CMEVariance(𝗻ₖ,𝔼,marg);
         Sk = CMESkewness(𝗻ₖ,𝔼,𝕍ar,marg);
 
-        𝕊 = CMEEntropy(P);
+        𝕊 = CMEEntropy(p);
 
         Si, Se = CMEdEntropy(p,A);
 
