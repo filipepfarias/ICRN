@@ -43,14 +43,15 @@ module CME
         return ℐ
     end
 
-    function CMEStatistics(p,A,𝗻ₖ,specie)
-        𝓅  = reshape(p,𝗻ₖ...,);
-        𝓅ₙ = sum(𝓅);
-
+    function CMEEntropy(p)
         ip = p .!= 0.0
-        𝕊 = p[ip] .* log.(p[ip])
-        𝕊 = -sum(𝕊);
+        𝕊 = -p[ip] .* log.(p[ip])
+        𝕊 = sum(𝕊)
 
+        return 𝕊
+    end
+
+    function CMEdEntropy(p,A)
         Q = A - spdiagm(diag(A));
         logA = copy(Q);
         nzlogA = nonzeros(logA); nzlogA .= log.(nonzeros(logA));
@@ -64,37 +65,62 @@ module CME
         Se = .5 * sum(J .* (logA - logA')); # h_ex
         Si = .5 * sum( J .* X ); # e_p
 
-        # Si = .5* sum( (A*spdiagm(p) - (A*spdiagm(p))') .* (log.(Q * spdiagm(p)) .* ((Q * spdiagm(p)) .!= 0) - log.(Q * spdiagm(p))' .* ((Q * spdiagm(p)) .!= 0)' ) )
-        # Se = .5* sum( (A*spdiagm(p) - (A*spdiagm(p))') .* (log.(Q) .* (Q .!= 0) - log.(Q') .* (Q' .!= 0) ) ) 
+        return Si, Se
+    end
+
+    function CMEMean(𝗻ₖ,marg)
 
         𝔼 = zeros(length(𝗻ₖ),1);
+
+        for i in eachindex(𝗻ₖ), j in eachindex(𝗻ₖ)
+            ℕ = (1:𝗻ₖ[i]) .- 1;
+            𝔼[i,1] = sum( ℕ .* marg[i] );
+        end
+        return 𝔼
+    end
+
+    function CMEVariance(𝗻ₖ,𝔼,marg)
         𝕍ar = zeros(length(𝗻ₖ),1);
-        ℝ = zeros(length(𝗻ₖ),1,length(𝗻ₖ));
+
+        for i in eachindex(𝗻ₖ), j in eachindex(𝗻ₖ)
+            ℕ = (1:𝗻ₖ[i]) .- 1;
+            𝕍ar[i,1] = sum( (ℕ.-𝔼[i,1]).^2 .* marg[i] );
+        end
+        return 𝕍ar
+        
+    end
+
+    function CMESkewness(𝗻ₖ,𝔼,𝕍ar,marg)
         Sk = zeros(length(𝗻ₖ),1);
 
+        for i in eachindex(𝗻ₖ), j in eachindex(𝗻ₖ)
+            ℕ = (1:𝗻ₖ[i]) .- 1;
+            Sk[i,1] = 𝕍ar[i,1] == 0.0 ? 0.0 : sum(((ℕ.-𝔼[i,1])./√𝕍ar[i,1]).^3 .* marg[i] );
+        end
+        return Sk
+    end
+
+    function CMEMarginals(𝗻ₖ,𝓅,specie)
         idn = Int(length(𝗻ₖ)*(length(𝗻ₖ)+1)/2);
         marg = Vector{Any}(undef,idn);
         idm = 1;
         marg_labels = [];
+        𝓅ₙ = sum(𝓅);
 
         for i in eachindex(𝗻ₖ), j in eachindex(𝗻ₖ)
             if j > i
-                ℕxℕ = ((1:𝗻ₖ[i]) .- 1)*((1:𝗻ₖ[i]) .- 1)';
+                # ℕxℕ = ((1:𝗻ₖ[i]) .- 1)*((1:𝗻ₖ[i]) .- 1)';
                 d = deleteat!(collect(eachindex(𝗻ₖ)), [i j])
                 marg[idm] = reshape(sum(𝓅,dims=d)./𝓅ₙ ,𝗻ₖ[i],𝗻ₖ[j])
 
-                ℝ[i,1,j] = sum( ℕxℕ .* marg[idm] );
+                # ℝ[i,1,j] = sum( ℕxℕ .* marg[idm] );
 
                 flsuffix = specie[i]*"_x_"*specie[j];
                 append!(marg_labels,[flsuffix]);
                 idm += 1;
             elseif i == j
-                ℕ = (1:𝗻ₖ[i]) .- 1;
                 ind = collect(1:length(𝗻ₖ))
                 marg[idm] = sum(𝓅,dims=deleteat!(ind,i))[:] ./𝓅ₙ ;
-                𝔼[i,1] = sum( ℕ .* marg[idm] );
-                𝕍ar[i,1] = sum( (ℕ.-𝔼[i,1]).^2 .* marg[idm] );
-                Sk[i,1] = 𝕍ar[i,1] == 0.0 ? 0.0 : sum(((ℕ.-𝔼[i,1])./√𝕍ar[i,1]).^3 .* marg[idm] );
 
                 flsuffix = specie[i];
                 append!(marg_labels,[flsuffix]);
@@ -102,7 +128,26 @@ module CME
             end
         end
 
-        return marg_labels, marg, 𝔼, 𝕍ar, ℝ, Sk, 𝕊, Si, Se
+        return marg, marg_labels
+    end
+
+    function CMEStatistics(p,A,𝗻ₖ,specie)
+        𝓅  = reshape(p,𝗻ₖ...,);
+
+        marg, marg_labels = CMEMarginals(𝗻ₖ,𝓅,specie);
+        𝔼 = CMEMean(𝗻ₖ,marg)
+        𝕍ar = CMEVariance(𝗻ₖ,𝔼,marg);
+        Sk = CMESkewness(𝗻ₖ,𝔼,𝕍ar,marg);
+
+        𝕊 = CMEEntropy(P);
+
+        Si, Se = CMEdEntropy(p,A);
+
+        # Si = .5* sum( (A*spdiagm(p) - (A*spdiagm(p))') .* (log.(Q * spdiagm(p)) .* ((Q * spdiagm(p)) .!= 0) - log.(Q * spdiagm(p))' .* ((Q * spdiagm(p)) .!= 0)' ) )
+        # Se = .5* sum( (A*spdiagm(p) - (A*spdiagm(p))') .* (log.(Q) .* (Q .!= 0) - log.(Q') .* (Q' .!= 0) ) ) 
+
+
+        return marg_labels, marg, 𝔼, 𝕍ar, Sk, 𝕊, Si, Se
     end
 
     using Random, Distributions
@@ -137,5 +182,29 @@ module CME
         return t_vec,S
     end
 
-    export CMEOperator, CMEStatistics, Gillespie
+    function concentration2mol(K,Re,V,binv=1)
+        nₐ  = 6.022e23; # Avogadro number
+        c = factorial.(Re);
+        # c[Re .== 0] = 1;
+        c = prod(c, dims = 2);
+
+        i0 = map(x -> all(x .== 0),eachrow(Re)); # 0th order
+        c[i] .= K[i] * (nₐ * V)^(binv);
+
+        i1 = map(x -> sum(x) == 1,eachrow(Re)); # 1st order
+        c[i] .= K[i];
+
+        i0i1 = i0 .* i1; # Higher order
+        c[i0i1] .= K[i0i1] * (r[i0i1]).^(binv) / (nₐ * V)^(binv)
+
+        return c
+    end
+
+    function mol2concentration(K,Re,V,binv=-1)
+        K = concentration2mol(K,Re,V,binv)
+    end
+
+    export CMEOperator, CMEStatistics, CMEEntropy, 
+    CMEdEntropy, CMEMean, CMEVariance, CMESkewness, 
+    CMEMarginals, Gillespie
 end
