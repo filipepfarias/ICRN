@@ -42,7 +42,7 @@ for iT in eachindex(T)[1:end-1]
     sol = solve(prob, RK4();dt= .5/20, saveat=T[iT+1],adaptive=false);
     uf = sol.u[end]/sum(sol.u[end]);
     # u0 = sol.u[end]
-    pf[:,iT+1] = uf;
+    # pf[:,iT+1] = uf;
 
     flname = path*"/"*model_nm*"_t"*string(iT);
     jldsave(flname, p=uf, t=T[iT+1])
@@ -57,5 +57,5 @@ for iT in eachindex(T)[1:end-1]
 end
 
 # Plotting
-println("Saving plots...")
+# println("Saving plots...")
 # include("misc_plotting.jl")
