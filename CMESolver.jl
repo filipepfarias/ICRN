@@ -37,8 +37,6 @@ jldsave(flname, specie=specie,
 
 pgres = Progress(length(T)-1; showspeed=true, desc="Solving the CME...")
 
-@sync for iT in eachindex(T)[1:end-1]
-    global pf, uf, flname, marg_labels, marg, 𝔼, 𝕍ar, Sk, 𝕊, Si, Se, sol
 for iT in eachindex(T)[1:end-1]
     global pf, uf, flname, marg_labels, marg, 𝔼, 𝕍ar, ℝ, Sk, 𝕊, Si, Se, sol
     prob = ODEProblem(f,uf, (T[iT],T[iT+1]));
