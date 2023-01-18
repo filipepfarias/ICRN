@@ -1,12 +1,12 @@
 using Distributed
 addprocs()
 
-@everywhere begin
-    using Pkg; 
-    Pkg.activate("."); 
-    Pkg.instantiate();
-    using CME
-end
+
+@everywhere using Pkg; 
+@everywhere Pkg.activate("."); 
+@everywhere  Pkg.instantiate();
+@everywhere  using CME
+
 
 using Random, Dates, FileIO, JLD2
 using DifferentialEquations: solve, ODEProblem, RK4
