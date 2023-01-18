@@ -1,5 +1,5 @@
 using Distributed
-addprocs(;exeflags=`--project=$(Base.active_project())`)
+addprocs()
 
 @everywhere begin
     using Pkg
