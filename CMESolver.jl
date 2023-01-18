@@ -1,11 +1,11 @@
 using Distributed
-addprocs(128)
+addprocs(10)
 
 
-@everywhere using Pkg; 
-@everywhere Pkg.activate("."); 
-# @everywhere Pkg.instantiate();
-@everywhere using CME
+using Pkg; 
+Pkg.activate("."); 
+Pkg.instantiate();
+using CME
 
 
 using Random, Dates, FileIO, JLD2
