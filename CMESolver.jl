@@ -49,7 +49,7 @@ pgres = Progress(length(T)-1; showspeed=true, desc="Solving the CME...")
 
     flname = path*"/"*model_nm*"_t"*string(iT);
     @spawn jldsave(flname, p=uf, t=T[iT+1])
-    marg_labels, marg, 𝔼, 𝕍ar, Sk, 𝕊, Si, Se = CMEStatistics(uf,A,𝗻ₖ,specie)
+    @spawn marg_labels, marg, 𝔼, 𝕍ar, Sk, 𝕊, Si, Se = CMEStatistics(uf,A,𝗻ₖ,specie)
 
     flname = path*"/"*model_nm*"_statistics_t"*string(iT);
     @spawn jldsave(flname, specie=specie,
