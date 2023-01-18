@@ -1,6 +1,5 @@
 module CME
     using LinearAlgebra, SparseArrays
-    using Distributed
 
     function J(νi,n) # νi per reaction
         return νi > 0 ? sparse(I,n+νi,n+νi)[1:end-νi,νi+1:end] : sparse(I,n-νi,n-νi)[1-νi:end,1:(end+νi)]
