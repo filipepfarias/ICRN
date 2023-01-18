@@ -2,8 +2,8 @@ using Distributed
 addprocs()
 
 @everywhere begin
-    using Pkg
-    Pkg.activate(".")
+    using Pkg; 
+    Pkg.activate("."); 
     Pkg.instantiate();
     using CME
 end
