@@ -1,7 +1,3 @@
-using Distributed
-addprocs(10)
-
-
 using Pkg; 
 Pkg.activate("."); 
 Pkg.instantiate();
