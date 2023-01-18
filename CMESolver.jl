@@ -1,10 +1,10 @@
 using Distributed
-addprocs()
+addprocs(128)
 
 
-using Pkg; 
-Pkg.activate("."); 
-Pkg.instantiate();
+@everywhere using Pkg; 
+@everywhere Pkg.activate("."); 
+# @everywhere Pkg.instantiate();
 @everywhere using CME
 
 
