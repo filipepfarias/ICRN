@@ -1,3 +1,6 @@
+using Distributed
+addprocs(;exeflags=`--project=$(Base.active_project())`)
+
 using Pkg
 Pkg.activate(".")
 Pkg.instantiate();
@@ -36,6 +39,8 @@ jldsave(flname, specie=specie,
 
 pgres = Progress(length(T)-1; showspeed=true, desc="Solving the CME...")
 
+@sync for iT in eachindex(T)[1:end-1]
+    global pf, uf, flname, marg_labels, marg, 𝔼, 𝕍ar, Sk, 𝕊, Si, Se, sol
 for iT in eachindex(T)[1:end-1]
     global pf, uf, flname, marg_labels, marg, 𝔼, 𝕍ar, ℝ, Sk, 𝕊, Si, Se, sol
     prob = ODEProblem(f,uf, (T[iT],T[iT+1]));
@@ -49,7 +54,7 @@ for iT in eachindex(T)[1:end-1]
     marg_labels, marg, 𝔼, 𝕍ar, Sk, 𝕊, Si, Se = CMEStatistics(uf,A,𝗻ₖ,specie)
 
     flname = path*"/"*model_nm*"_statistics_t"*string(iT);
-    jldsave(flname, specie=specie,
+    @spawn jldsave(flname, specie=specie,
     marg_labels=marg_labels, 
     marg=marg, E=𝔼, Var=𝕍ar, Sk=Sk, S=𝕊, Si=Si, Se=Se, t=T[iT], T=T)
 
