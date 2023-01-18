@@ -1,10 +1,12 @@
-using Pkg; 
-Pkg.activate("."); 
+using Distributed
+addprocs(2)
+
+@everywhere using Pkg; 
+@everywhere Pkg.activate("."); 
 Pkg.instantiate();
 using CME
 
-
-using Random, Dates, FileIO, JLD2
+@everywhere using Random, Dates, FileIO, JLD2
 using DifferentialEquations: solve, ODEProblem, RK4
 using ProgressMeter
 
@@ -37,7 +39,7 @@ jldsave(flname, specie=specie,
 
 pgres = Progress(length(T)-1; showspeed=true, desc="Solving the CME...")
 
-for iT in eachindex(T)[1:end-1]
+@sync for iT in eachindex(T)[1:end-1]
     global pf, uf, flname, marg_labels, marg, 𝔼, 𝕍ar, ℝ, Sk, 𝕊, Si, Se, sol
     prob = ODEProblem(f,uf, (T[iT],T[iT+1]));
     sol = solve(prob, RK4();dt= .5/20, saveat=T[iT+1],adaptive=false);
@@ -46,7 +48,7 @@ for iT in eachindex(T)[1:end-1]
     # pf[:,iT+1] = uf;
 
     flname = path*"/"*model_nm*"_t"*string(iT);
-    jldsave(flname, p=uf, t=T[iT+1])
+    @spawn jldsave(flname, p=uf, t=T[iT+1])
     marg_labels, marg, 𝔼, 𝕍ar, Sk, 𝕊, Si, Se = CMEStatistics(uf,A,𝗻ₖ,specie)
 
     flname = path*"/"*model_nm*"_statistics_t"*string(iT);

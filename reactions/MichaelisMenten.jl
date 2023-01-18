@@ -39,7 +39,7 @@ Pr = [0  1  0  0;   # k₁
 # k1 = 1 × 10⁶, k2 = 1 × 10⁻⁴, k3 = 0.1
 # From Wilkinson, Stochastic Modelling for
 # System Biology
-V   = 7e-16;                 # Original 1e-15
+V   = 7e-17;                 # Original 1e-15
 nₐ  = 6.022e23;              # Avogadro's number
 k₁  = 1e6 / nₐ / V;          # 2nd order reaction
 k₋₁ = 1e-4;                  # 1st order reaction 
