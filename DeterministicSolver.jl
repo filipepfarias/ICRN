@@ -1,9 +1,9 @@
 using CME
 using DifferentialEquations
 
-# model_nm = "MichaelisMenten"
-# model = "reactions/"*model_nm*".jl";
-# include(model);
+model_nm = "MichaelisMenten"
+model = "reactions/"*model_nm*".jl";
+include(model);
 Κ = K;
 Κ[1] = K[1] * nₐ * V; #Molecules to concentrations conversion (Wilkinson)
 𝒥(𝘅,ℓ) = Κ[ℓ]*prod((^).(𝘅,Re[ℓ,:]))
@@ -23,6 +23,17 @@ end
 
 tspan = (0.0,100.0)
 prob = ODEProblem(f!,𝘅₀,tspan)
+sol = solve(prob,RK4();dt= .5,adaptive=false)
+
+function G(𝘅)
+    g1 = [(-1)^ℓ * 𝒥(𝘅,ℓ) for ℓ in eachindex(K)]
+    g2 = [-(-1)^ℓ * log(𝒥(𝘅,ℓ)) for ℓ in eachindex(K)]
+    d𝘅 = sum(g1 * g2')
+    return d𝘅
+end
+
+tspan = (0.0,100.0)
+prob = ODEProblem(G!,𝘅₀,tspan)
 sol = solve(prob,RK4();dt= .5/10,adaptive=false)
 
 using GLMakie

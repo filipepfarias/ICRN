@@ -3,8 +3,9 @@
 ## Plotting
 using GLMakie, CairoMakie, FileIO, JLD2
 
-path = "outputs/De4lI_20230118"
+# path = "outputs/Cm7hL_20230102"
 # model_nm = "MichaelisMenten"
+path = "outputs/h0Kva_20230118_SSA"
 
 GLMakie.activate!()
 fig = Figure(resolution = (1600,1600));
@@ -39,10 +40,10 @@ end
 𝔼 = zeros(length(𝗻ₖ),length(T));
 𝕍ar = zeros(length(𝗻ₖ),length(T));
 # ℝ = zeros(length(𝗻ₖ),length(T),length(𝗻ₖ));
-Sk = zeros(length(𝗻ₖ),length(T));
+# Sk = zeros(length(𝗻ₖ),length(T));
 𝕊 = zeros(1,length(T));
-Si = zeros(1,length(T));
-Se = zeros(1,length(T));
+# Si = zeros(1,length(T));
+# Se = zeros(1,length(T));
 
 record(fig, path*"/plots/"*model_nm*"_anim.mp4", eachindex(T);
         framerate = 4) do iT
@@ -58,10 +59,10 @@ record(fig, path*"/plots/"*model_nm*"_anim.mp4", eachindex(T);
     𝔼[:,iT+1] = data["E"];
     𝕍ar[:,iT+1] = data["Var"];
     # ℝ[:,iT+1,:] = data["R"];
-    Sk[:,iT+1] = data["Sk"];
+    # Sk[:,iT+1] = data["Sk"];
     𝕊[1,iT+1] = data["S"];
-    Si[1,iT+1] = data["Si"];
-    Se[1,iT+1] = data["Se"];
+    # Si[1,iT+1] = data["Si"];
+    # Se[1,iT+1] = data["Se"];
     T = data["T"];
 
     idm = 1;
@@ -79,12 +80,12 @@ end
 CairoMakie.activate!()
 fig2 = Figure(resolution = (300,300));
 
-fig2, ax2, sp = series(T,𝔼, labels=specie);
+fig2, ax2, sp = series(T,hcat(sol.u...), labels=specie);
 axislegend(ax2);
-save(path*"/plots/"*model_nm*"_mean_evol.pdf", fig2, pt_per_unit = 2)
+save(path*"/plots/"*model_nm*"_mean_evol_SSA.pdf", fig2, pt_per_unit = 2)
 
-fig3 = Figure(resolution = (300,300));
+# fig5 = Figure(resolution = (300,300));
 
-fig3, ax3, sp = series(T,[𝕊; Si-Se; Si; Se], labels=["Entropy"; "Entropy change"; "Entropy production"; "Entropy flow"]); 
+fig3, ax3, sp = series!(ax3,T,[𝕊; [0; diff(𝕊[:])]'], labels=["Entropy"; "Entropy change"]); 
 axislegend(ax3);
-save(path*"/plots/"*model_nm*"_entrop_evol.pdf", fig3, pt_per_unit = 2)
+save(path*"/plots/"*model_nm*"_entrop_evol_SSA.pdf", fig3, pt_per_unit = 2)

@@ -37,7 +37,7 @@ println("Saving on "*path*".")
 flname = path*"/"*model_nm*"_statistics_t"*string(0);
 jldsave(flname, specie=specie,
     marg_labels=marg_labels, 
-    marg=marg, E=𝔼, Var=𝕍ar, R=ℝ, Sk=Sk, S=𝕊, Si=Si, Se=Se, t=0, T=T)
+    marg=marg, E=𝔼, Var=𝕍ar,Sk=Sk, S=𝕊, Si=Si, Se=Se, t=0, T=T)
 # pf[:,1] = uf;
 
 pgres = Progress(length(T)-1; showspeed=true, desc="Solving the CME...")
@@ -57,7 +57,7 @@ for iT in eachindex(T)[1:end-1]
     flname = path*"/"*model_nm*"_statistics_t"*string(iT);
     jldsave(flname, specie=specie,
     marg_labels=marg_labels, 
-    marg=marg, E=𝔼, Var=𝕍ar, R=ℝ, Sk=Sk, S=𝕊, Si=Si, Se=Se, t=T[iT], T=T)
+    marg=marg, E=𝔼, Var=𝕍ar,Sk=Sk, S=𝕊, Si=Si, Se=Se, t=T[iT], T=T)
 
     ProgressMeter.next!(pgres)
 end
