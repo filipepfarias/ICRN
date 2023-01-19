@@ -10,6 +10,7 @@ module CME
     end
 
     α(𝓘,Re,m) = binomial.(𝓘,Re[m,:]') .* factorial.(Re[m,:]');
+    # α(𝓘,Re,m) = binomial.(𝓘,Re[m,:]');
     η(𝓘,Re,m,𝛎) = α(𝓘,Re,m) .* (𝓘 .<= (𝓘[end,:]' - 𝛎[m,:]')) .* (𝓘 .>= (𝓘[1,:]' - 𝛎[m,:]'));
     W(𝓘,Re,m,𝛎) = reduce(kron,reverse(Diagonal.(eachcol(α(𝓘,Re,m)))));
     H(𝓘,Re,m,𝛎) = reduce(kron,reverse(Diagonal.(eachcol(η(𝓘,Re,m,𝛎)))));
@@ -46,7 +47,7 @@ module CME
     function CMEEntropy(p)
         ip = p .!= 0.0
         𝕊 = -p[ip] .* log.(p[ip])
-        𝕊 = sum(𝕊)
+        𝕊 = sum(𝕊);
 
         return 𝕊
     end
@@ -72,7 +73,7 @@ module CME
 
         𝔼 = zeros(length(𝗻ₖ),1);
 
-        for i in eachindex(𝗻ₖ), j in eachindex(𝗻ₖ)
+        for i in eachindex(𝗻ₖ)
             ℕ = (1:𝗻ₖ[i]) .- 1;
             𝔼[i,1] = sum( ℕ .* marg[i] );
         end
@@ -82,7 +83,7 @@ module CME
     function CMEVariance(𝗻ₖ,𝔼,marg)
         𝕍ar = zeros(length(𝗻ₖ),1);
 
-        for i in eachindex(𝗻ₖ), j in eachindex(𝗻ₖ)
+        for i in eachindex(𝗻ₖ)
             ℕ = (1:𝗻ₖ[i]) .- 1;
             𝕍ar[i,1] = sum( (ℕ.-𝔼[i,1]).^2 .* marg[i] );
         end
@@ -93,7 +94,7 @@ module CME
     function CMESkewness(𝗻ₖ,𝔼,𝕍ar,marg)
         Sk = zeros(length(𝗻ₖ),1);
 
-        for i in eachindex(𝗻ₖ), j in eachindex(𝗻ₖ)
+        for i in eachindex(𝗻ₖ)
             ℕ = (1:𝗻ₖ[i]) .- 1;
             Sk[i,1] = 𝕍ar[i,1] == 0.0 ? 0.0 : sum(((ℕ.-𝔼[i,1])./√𝕍ar[i,1]).^3 .* marg[i] );
         end
@@ -135,9 +136,10 @@ module CME
         𝓅  = reshape(p,𝗻ₖ...,);
 
         marg, marg_labels = CMEMarginals(𝗻ₖ,𝓅,specie);
-        𝔼 = CMEMean(𝗻ₖ,marg)
-        𝕍ar = CMEVariance(𝗻ₖ,𝔼,marg);
-        Sk = CMESkewness(𝗻ₖ,𝔼,𝕍ar,marg);
+        i_marg = [1; 1 .+ cumsum(length(𝗻ₖ):-1:2)]
+        𝔼 = CMEMean(𝗻ₖ,marg[i_marg])
+        𝕍ar = CMEVariance(𝗻ₖ,𝔼,marg[i_marg]);
+        Sk = CMESkewness(𝗻ₖ,𝔼,𝕍ar,marg[i_marg]);
 
         𝕊 = CMEEntropy(p);
 
