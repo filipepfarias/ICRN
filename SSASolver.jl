@@ -8,7 +8,7 @@ model = "reactions/"*model_nm*".jl";
 include(model);
 
 path = "outputs/"*randstring(5)*"_"*Dates.format(now(),"yyyymmdd")*"_SSA"
-mkdir(path)
+mkpath(path)
 
 evol_𝕊 = zeros(length(T),1);
 

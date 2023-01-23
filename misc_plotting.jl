@@ -31,7 +31,7 @@ end
 fig
 
 try 
-    mkdir(path*"/plots")
+    mkpath(path*"/plots")
 catch
     nothing
 end

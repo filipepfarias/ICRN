@@ -23,11 +23,20 @@ end
 
 function CMESolver(path, model_nm; saveprob=false, savestats=:eval)
 
-    mkdir(path)
+    mkpath(path)
     println("Building the CME operator...")
     comp_time = @elapsed begin
         model = "reactions/"*model_nm*".jl";
         include(model);
+
+        p₀ = zeros(𝗻ₖ);                # Initial condition for Section 7.3
+        p₀[ℰ, ℰ𝒜, 𝒜, ℬ] .= 1.0;
+        # p₀[ℰ, ℰ𝒜, 𝒜, ℬ] = 1.0;
+        p₀ ./= sum(p₀);
+
+        # p₀ = ones(𝗻ₖ);              # Uniform distribution
+        # p₀ ./= sum(p₀); 
+        # p₀[end] = 1 - sum(p₀[1:end-1]);
         A = CMEOperator(𝛎,Re,K,𝗻ₖ);   # CME Operator      
         cp(model,path*"/model.jl")
     end

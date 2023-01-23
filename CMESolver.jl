@@ -12,7 +12,7 @@ using DifferentialEquations: solve, ODEProblem, RK4
 using ProgressMeter
 
 path = "outputs/"*randstring(5)*"_"*Dates.format(now(),"yyyymmdd")
-mkdir(path)
+mkpath(path)
 
 println("Building the CME operator...")
 comp_time = @elapsed begin

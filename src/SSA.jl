@@ -1,38 +1,56 @@
 using ProgressMeter
+using Distributed
 
-function Gillespie(K, 𝛎, Re, S₀, T, save=false) # Gillespie
-    t = 0
-    t_vec = [0.0]
-    Sₜ = S₀;
-    S = S₀;
+@everywhere function Gillespie(K, 𝛎, Re, S₀, T) # Gillespie
+    t = 0.0
+    iT = 1;
+    Sₜ = Vector{Int64}();
+    S = copy(S₀);
     M = size(𝛎,1);
 
-    while t <= T
-        𝛂 = [K[m] * prod(α(Sₜ,Re,m)) for m in 1:M]
+    while t <= T[end]
+        if t >= T[iT]
+            for s in S
+                push!(Sₜ,s)
+            end
+            iT += 1;
+        end
+
+        𝛂 = [K[m] * prod(α(S,Re,m)) for m in 1:M]
         α₀ = sum(𝛂);
-    
         α₀ == 0.0 ? break : nothing
 
         r = rand(Uniform(),1)
         τ = log(1 / r[1]) / α₀;
         t += τ
-        
-        save ? append!(t_vec,t) : t_vec = t
-
-        Sₜ += 𝛎[rand(Multinomial(1,vec(𝛂/α₀))) .!= 0,:];
-        
-        save ? S = cat(S,Sₜ,dims=1) : S = Sₜ
-        
+        S += 𝛎[rand(Multinomial(1,vec(𝛂/α₀))) .!= 0,:];
     end
-    return t_vec,S
+
+    if length(T)-iT > 0
+        for s in repeat(vec(S),length(T)-iT)
+            push!(Sₜ,s)
+        end
+    end
+
+    Sₜ = reshape(Sₜ,length(S₀),length(T)-1)';
+    return Sₜ
 end
 
 function SSASolver(path, model_nm; saveprob=false, savestats=:eval)
 
-    # mkdir(path)
+    mkpath(path)
 
-    model = "reactions/"*model_nm*".jl";
-    include(model);
+    @everywhere model = "reactions/"*model_nm*".jl";
+    @everywhere include(model);
+
+    p₀ = zeros(𝗻ₖ);                # Initial condition for Section 7.3
+    p₀[ℰ, ℰ𝒜, 𝒜, ℬ] .= 1.0;
+    # p₀[ℰ, ℰ𝒜, 𝒜, ℬ] = 1.0;
+    p₀ ./= sum(p₀);
+
+    # p₀ = ones(𝗻ₖ);              # Uniform distribution
+    # p₀ ./= sum(p₀); 
+    # p₀[end] = 1 - sum(p₀[1:end-1]);
     cp(model,path*"/model.jl";force=true)
     
     max_sim = 2500;
@@ -68,7 +86,7 @@ function SSASolver(path, model_nm; saveprob=false, savestats=:eval)
         for _ in 1:max_sim
 
             𝒮 = [rand(ℰ),ℰ𝒜,rand(𝒜),ℬ]' .-1;
-            t,S = Gillespie(K, 𝛎, Re, 𝒮, T[iT]);
+            S = Gillespie(K, 𝛎, Re, 𝒮, T[iT]);
             pS[(S .+ 1)...] += 1;
         end
         pS ./= sum(pS);

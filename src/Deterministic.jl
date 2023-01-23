@@ -5,6 +5,15 @@ function DetSolver(path, model_nm; molecules=false)
     model = "reactions/"*model_nm*".jl";
     include(model);
 
+    p₀ = zeros(𝗻ₖ);                # Initial condition for Section 7.3
+    p₀[ℰ, ℰ𝒜, 𝒜, ℬ] .= 1.0;
+    # p₀[ℰ, ℰ𝒜, 𝒜, ℬ] = 1.0;
+    p₀ ./= sum(p₀);
+
+    # p₀ = ones(𝗻ₖ);              # Uniform distribution
+    # p₀ ./= sum(p₀); 
+    # p₀[end] = 1 - sum(p₀[1:end-1]);
+
     Κ = K;
     Κ[1] = K[1] * nₐ * V; #Molecules to concentrations conversion (Wilkinson)
 
@@ -27,7 +36,7 @@ function DetSolver(path, model_nm; molecules=false)
 
     x = molecules ? hcat(sol.u...) * nₐ * V : hcat(sol.u...);
 
-    # mkdir(path)
+    mkpath(path)
     flname = path*"/"*model_nm;
     jldsave(flname, specie=specie, x=x, T=T)
 

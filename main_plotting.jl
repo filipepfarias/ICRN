@@ -8,7 +8,7 @@ series!(ax,sol_Det[3],sol_Det[2], labels=sol_Det[1] .* "-Det",markersize=6);
 axislegend(ax);
 fig
 
-mkdir(path*"/plots")
+mkpath(path*"/plots")
 
 save(path*"/plots/"*model_nm*"_mean_evol.pdf", fig, pt_per_unit = 2)
 

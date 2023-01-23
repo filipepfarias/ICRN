@@ -1,11 +1,11 @@
-# using Pkg
-# Pkg.activate(".")
+using Pkg
+Pkg.activate(".")
 using ICRN
 using Random, Dates
 
 
 path = "outputs/"*randstring(5)*"_"*Dates.format(now(),"yyyymmdd")
-mkdir(path)
+mkpath(path)
 
 model_nm = "MichaelisMenten"
 

@@ -45,7 +45,7 @@ nₐ  = 6.022e23;              # Avogadro's number
 k₁  = 1e6 / nₐ / V;          # 2nd order reaction
 k₋₁ = 1e-4;                  # 1st order reaction 
 k₂  = 0.1;                   # 1st order reaction 
-k₋₂  = 0.0;                   # 1st order reaction 
+k₋₂  = 0.0001;                   # 1st order reaction 
 k₃ = 0.0;
 k₋₃ = 0.0;
 k₄ = 0.0;
@@ -79,14 +79,5 @@ S₀ = [ℰ, ℰ𝒜, 𝒜, ℬ]' .- 1;
 
 n = maximum(maximum.((ℰ, ℰ𝒜, 𝒜, ℬ)));
 𝗻ₖ = (n,n,n,n);                # State-space size
-
-p₀ = zeros(𝗻ₖ);                # Initial condition for Section 7.3
-p₀[ℰ, ℰ𝒜, 𝒜, ℬ] .= 1.0;
-# p₀[ℰ, ℰ𝒜, 𝒜, ℬ] = 1.0;
-p₀ ./= sum(p₀);
-
-# p₀ = ones(𝗻ₖ);              # Uniform distribution
-# p₀ ./= sum(p₀); 
-# p₀[end] = 1 - sum(p₀[1:end-1]);
 
 T = 0.0:.5:100.0;
