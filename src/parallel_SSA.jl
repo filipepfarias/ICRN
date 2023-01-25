@@ -44,7 +44,7 @@ using Distributed
 end
 
 max_sim = 10_000;
-@everywhere pS = zeros(length(𝗻ₖ),length(T),25_000);
+@everywhere pS = zeros(Int64,length(𝗻ₖ),length(T),25_000);
 @distributed for iw in 1:max_sim
     for ip in 1:25_000
         𝒮 = [rand(ℰ),ℰ𝒜,rand(𝒜),ℬ]' .-1;
