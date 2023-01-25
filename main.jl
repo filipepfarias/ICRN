@@ -4,9 +4,8 @@ using ICRN
 using Random, Dates
 
 
-# path = "outputs/"*randstring(5)*"_"*Dates.format(now(),"yyyymmdd")
-path = ""
-# mkpath(path)
+path = "outputs/"*randstring(5)*"_"*Dates.format(now(),"yyyymmdd")
+mkpath(path)
 
 model_nm = "MichaelisMenten"
 

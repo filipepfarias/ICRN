@@ -78,6 +78,6 @@ S₀ = [ℰ, ℰ𝒜, 𝒜, ℬ]' .- 1;
 𝛎 = Pr - Re;                  # Stoichiometric balance
 
 n = maximum(maximum.((ℰ, ℰ𝒜, 𝒜, ℬ)));
-𝗻ₖ = (n,n,n,n);                # State-space size
+𝗻ₖ = (Int(floor(3*n/5)),Int(floor(3*n/5)),n,n);                # State-space size
 
 T = 0.0:.5:100.0;
