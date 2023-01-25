@@ -1,11 +1,11 @@
 using Distributed
 
-@everywhere begin
+@everywhere (
     using Pkg;
-    Pkg.activate(".")
-    using Random, Distributions
-    using FileIO, JLD2
-end
+    Pkg.activate(".");
+    using Random, Distributions;
+    using FileIO, JLD2;
+)
 
 @everywhere include("../reactions/MichaelisMenten.jl")
 
