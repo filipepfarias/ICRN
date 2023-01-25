@@ -2,6 +2,11 @@ using Distributed
 nprocs() != 1 ? rmprocs(nprocs()-1) : nothing
 addprocs()
 
+@everywhere begin
+    using Pkg
+    Pkg.activate(".")
+    Pkg.instantiate()
+end
 @everywhere using SharedArrays
 @everywhere using Random, Distributions
 
