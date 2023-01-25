@@ -45,12 +45,12 @@ end
 
 max_sim = 10_000;
 @everywhere pS = zeros(length(𝗻ₖ),length(T),25_000);
-@distributed for _ in 1:max_sim
+@distributed for iw in 1:max_sim
     for ip in 1:25_000
         𝒮 = [rand(ℰ),ℰ𝒜,rand(𝒜),ℬ]' .-1;
         pS[:,:,ip] = Gillespie(K, 𝛎, Re, S₀, T);
     end
-    jldsave("outputs/SSA/"*string(_), pS=pS)
+    jldsave("outputs/SSA/"*string(iw), pS=pS)
 end
 
 
