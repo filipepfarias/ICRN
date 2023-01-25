@@ -3,6 +3,8 @@ nprocs() != 1 ? rmprocs(nprocs()-1) : nothing
 addprocs()
 
 @everywhere begin
+    using Pkg;
+    Pkg.activate(".")
     using SharedArrays
     using Random, Distributions
 end
