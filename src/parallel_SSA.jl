@@ -3,12 +3,9 @@ nprocs() != 1 ? rmprocs(nprocs()-1) : nothing
 addprocs()
 
 @everywhere begin
-    using Pkg
-    Pkg.activate(".")
-    Pkg.instantiate()
+    using SharedArrays
+    using Random, Distributions
 end
-@everywhere using SharedArrays
-@everywhere using Random, Distributions
 
 @everywhere include("../reactions/MichaelisMenten.jl")
 
@@ -48,7 +45,7 @@ end
     return Sₜ
 end
 
-max_sim = 1000;
+max_sim = 10_000_000;
 pS = SharedArray{Int64,3}(length(𝗻ₖ),length(T),max_sim);
 @distributed for ip in 1:max_sim
     𝒮 = [rand(ℰ),ℰ𝒜,rand(𝒜),ℬ]' .-1;
