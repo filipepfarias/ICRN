@@ -1,12 +1,11 @@
 using Distributed
-nprocs() != 1 ? rmprocs(nprocs()-1) : nothing
-addprocs()
+# nprocs() != 1 ? rmprocs(nprocs()-1) : nothing
+# addprocs()
 
 @everywhere begin
     using Pkg;
     Pkg.activate(".")
-    Pkg.instantiate()
-    using SharedArrays
+    using DistributedArrays
     using Random, Distributions
 end
 
