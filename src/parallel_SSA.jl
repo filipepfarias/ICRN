@@ -5,6 +5,7 @@ addprocs()
 @everywhere begin
     using Pkg;
     Pkg.activate(".")
+    Pkg.instantiate()
     using SharedArrays
     using Random, Distributions
 end
