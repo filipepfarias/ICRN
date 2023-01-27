@@ -64,7 +64,14 @@ function CMESolver(path, model_nm; saveprob=false, savestats=:eval)
     Se = zeros(1,length(T));
 
 
-    f(u,p,t) = A*u ;
+    function f(u,p,t) 
+        nt = BLAS.get_num_threads()
+        BLAS.set_num_threads(1)
+        F = A*u 
+        BLAS.set_num_threads(nt)
+        return F
+    end
+
 
     uf = p₀[:];
 
