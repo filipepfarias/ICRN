@@ -13,7 +13,7 @@ end
 
 vecoper(f,x,y) = map((x,y) -> f.(x,y),x,y)
 
-α(𝓘,Re,m) = vecoper(binomial,𝓘,Re[m,:]) .* factorial.(Re[m,:]');
+α(𝓘,Re,m) = vecoper(binomial,𝓘,Re[m,:]) .* factorial.(Re[m,:]);
 function η(𝓘,Re,m,𝛎) 
     ν1 = vecoper(-,getindex.(𝓘,length.(𝓘)),𝛎[m,:]);
     ν1 = vecoper(<=,𝓘,ν1);
