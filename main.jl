@@ -1,5 +1,6 @@
-using Pkg
-Pkg.activate(".")
+using Distributed
+@everywhere using Pkg
+@everywhere Pkg.activate(".")
 using ICRN
 using Random, Dates
 

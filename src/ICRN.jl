@@ -1,4 +1,8 @@
 module ICRN
+    # using  Distributed
+
+    # @everywhere include("parallel_matmul.jl")
+
     include("CME.jl")
 
     include("statistics.jl")
