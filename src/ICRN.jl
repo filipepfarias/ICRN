@@ -13,7 +13,7 @@ module ICRN
 
     include("utils.jl")
 
-    export CMEOperator, CMESolver, Statistics, Statistics!, Entropy, 
+    export CMEOperator, CMESolver, Statistics, Statistics!, saveStatistics, Entropy, 
     dEntropy, Mean, Variance, Skewness, 
     Marginals, Gillespie, SSASolver, DetSolver, Jflux, GibbsFreeEnergy
 end

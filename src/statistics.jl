@@ -132,4 +132,30 @@ function Statistics(p,𝗻ₖ,specie)
     return marg_labels, marg, 𝔼, 𝕍ar, Sk, 𝕊
 end
 
-using Random, Distributions
+using FileIO, JLD2
+
+function saveStatistics(path, model_nm)
+
+    include(path*"/model.jl");
+    A = CMEOperator(𝛎,Re,K,𝗻ₖ);
+    
+    marg_labels = [];
+    marg = Vector{Any}(undef,length(T));
+    𝔼 = zeros(length(𝗻ₖ),length(T));
+    𝕍ar = zeros(length(𝗻ₖ),length(T));
+    Sk = zeros(length(𝗻ₖ),length(T));
+    𝕊 = zeros(1,length(T));
+    Si = zeros(1,length(T));
+    Se = zeros(1,length(T));
+
+    for iT in eachindex(T)        
+        data = jldopen(path*"/"*model_nm*"_t"*string(iT-1));
+        p = data["p"];
+
+        marg_labels, marg[iT], 𝔼[:,iT], 𝕍ar[:,iT], Sk[:,iT], 𝕊[iT], Si[iT], Se[iT] = Statistics(p,A,𝗻ₖ,specie);
+    end
+
+    flname = path*"/"*model_nm*"_statistics";
+    jldsave(flname, specie=specie, marg_labels=marg_labels, marg=marg, E=𝔼, Var=𝕍ar,Sk=Sk,
+             S=𝕊, Si=Si, Se=Se, t=T, T=T)
+end
