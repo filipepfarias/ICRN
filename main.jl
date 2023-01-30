@@ -1,6 +1,5 @@
-using Distributed
-@everywhere using Pkg
-@everywhere Pkg.activate(".")
+using Pkg
+Pkg.activate(".")
 using ICRN
 using Random, Dates
 
@@ -10,7 +9,7 @@ mkpath(path)
 
 model_nm = "MichaelisMenten"
 
-sol_CME = CMESolver(path*"/CME", model_nm; saveprob=true, savestats=false)
+sol_CME = CMESolver(path*"/CME", model_nm; saveprob=true, savestats=true)
 
 # sol_SSA = SSASolver(path*"/SSA", model_nm; saveprob=false, savestats=:eval)
 

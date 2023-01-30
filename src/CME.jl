@@ -2,10 +2,6 @@ using LinearAlgebra, SparseArrays
 using DifferentialEquations: solve, ODEProblem, RK4
 using FileIO, JLD2
 using ProgressMeter
-using Distributed
-
-@everywhere using SharedArrays
-@everywhere using ParallelSparseMatMul: At_mul_B, share
 
 function J(νi,n) # νi per reaction
     return νi > 0 ? sparse(I,n+νi,n+νi)[1:end-νi,νi+1:end] : sparse(I,n-νi,n-νi)[1-νi:end,1:(end+νi)]
@@ -54,7 +50,6 @@ function CMESolver(path, model_nm; saveprob=false, savestats=:eval)
         # p₀ ./= sum(p₀); 
         # p₀[end] = 1 - sum(p₀[1:end-1]);
         A = CMEOperator(𝛎,Re,K,𝗻ₖ);  # CME Operator 
-        At = share(sparse(A'));      
         cp(model,path*"/model.jl")
     end
     println("Computation time for the assemble of the operator: "*string(comp_time)*"s.")
@@ -68,19 +63,13 @@ function CMESolver(path, model_nm; saveprob=false, savestats=:eval)
     Si = zeros(1,length(T));
     Se = zeros(1,length(T));
 
-    # function f(u,p,t) 
-    #     nt = BLAS.get_num_threads()
-    #     BLAS.set_num_threads(1)
-    #     F = A*u 
-    #     BLAS.set_num_threads(nt)
-    #     return F
-    # end
     function f(u,p,t) 
-        u = SharedArray(u);
-        F = At_mul_B(At,u) 
+        nt = BLAS.get_num_threads()
+        BLAS.set_num_threads(1)
+        F = A*u 
+        BLAS.set_num_threads(nt)
         return F
     end
-
 
     uf = p₀[:];
 
