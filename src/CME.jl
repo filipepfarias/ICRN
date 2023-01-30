@@ -75,7 +75,7 @@ function CMESolver(path, model_nm; saveprob=false, savestats=:eval)
 
     if saveprob
         flname = path*"/"*model_nm*"_t"*string(0);
-        jldsave(flname, p=uf, t=0)
+        jldsave(flname, p=uf, t=0; compress = true)
     end
 
     println("Saving on "*path*".")
@@ -96,7 +96,7 @@ function CMESolver(path, model_nm; saveprob=false, savestats=:eval)
 
         if saveprob
             flname = path*"/"*model_nm*"_t"*string(iT);
-            jldsave(flname, p=uf, t=T[iT+1])
+            jldsave(flname, p=uf, t=T[iT+1]; compress = true)
         end
 
         if savestats == :eval
