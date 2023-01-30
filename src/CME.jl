@@ -99,14 +99,16 @@ function CMESolver(path, model_nm; saveprob=false, savestats=:eval)
             jldsave(flname, p=uf, t=T[iT+1]; compress = true)
         end
 
-        if savestats == :eval
+        if savestats 
             marg_labels, marg[iT+1], 𝔼[:,iT+1], 𝕍ar[:,iT+1], Sk[:,iT+1], 𝕊[iT+1], Si[iT+1], Se[iT+1] = Statistics(uf,A,𝗻ₖ,specie);
         end
 
-        if (savestats != false)
+        if savestats
             flname = path*"/"*model_nm*"_statistics_t"*string(iT);
             jldsave(flname, specie=specie, marg_labels=marg_labels, 
-            marg=marg[iT+1], E=𝔼[:,iT+1], Var=𝕍ar[:,iT+1],Sk=Sk[:,iT+1], S=𝕊[iT+1], Si=Si[iT+1], Se=Se[iT+1], t=T[iT+1], T=T)
+            marg=marg[iT+1], 
+            E=𝔼[:,iT+1], Var=𝕍ar[:,iT+1],Sk=Sk[:,iT+1],
+             S=𝕊[iT+1], Si=Si[iT+1], Se=Se[iT+1], t=T[iT+1], T=T)
         end
 
         ProgressMeter.next!(pgres)
