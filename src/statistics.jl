@@ -45,7 +45,7 @@ function Mean(𝗻ₖ,marg)
     𝔼 = zeros(length(𝗻ₖ),1);
 
     for i in eachindex(𝗻ₖ)
-        ℕ = (1:𝗻ₖ[i]) .- 1;
+        ℕ = 0:(𝗻ₖ[i]-1);
         𝔼[i,1] = sum( ℕ .* marg[i] );
     end
     return 𝔼
@@ -77,7 +77,8 @@ function Marginals(𝗻ₖ,𝓅,specie)
     marg = Vector{Any}(undef,idn);
     idm = 1;
     marg_labels = [];
-    𝓅ₙ = sum(𝓅);
+    # 𝓅ₙ = sum(𝓅);
+    𝓅ₙ = 1;
 
     for i in eachindex(𝗻ₖ), j in eachindex(𝗻ₖ)
         if j > i
@@ -137,7 +138,7 @@ using FileIO, JLD2
 function saveStatistics(path, model_nm)
 
     include(path*"/model.jl");
-    A = CMEOperator(𝛎,Re,K,𝗻ₖ);
+    # A = CMEOperator(𝛎,Re,K,𝗻ₖ);
     
     marg_labels = [];
     marg = Vector{Any}(undef,length(T));
@@ -145,17 +146,26 @@ function saveStatistics(path, model_nm)
     𝕍ar = zeros(length(𝗻ₖ),length(T));
     Sk = zeros(length(𝗻ₖ),length(T));
     𝕊 = zeros(1,length(T));
-    Si = zeros(1,length(T));
-    Se = zeros(1,length(T));
+    # Si = zeros(1,length(T));
+    # Se = zeros(1,length(T));
 
     for iT in eachindex(T)        
         data = jldopen(path*"/"*model_nm*"_t"*string(iT-1));
         p = data["p"];
 
-        marg_labels, marg[iT], 𝔼[:,iT], 𝕍ar[:,iT], Sk[:,iT], 𝕊[iT], Si[iT], Se[iT] = Statistics(p,A,𝗻ₖ,specie);
+        # marg_labels, marg[iT], 𝔼[:,iT], 𝕍ar[:,iT], Sk[:,iT], 𝕊[iT], Si[iT], Se[iT] = Statistics(p,A,𝗻ₖ,specie);
+        marg[i], _ = Marginals(𝗻ₖ,P,specie);
+        i_marg = [1; 1 .+ cumsum(length(𝗻ₖ):-1:2)]
+        𝔼[:,i] = Mean(𝗻ₖ,marg[i][i_marg])
+        𝕍ar[:,i] = Variance(𝗻ₖ,𝔼,marg[i][i_marg]);
+        Sk[:,i] = Skewness(𝗻ₖ,𝔼,𝕍ar,marg[i][i_marg]);
+
+        𝕊[i] = Entropy(P);
     end
 
     flname = path*"/"*model_nm*"_statistics";
+    # jldsave(flname, specie=specie, marg_labels=marg_labels, marg=marg, E=𝔼, Var=𝕍ar,Sk=Sk,
+    #          S=𝕊, Si=Si, Se=Se, t=T, T=T)
     jldsave(flname, specie=specie, marg_labels=marg_labels, marg=marg, E=𝔼, Var=𝕍ar,Sk=Sk,
-             S=𝕊, Si=Si, Se=Se, t=T, T=T)
+            S=𝕊, t=T, T=T)
 end

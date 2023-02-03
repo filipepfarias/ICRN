@@ -2,7 +2,7 @@
 
 julia_version = "1.8.0"
 manifest_format = "2.0"
-project_hash = "f8683d3c8e8aae9cbdeb061208c29d6df973d2a7"
+project_hash = "83f38e47039785a0371061d56442dbf289482fee"
 
 [[deps.Adapt]]
 deps = ["LinearAlgebra"]
@@ -949,6 +949,12 @@ version = "1.10.0"
 [[deps.Test]]
 deps = ["InteractiveUtils", "Logging", "Random", "Serialization"]
 uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[[deps.ThreadedSparseArrays]]
+deps = ["LinearAlgebra", "SparseArrays"]
+git-tree-sha1 = "c186105125af2813bfdd7e5a3086607063711663"
+uuid = "59d54670-b8ac-4d81-ab7a-bb56233e17ab"
+version = "0.2.2"
 
 [[deps.ThreadingUtilities]]
 deps = ["ManualMemory"]
