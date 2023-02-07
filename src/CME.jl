@@ -4,9 +4,6 @@ using FileIO, JLD2
 using ProgressMeter
 
 function J(νi,n) # νi per reaction
-    if Threads.nthreads() > 8
-        νi = -νi;
-    end
     return νi > 0 ? sparse(I,n+νi,n+νi)[1:end-νi,νi+1:end] : sparse(I,n-νi,n-νi)[1-νi:end,1:(end+νi)]
 end
 
