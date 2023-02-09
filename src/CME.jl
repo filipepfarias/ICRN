@@ -1,12 +1,9 @@
-using LinearAlgebra, SparseArrays, ThreadedSparseArrays
+using LinearAlgebra, SparseArrays, MKLSparse
 using DifferentialEquations: solve, ODEProblem, RK4
 using FileIO, JLD2
 using ProgressMeter
 
 function J(νi,n) # νi per reaction
-    if Threads.nthreads() > 8
-        νi = -νi;
-    end
     return νi > 0 ? sparse(I,n+νi,n+νi)[1:end-νi,νi+1:end] : sparse(I,n-νi,n-νi)[1-νi:end,1:(end+νi)]
 end
 
@@ -33,11 +30,7 @@ H(𝓘,Re,m,𝛎) = reduce(kron,reverse(Diagonal.(η(𝓘,Re,m,𝛎))));
 
 function CMEOperator(𝝼,Re,K,𝗻ₖ)
     𝓘 = [collect.((:).(1,𝗻ₖ))...,];
-    if Threads.nthreads() > 8
-        return (sum([K[m]*H(𝓘,Re,m,𝝼)*(𝗝(𝝼[m,:],𝗻ₖ) - I) for m in eachindex(𝝼[:,1])]));
-    else
-        return (sum([(𝗝(𝝼[m,:],𝗻ₖ) - I)*K[m]*H(𝓘,Re,m,𝝼) for m in eachindex(𝝼[:,1])]));
-    end
+    return (sum([(𝗝(𝝼[m,:],𝗻ₖ) - I)*K[m]*H(𝓘,Re,m,𝝼) for m in eachindex(𝝼[:,1])]));
 end
 
 function CMESolver(path, model_nm; saveprob=false, savestats=:eval)
@@ -56,11 +49,7 @@ function CMESolver(path, model_nm; saveprob=false, savestats=:eval)
         # p₀ = ones(𝗻ₖ);              # Uniform distribution
         # p₀ ./= sum(p₀); 
         # p₀[end] = 1 - sum(p₀[1:end-1]);
-        if Threads.nthreads() > 8
-            A = ThreadedSparseMatrixCSC(CMEOperator(𝛎,Re,K,𝗻ₖ));  # CME Operator 
-        else
-            A = CMEOperator(𝛎,Re,K,𝗻ₖ);  # CME Operator 
-        end
+        A = CMEOperator(𝛎,Re,K,𝗻ₖ);  # CME Operator 
         cp(model,path*"/model.jl")
     end
     println("Computation time for the assemble of the operator: "*string(comp_time)*"s.")
@@ -82,7 +71,7 @@ function CMESolver(path, model_nm; saveprob=false, savestats=:eval)
     #     return F
     # end
     function f(u,p,t) 
-        return A'*u 
+        return A*u 
     end
 
     uf = p₀[:];
