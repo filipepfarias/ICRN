@@ -4,6 +4,9 @@ using FileIO, JLD2
 using ProgressMeter
 
 function J(νi,n) # νi per reaction
+    if Threads.nthreads() > 8
+        νi = -νi;
+    end
     return νi > 0 ? sparse(I,n+νi,n+νi)[1:end-νi,νi+1:end] : sparse(I,n-νi,n-νi)[1-νi:end,1:(end+νi)]
 end
 
@@ -30,7 +33,11 @@ H(𝓘,Re,m,𝛎) = reduce(kron,reverse(Diagonal.(η(𝓘,Re,m,𝛎))));
 
 function CMEOperator(𝝼,Re,K,𝗻ₖ)
     𝓘 = [collect.((:).(1,𝗻ₖ))...,];
-    return (sum([(𝗝(𝝼[m,:],𝗻ₖ) - I)*K[m]*H(𝓘,Re,m,𝝼) for m in eachindex(𝝼[:,1])]));
+    if Threads.nthreads() > 8
+        return (sum([K[m]*H(𝓘,Re,m,𝝼)*(𝗝(𝝼[m,:],𝗻ₖ) - I) for m in eachindex(𝝼[:,1])]));
+    else
+        return (sum([(𝗝(𝝼[m,:],𝗻ₖ) - I)*K[m]*H(𝓘,Re,m,𝝼) for m in eachindex(𝝼[:,1])]));
+    end
 end
 
 function CMESolver(path, model_nm; saveprob=false, savestats=:eval)
