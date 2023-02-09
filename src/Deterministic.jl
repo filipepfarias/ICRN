@@ -50,6 +50,9 @@ end
 function GibbsFreeEnergy(𝘅)    # Gibbs free energy
     g1 = [(-1)^ℓ * Jflux(𝘅,ℓ) for ℓ in eachindex(K)]
     g2 = [-(-1)^ℓ * log(Jflux(𝘅,ℓ)) for ℓ in eachindex(K)]
-    d𝘅 = sum(g1 * g2')
+    g1[isinf.(g1) .|| g1 .== 0.0 ] .= 0.0;
+    g2[isinf.(g2) .|| g2 .== 0.0 ] .= 0.0;
+    g1g2 = sum(g1 * g2')
+    d𝘅 = sum(g1g2[!isnan.(g1g2)]);
     return d𝘅
 end

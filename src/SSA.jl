@@ -1,47 +1,75 @@
 using ProgressMeter
-using Distributed
+using StatsBase
 
-@everywhere function Gillespie(K, 𝛎, Re, S₀, T) # Gillespie
-    t = 0.0
-    iT = 1;
-    Sₜ = Vector{Int64}();
+# function Gillespie(K, 𝛎, Re, S₀, T) # Gillespie
+#     t = 0.0
+#     iT = 1;
+#     Sₜ = Vector{Int64}();
+#     S = copy(S₀);
+#     M = size(𝛎,1);
+
+#     while t <= T[end]
+#         if t >= T[iT]
+#             for s in S
+#                 push!(Sₜ,s)
+#             end
+#             iT += 1;
+#         end
+
+#         𝛂 = [K[m] * prod(α(S,Re,m)) for m in 1:M]
+#         α₀ = sum(𝛂);
+#         α₀ == 0.0 ? break : nothing
+
+#         r = rand(Uniform(),1)
+#         τ = log(1 / r[1]) / α₀;
+#         t += τ
+#         S += 𝛎[rand(Multinomial(1,vec(𝛂/α₀))) .!= 0,:];
+#     end
+
+#     if length(T)-iT > 0
+#         for s in repeat(vec(S),length(T)-iT)
+#             push!(Sₜ,s)
+#         end
+#     end
+
+#     Sₜ = reshape(Sₜ,length(S₀),length(T)-1)';
+#     return Sₜ
+# end
+
+function Gillespie(K, 𝛎, Re, S₀, t, T) # Gillespie
+    N = size(Re,2);
+    Sₜ = copy(S₀);
     S = copy(S₀);
     M = size(𝛎,1);
 
-    while t <= T[end]
-        if t >= T[iT]
-            for s in S
-                push!(Sₜ,s)
-            end
-            iT += 1;
-        end
+    α(𝓘,Re,m) = binomial.(𝓘,Re[m,:]') .* factorial.(Re[m,:]'); # Mass action law
 
+    while true
         𝛂 = [K[m] * prod(α(S,Re,m)) for m in 1:M]
         α₀ = sum(𝛂);
         α₀ == 0.0 ? break : nothing
 
-        r = rand(Uniform(),1)
-        τ = log(1 / r[1]) / α₀;
-        t += τ
-        S += 𝛎[rand(Multinomial(1,vec(𝛂/α₀))) .!= 0,:];
-    end
+        r = rand(Uniform(),2)
 
-    if length(T)-iT > 0
-        for s in repeat(vec(S),length(T)-iT)
-            push!(Sₜ,s)
+        ir = rand(Multinomial(1,vec(𝛂/α₀))) .!= 0;
+        τ = log(1 / r[1]) / α₀;
+        
+        if t+τ <= T[end]
+            t += τ
+            S += 𝛎[ir ,:];
+        else
+            break
         end
     end
-
-    Sₜ = reshape(Sₜ,length(S₀),length(T)-1)';
-    return Sₜ
+    return t, S
 end
 
 function SSASolver(path, model_nm; saveprob=false, savestats=:eval)
 
     mkpath(path)
 
-    @everywhere model = "reactions/"*model_nm*".jl";
-    @everywhere include(model);
+    model = "reactions/"*model_nm*".jl";
+    include(model);
 
     p₀ = zeros(𝗻ₖ);                # Initial condition for Section 7.3
     p₀[ℰ, ℰ𝒜, 𝒜, ℬ] .= 1.0;
@@ -57,11 +85,11 @@ function SSASolver(path, model_nm; saveprob=false, savestats=:eval)
     marg_labels = [];
     marg = Vector{Any}(undef,length(T));
     𝔼 = zeros(length(𝗻ₖ),length(T));
-    𝕍ar = zeros(length(𝗻ₖ),length(T));
-    Sk = zeros(length(𝗻ₖ),length(T));
+    # 𝕍ar = zeros(length(𝗻ₖ),length(T));
+    # Sk = zeros(length(𝗻ₖ),length(T));
     𝕊 = zeros(1,length(T));
-    Si = zeros(1,length(T));
-    Se = zeros(1,length(T));
+    # Si = zeros(1,length(T));
+    # Se = zeros(1,length(T));
 
     uf = p₀[:];
 
