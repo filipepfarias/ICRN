@@ -1,5 +1,5 @@
-using ProgressMeter
-using StatsBase
+# using ProgressMeter
+# using StatsBase
 
 # function Gillespie(K, 𝛎, Re, S₀, T) # Gillespie
 #     t = 0.0
