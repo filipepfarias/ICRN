@@ -5,7 +5,7 @@ module ICRN
 
     include("CME.jl")
 
-    include("statistics.jl")
+    # include("statistics.jl")
 
     include("SSA.jl")
 
