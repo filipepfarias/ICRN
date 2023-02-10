@@ -11,6 +11,6 @@ model_nm = "MichaelisMenten"
 
 sol_CME = CMESolver(path*"/CME", model_nm; saveprob=false, savestats=true)
 
-# sol_SSA = SSASolver(path*"/SSA", model_nm; saveprob=false, savestats=true)
+sol_SSA = SSASolver(path*"/SSA", model_nm; saveprob=false, savestats=true)
 
 # sol_Det = DetSolver(path*"/Det", model_nm; molecules=true)

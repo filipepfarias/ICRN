@@ -1,5 +1,4 @@
 using LinearAlgebra, SparseArrays, MKLSparse
-using DifferentialEquations: solve, ODEProblem, RK4
 using FileIO, JLD2
 using ProgressMeter
 
@@ -49,19 +48,20 @@ function CMESolver(path, model_nm; saveprob=false, savestats=:eval)
         # p₀ = ones(𝗻ₖ);              # Uniform distribution
         # p₀ ./= sum(p₀); 
         # p₀[end] = 1 - sum(p₀[1:end-1]);
+        precompile(CMEOperator,(Matrix{Int64},Matrix{Int64},Vector{Float64},NTuple{4,Int64}));
         A = CMEOperator(𝛎,Re,K,𝗻ₖ);  # CME Operator 
         cp(model,path*"/model.jl")
     end
     println("Computation time for the assemble of the operator: "*string(comp_time)*"s.")
     
-    marg_labels = [];
-    marg = Vector{Any}(undef,length(T));
+    # marg_labels = [];
+    # marg = Vector{Any}(undef,length(T));
     𝔼 = zeros(length(𝗻ₖ),length(T));
-    𝕍ar = zeros(length(𝗻ₖ),length(T));
-    Sk = zeros(length(𝗻ₖ),length(T));
+    # 𝕍ar = zeros(length(𝗻ₖ),length(T));
+    # Sk = zeros(length(𝗻ₖ),length(T));
     𝕊 = zeros(1,length(T));
-    Si = zeros(1,length(T));
-    Se = zeros(1,length(T));
+    # Si = zeros(1,length(T));
+    # Se = zeros(1,length(T));
 
     # function f(u,p,t) 
     #     nt = BLAS.get_num_threads()
@@ -76,19 +76,24 @@ function CMESolver(path, model_nm; saveprob=false, savestats=:eval)
 
     uf = p₀[:];
 
-    if saveprob
-        flname = path*"/"*model_nm*"_t"*string(0);
-        jldsave(flname, p=uf, t=0; compress = true)
-    end
+    # if saveprob
+    #     flname = path*"/"*model_nm*"_t"*string(0);
+    #     jldsave(flname, p=uf, t=0; compress = true)
+    # end
 
     println("Saving on "*path*".")
     
-    if (savestats != false)
-        marg_labels, marg[1], 𝔼[:,1], 𝕍ar[:,1], Sk[:,1], 𝕊[1], Si[1], Se[1] = Statistics(uf,A,𝗻ₖ,specie);
-        flname = path*"/"*model_nm*"_statistics_t"*string(0);
-        jldsave(flname, specie=specie,marg_labels=marg_labels, 
-            marg=marg[1], E=𝔼[:,1], Var=𝕍ar[:,1],Sk=Sk[:,1], S=𝕊[:,1], Si=Si[:,1], Se=Se[:,1], t=0, T=T)
-    end
+    # if (savestats != false)
+    #     marg_labels, marg[1], 𝔼[:,1], 𝕍ar[:,1], Sk[:,1], 𝕊[1], Si[1], Se[1] = Statistics(uf,A,𝗻ₖ,specie);
+    #     flname = path*"/"*model_nm*"_statistics_t"*string(0);
+    #     jldsave(flname, specie=specie,marg_labels=marg_labels, 
+    #         marg=marg[1], E=𝔼[:,1], Var=𝕍ar[:,1],Sk=Sk[:,1], S=𝕊[:,1], Si=Si[:,1], Se=Se[:,1], t=0, T=T)
+    # end
+
+    𝕊[1] = Entropy(uf);
+    E = [sum(reshape(uf,𝗻ₖ...), dims=deleteat!(collect(1:length(𝗻ₖ)),i))[:] for i in 1:length(𝗻ₖ)];
+    E = sum.(map(.*,E,collect.((:).(0,𝗻ₖ .- 1)))); 
+    𝔼[:,1]=E;
 
     pgres = Progress(length(T)-1; showspeed=true, desc="Solving the CME...")
 
@@ -97,25 +102,30 @@ function CMESolver(path, model_nm; saveprob=false, savestats=:eval)
         sol = solve(prob, RK4();dt= .5/20, saveat=T[iT+1],adaptive=false);
         uf = sol.u[end]/sum(sol.u[end]);
 
-        if saveprob
-            flname = path*"/"*model_nm*"_t"*string(iT);
-            jldsave(flname, p=uf, t=T[iT+1]; compress = true)
-        end
+        # if saveprob
+        #     flname = path*"/"*model_nm*"_t"*string(iT);
+        #     jldsave(flname, p=uf, t=T[iT+1]; compress = true)
+        # end
 
-        if savestats 
-            marg_labels, marg[iT+1], 𝔼[:,iT+1], 𝕍ar[:,iT+1], Sk[:,iT+1], 𝕊[iT+1], Si[iT+1], Se[iT+1] = Statistics(uf,A,𝗻ₖ,specie);
-        end
+        # if savestats 
+        #     marg_labels, marg[iT+1], 𝔼[:,iT+1], 𝕍ar[:,iT+1], Sk[:,iT+1], 𝕊[iT+1], Si[iT+1], Se[iT+1] = Statistics(uf,A,𝗻ₖ,specie);
+        # end
 
-        if savestats
-            flname = path*"/"*model_nm*"_statistics_t"*string(iT);
-            jldsave(flname, specie=specie, marg_labels=marg_labels, 
-            marg=marg[iT+1], 
-            E=𝔼[:,iT+1], Var=𝕍ar[:,iT+1],Sk=Sk[:,iT+1],
-             S=𝕊[iT+1], Si=Si[iT+1], Se=Se[iT+1], t=T[iT+1], T=T)
-        end
+        # if savestats
+        #     flname = path*"/"*model_nm*"_statistics_t"*string(iT);
+        #     jldsave(flname, specie=specie, marg_labels=marg_labels, 
+        #     marg=marg[iT+1], 
+        #     E=𝔼[:,iT+1], Var=𝕍ar[:,iT+1],Sk=Sk[:,iT+1],
+        #      S=𝕊[iT+1], Si=Si[iT+1], Se=Se[iT+1], t=T[iT+1], T=T)
+        # end
+        𝕊[iT+1] = Entropy(uf);
+        E = [sum(reshape(uf,𝗻ₖ...), dims=deleteat!(collect(1:length(𝗻ₖ)),i))[:] for i in 1:length(𝗻ₖ)];
+        E = sum.(map(.*,E,collect.((:).(0,𝗻ₖ .- 1)))); 
+        𝔼[:,iT+1]=E;
 
         ProgressMeter.next!(pgres)
     end
-
-    return (marg_labels, marg, 𝔼, 𝕍ar, Sk, 𝕊, Si, Se)
+    flname = path*"/"*model_nm*"_statistics";
+    jldsave(flname, E=𝔼, S=𝕊, T=T)
+    # return (marg_labels, marg, 𝔼, 𝕍ar, Sk, 𝕊, Si, Se)
 end
