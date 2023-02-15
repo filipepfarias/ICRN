@@ -28,7 +28,7 @@ W(𝓘,Re,m,𝛎) = reduce(kron,reverse(Diagonal.(α(𝓘,Re,m))));
 H(𝓘,Re,m,𝛎) = reduce(kron,reverse(Diagonal.(η(𝓘,Re,m,𝛎))));
 
 function CMEOperator(𝝼,Re,K,𝗻ₖ)
-    𝓘 = [collect.((:).(1,𝗻ₖ))...,];
+    𝓘 = [collect.((:).(0,𝗻ₖ .-1))...,];
     return (sum([(𝗝(𝝼[m,:],𝗻ₖ) - I)*K[m]*H(𝓘,Re,m,𝝼) for m in eachindex(𝝼[:,1])]));
 end
 
