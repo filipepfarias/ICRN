@@ -145,7 +145,8 @@ function SSASolver(path, model_nm; saveprob=false, savestats=:eval)
         η(𝓘,Re,m,𝛎) = α(𝓘,Re,m,𝛎) .* ([0, 0, 0, 0] .<= (𝓘[:] + 𝛎[m,:]))' .* ((𝓘[:] + 𝛎[m,:]) .<= [(𝗻ₖ .- 1)...])';
     
         while t <= T[end]
-            𝛂 = [K[m] * prod(η(S,Re,m,𝛎)) for m in 1:M]
+            # 𝛂 = [K[m] * prod(η(S,Re,m,𝛎)) for m in 1:M]
+            𝛂 = [K[m] * prod(α(S,Re,m,𝛎)) for m in 1:M]
             α₀ = sum(𝛂);
             α₀ == 0.0 ? break : nothing
     
@@ -161,7 +162,7 @@ function SSASolver(path, model_nm; saveprob=false, savestats=:eval)
     Sent = zeros(length(T));
     E = zeros(length(T),length(𝗻ₖ));
     
-    realizations = 2_000_000;
+    realizations = 10_000;
     𝒮 = (ℰ, ℰ𝒜, 𝒜, ℬ);
     R = hcat(rand.(map(x->x.-1 ,𝒮),realizations)...);
     TT = zeros(realizations);
