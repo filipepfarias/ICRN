@@ -162,7 +162,7 @@ function SSASolver(path, model_nm; saveprob=false, savestats=:eval)
     Sent = zeros(length(T));
     E = zeros(length(T),length(𝗻ₖ));
     
-    realizations = 10_000;
+    realizations = 2_000_000;
     𝒮 = (ℰ, ℰ𝒜, 𝒜, ℬ);
     R = hcat(rand.(map(x->x.-1 ,𝒮),realizations)...);
     TT = zeros(realizations);
