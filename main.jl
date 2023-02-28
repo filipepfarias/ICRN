@@ -2,16 +2,22 @@ using Pkg
 Pkg.activate(".")
 using ICRN
 using Random, Dates
+# using Plots
 
 
 path = "outputs/"*randstring(5)*"_"*Dates.format(now(),"yyyymmdd")
-# path = "outputs/cnYSl_20230215"
-mkpath(path)
+# # path = "outputs/irxWK_20230223"
+# mkpath(path)
 
 model_nm = "MichaelisMenten"
+include("reactions/MichaelisMenten.jl")
 
-sol_CME = CMESolver(path*"/CME", model_nm; saveprob=false, savestats=true)
+include("solve_CME.jl")
 
-sol_SSA = SSASolver(path*"/SSA", model_nm; saveprob=false, savestats=true)
+# sol_CME = CMESolver(path*"/CME", model_nm; saveprob=false, savestats=true)
+
+# sol_SSA = SSASolver(path*"/SSA", model_nm; saveprob=false, savestats=true)
 
 # sol_Det = DetSolver(path*"/Det", model_nm; molecules=true)
+
+# plot(sol_CME[1]')

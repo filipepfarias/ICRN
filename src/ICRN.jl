@@ -1,19 +1,18 @@
 module ICRN
-    # using  Distributed
-
-    # @everywhere include("parallel_matmul.jl")
+    using MKL, MKLSparse, LinearAlgebra, SparseArrays
 
     include("CME.jl")
 
-    include("statistics.jl")
+    # include("statistics.jl")
 
-    include("SSA.jl")
+    # include("SSA.jl")
 
-    include("Deterministic.jl")
+    # include("Deterministic.jl")
 
-    include("utils.jl")
+    # include("utils.jl")
 
-    export CMEOperator, CMESolver, Statistics, Statistics!, saveStatistics, Entropy, 
-    dEntropy, Mean, Variance, Skewness, 
-    Marginals, Gillespie, SSASolver, DetSolver, Jflux, GibbsFreeEnergy
+    export operator, α, η
+    # export CMEOperator, CMESolver, Statistics, Statistics!, saveStatistics, Entropy, 
+    # dEntropy, Mean, Variance, Skewness, 
+    # Marginals, Gillespie, SSASolver, DetSolver, Jflux, GibbsFreeEnergy
 end

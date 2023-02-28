@@ -158,11 +158,34 @@ function SSASolver(path, model_nm; saveprob=false, savestats=:eval)
         end
         return t, S
     end
+
+    function BackwardsGillespie(K, 𝛎, Re, S₀, t, T) # Gillespie
+        S = copy(S₀);
+        M = size(𝛎,1);
+        
+        α(𝓘,Re,m,𝛎) = binomial.(𝓘 - 𝛎[m,:]',Re[m,:]') .* factorial.(Re[m,:]'); # Mass action law
+        η(𝓘,Re,m,𝛎) = α(𝓘,Re,m,𝛎) .* ([0, 0, 0, 0] .<= (𝓘[:]))' .* ((𝓘[:]) .<= [(𝗻ₖ .- 1)...])';
+    
+        while t >= T[1]
+            𝛂 = [K[m] * prod(η(S,Re,m,𝛎)) for m in 1:M]
+            # 𝛂 = [K[m] * prod(α(S,Re,m,𝛎)) for m in 1:M]
+            # println(S)
+            α₀ = sum(𝛂);
+            α₀ == 0.0 ? break : nothing
+    
+            ir = rand(Multinomial(1,vec(𝛂/α₀))) .!= 0;
+            τ = log(1 / rand()) / α₀;
+            
+            t -= τ
+            S -= 𝛎[ir ,:];
+        end
+        return t, S
+    end
     
     Sent = zeros(length(T));
     E = zeros(length(T),length(𝗻ₖ));
     
-    realizations = 2_000_000;
+    realizations = 2_000;
     𝒮 = (ℰ, ℰ𝒜, 𝒜, ℬ);
     R = hcat(rand.(map(x->x.-1 ,𝒮),realizations)...);
     TT = zeros(realizations);
@@ -175,20 +198,38 @@ function SSASolver(path, model_nm; saveprob=false, savestats=:eval)
     pgres = Progress(length(T)-1; showspeed=true, desc="Solving the SSA...")
     
     for iT in eachindex(T)[2:end]
-        global p, states
+        # global p, states
         Threads.@threads for th in 1:realizations
             TT[th], R[th,:] = Gillespie(K,𝛎,Re, R[th,:]', TT[th], (T[iT-1],T[iT]))
         end
     
+        # states = countmap(collect(eachrow(R)));
+        # p = collect(values(states))/realizations;
+        # Sent[iT] = -sum(p .* log.(p));
+        # E[iT,:] = sum(R, dims=1)/realizations; 
+        # # @printf "Evolution: %.0f%% \r" (t/length(T)*100)
+        # ProgressMeter.next!(pgres)
+
+    end
+
+    TT = T[end] * ones(realizations);
+    
+    for iT in eachindex(T)[1:end-1]
+        global p, states
+        Threads.@threads for th in 1:realizations
+            TT[th], R[th,:] = BackwardsGillespie(K,𝛎,Re, R[th,:]', TT[th], (T[end-iT],T[end-iT+1]))
+        end
+
         states = countmap(collect(eachrow(R)));
         p = collect(values(states))/realizations;
         Sent[iT] = -sum(p .* log.(p));
         E[iT,:] = sum(R, dims=1)/realizations; 
-        # @printf "Evolution: %.0f%% \r" (t/length(T)*100)
+        # @printf "Evolution: %.0f%% \r" (iT/length(T)*100)
         ProgressMeter.next!(pgres)
 
     end
-    flname = path*"/"*model_nm*"_statistics";
-    jldsave(flname, E=E, S=Sent, T=T)
+    # flname = path*"/"*model_nm*"_statistics";
+    # jldsave(flname, E=E, S=Sent, T=T)
     # return (marg_labels, marg, 𝔼, 𝕍ar, Sk, 𝕊)
+    return E, Sent
 end
