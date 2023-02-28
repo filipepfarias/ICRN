@@ -2,7 +2,7 @@
 
 julia_version = "1.8.0"
 manifest_format = "2.0"
-project_hash = "848ddf5a3f1efe57e90d59904610e8864038bef9"
+project_hash = "617a2698899035d9ec90f6a6b4373eb13e20d24c"
 
 [[deps.AbstractTrees]]
 git-tree-sha1 = "faa260e4cb5aba097a73fab382dd4b5819d8ec8c"
@@ -84,12 +84,6 @@ deps = ["Static"]
 git-tree-sha1 = "eaee37f76339077f86679787a71990c4e465477f"
 uuid = "62783981-4cbd-42fc-bca8-16325de8dc4b"
 version = "0.1.4"
-
-[[deps.Blobs]]
-deps = ["MacroTools", "Test"]
-git-tree-sha1 = "9e1755d64788e59f5bccedba98f5fa543db38eba"
-uuid = "163b9779-6631-5f90-a265-3de947924de8"
-version = "0.5.1"
 
 [[deps.BoundaryValueDiffEq]]
 deps = ["BandedMatrices", "DiffEqBase", "FiniteDiff", "ForwardDiff", "LinearAlgebra", "NLsolve", "Reexport", "SciMLBase", "SparseArrays"]
@@ -655,23 +649,15 @@ version = "1.4.1"
 
 [[deps.OrdinaryDiffEq]]
 deps = ["Adapt", "ArrayInterface", "ArrayInterfaceCore", "ArrayInterfaceGPUArrays", "ArrayInterfaceStaticArrays", "ArrayInterfaceStaticArraysCore", "DataStructures", "DiffEqBase", "DocStringExtensions", "ExponentialUtilities", "FastBroadcast", "FastClosures", "FiniteDiff", "ForwardDiff", "FunctionWrappersWrappers", "LinearAlgebra", "LinearSolve", "Logging", "LoopVectorization", "MacroTools", "MuladdMacro", "NLsolve", "NonlinearSolve", "Polyester", "PreallocationTools", "Preferences", "RecursiveArrayTools", "Reexport", "SciMLBase", "SnoopPrecompile", "SparseArrays", "SparseDiffTools", "StaticArrays", "UnPack"]
-git-tree-sha1 = "06587f44cbd1ffe0ecfb472925c9b875cbe880cd"
+git-tree-sha1 = "7fff85e9569a5b7d11feffa88025cabf2358dddc"
 uuid = "1dea7af3-3e70-54e6-95c3-0bf5283fa5ed"
-version = "6.30.1"
+version = "6.31.2"
 
 [[deps.PDMats]]
 deps = ["LinearAlgebra", "SparseArrays", "SuiteSparse"]
 git-tree-sha1 = "cf494dca75a69712a72b80bc48f59dcf3dea63ec"
 uuid = "90014a1f-27ba-587c-ab20-58faa44d9150"
 version = "0.11.16"
-
-[[deps.ParallelSparseMatMul]]
-deps = ["Distributed", "SharedArrays", "SparseArrays"]
-git-tree-sha1 = "006f00076ac73c2a9b9f18b5a86bfc99c7c8d468"
-repo-rev = "master"
-repo-url = "https://github.com/filipepfarias/ParallelSparseMatMul.jl.git"
-uuid = "050b11df-f466-4eac-b5f5-63aa0dea781f"
-version = "0.1.0"
 
 [[deps.Parameters]]
 deps = ["OrderedCollections", "UnPack"]
@@ -842,12 +828,6 @@ git-tree-sha1 = "938c9ecffb28338a6b8b970bda0f3806a65e7906"
 uuid = "476501e8-09a2-5ece-8869-fb82de89a1fa"
 version = "0.6.36"
 
-[[deps.SSGraphBLAS_jll]]
-deps = ["Artifacts", "CompilerSupportLibraries_jll", "JLLWrappers", "Libdl", "Pkg"]
-git-tree-sha1 = "d5d657ff69e6de4b6059dc3516bbd87f2e79e59b"
-uuid = "7ed9a814-9cab-54e9-8e9e-d9e95b4d61b1"
-version = "7.2.0+0"
-
 [[deps.SciMLBase]]
 deps = ["ArrayInterfaceCore", "CommonSolve", "ConstructionBase", "Distributed", "DocStringExtensions", "EnumX", "FunctionWrappersWrappers", "IteratorInterfaceExtensions", "LinearAlgebra", "Logging", "Markdown", "Preferences", "RecipesBase", "RecursiveArrayTools", "RuntimeGeneratedFunctions", "StaticArraysCore", "Statistics", "Tables"]
 git-tree-sha1 = "3c99fc37cd2b7809b2dfcdc2eb89e87392811da8"
@@ -954,11 +934,6 @@ git-tree-sha1 = "412bc8d2daffe21a3a340dc3111c69194e089fc4"
 uuid = "789caeaf-c7a9-5a7d-9973-96adeb23e2a0"
 version = "6.55.0"
 
-[[deps.StorageOrders]]
-git-tree-sha1 = "1fd8020437041ef278f9bf05bd2fec8cc48c6ab4"
-uuid = "e9177fbf-8fde-426c-9425-4eed0f22262a"
-version = "0.3.1"
-
 [[deps.StrideArraysCore]]
 deps = ["ArrayInterface", "CloseOpenIntervals", "IfElse", "LayoutPointers", "ManualMemory", "SIMDTypes", "Static", "ThreadingUtilities"]
 git-tree-sha1 = "ac730bd978bf35f9fe45daa0bd1f51e493e97eb4"
@@ -968,12 +943,6 @@ version = "0.3.15"
 [[deps.SuiteSparse]]
 deps = ["Libdl", "LinearAlgebra", "Serialization", "SparseArrays"]
 uuid = "4607b0f0-06f3-5cda-b6b1-a6196a1729e9"
-
-[[deps.SuiteSparseGraphBLAS]]
-deps = ["Blobs", "ChainRulesCore", "KLU", "Libdl", "LinearAlgebra", "MacroTools", "Preferences", "Random", "SSGraphBLAS_jll", "Serialization", "SparseArrays", "SpecialFunctions", "StorageOrders", "SuiteSparse"]
-git-tree-sha1 = "29cfc3ba97704494622ec7f7a977b3268d8fe09a"
-uuid = "c2e53296-7b14-11e9-1210-bddfa8111e1d"
-version = "0.9.0"
 
 [[deps.SuiteSparse_jll]]
 deps = ["Artifacts", "Libdl", "Pkg", "libblastrampoline_jll"]
@@ -1023,12 +992,6 @@ version = "0.1.6"
 [[deps.Test]]
 deps = ["InteractiveUtils", "Logging", "Random", "Serialization"]
 uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
-
-[[deps.ThreadedSparseArrays]]
-deps = ["LinearAlgebra", "SparseArrays"]
-git-tree-sha1 = "c186105125af2813bfdd7e5a3086607063711663"
-uuid = "59d54670-b8ac-4d81-ab7a-bb56233e17ab"
-version = "0.2.2"
 
 [[deps.ThreadingUtilities]]
 deps = ["ManualMemory"]

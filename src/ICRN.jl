@@ -3,7 +3,7 @@ module ICRN
 
     include("CME.jl")
 
-    # include("statistics.jl")
+    include("statistics.jl")
 
     # include("SSA.jl")
 
@@ -11,7 +11,7 @@ module ICRN
 
     # include("utils.jl")
 
-    export operator, α, η
+    export operator, α, η, mean, entropy, KLdivergence
     # export CMEOperator, CMESolver, Statistics, Statistics!, saveStatistics, Entropy, 
     # dEntropy, Mean, Variance, Skewness, 
     # Marginals, Gillespie, SSASolver, DetSolver, Jflux, GibbsFreeEnergy
