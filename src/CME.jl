@@ -1,5 +1,3 @@
-using SparseArrays, LinearAlgebra
-
 """
 J(νi,n)
 
