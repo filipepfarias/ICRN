@@ -12,19 +12,85 @@ function marginal(p::SparseVector{<:Number,Int},𝗻ₖ,dim)
     return pmarg
 end
 
-function mean(p::SparseVector{<:Number,Int})
-    return lotus(identity,p)
+function mean(p::SparseVector{<:Number,Int},𝗻ₖ,dim)
+    pmarg = marginal(p,𝗻ₖ,dim)
+    return lotus(x -> identity(x - 1),pmarg)ß
 end
+
+# function variance(p::SparseVector{<:Number,Int},𝗻ₖ,dim)
+#     pmarg = marginal(p,𝗻ₖ,dim)
+#     return lotus(x -> identity(x - 1),pmarg)
+# end
 
 function entropy(p::SparseVector{<:Number,Int})
     nzlog(x) = x <= 0 ? 0 : log(x);
-    return lotus(nzlog,p)
+    g(i) = nzlog(p[i]);
+    return -lotus(g,p)
+end
+
+function d_entropy(p::SparseVector{<:Number,Int},Q::SparseMatrixCSC{<:Real,<:Int64})
+    nzlog(x) = x <= 0 ? 0 : log(x);
+    g(i) = nzlog(p[i]);
+    return -lotus(g,Q*p)
+end
+
+function d_entropy11(p::SparseVector{<:Number,Int},Q::SparseMatrixCSC{<:Real,<:Int64},Δt::Real)
+    # nzlog(x) = x <= 0 ? 0 : log(x);
+
+    # g(x) = nzlog(sum(Q,dims=1)[x]/sum(Q,dims=2)[x]);
+
+    Q = Q - spdiagm(diag(Q));
+    logQ = copy(Q);
+    nzQ = nonzeros(logQ);
+    nzQ .= log.(nzQ);
+
+    g(x) = 
+    return lotus(g,Q*p)/Δt
 end
 
 function KLdivergence(p::SparseVector{<:Number,Int},q::SparseVector{<:Number,Int})
     nzlog(x) = x <= 0 ? 0 : log(x);
     g(x) = nzlog(p[x]/q[x]);
     return lotus(g,p)
+end
+
+function entropy_flow(p::SparseVector{<:Number,Int},Q::SparseMatrixCSC{<:Real,<:Int64})
+    Q = Q - spdiagm(diag(Q));
+    j = spdiagm(p)Q';
+    J = j - j';
+    logQ = copy(Q');
+    nzlogQ = nonzeros(logQ);
+    nzlogQ .= log.(nzlogQ);
+    return .5*sum(J .* (logQ - logQ'));
+end
+
+function entropy_production(p,Q)
+    Q = Q - spdiagm(diag(Q));
+    j = spdiagm(p)Q';
+    J = j - j';
+    logj = copy(j);
+    nzlogj = nonzeros(logj);
+    nzlogj .= log.(nzlogj);
+    return .5*sum(J .* (logj - logj'));
+    end
+
+
+function time_reversed_entropy_production(p::SparseVector{<:Number,Int},Q::SparseMatrixCSC{<:Real,<:Int64})
+    Q = Q - spdiagm(diag(Q));
+    J = (Q * spdiagm(p));
+    logJ = copy(J);
+    nzJ = nonzeros(logJ);
+    nzJ .= log.(nzJ);
+    return sum((J - J') .* (logJ - logJ'))
+end
+
+function time_reversed_entropy_flow(p::SparseVector{<:Number,Int},Q::SparseMatrixCSC{<:Real,<:Int64})
+    Q = Q - spdiagm(diag(Q));
+    logQ = copy(Q);
+    nzQ = nonzeros(logQ);
+    nzQ .= log.(nzQ);
+    J = (Q * spdiagm(p));
+    return sum((J - J') .* (logQ - logQ'))
 end
 
 
