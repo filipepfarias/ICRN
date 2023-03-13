@@ -68,7 +68,7 @@ using α(𝓘,Re).
 [^1]: See Eq. 7 in [An adaptive solution to the chemical master equation using 
 quantized tensor trains with sliding windows, Dinh and Sidje](https://doi.org/10.1088/1478-3975/aba1d2).
 """
-diagα(𝓘,Re,m,𝛎) = reduce(kron,sparse.(reverse(Diagonal.(α(𝓘,Re[:,m])))));
+diagα(𝓘,Re,m,𝛎) = reduce(kron,sparse.(reverse(Diagonal.(α(𝓘,Re[m,:])))));
 
 """
 diagη(𝓘,Re,m,𝛎)

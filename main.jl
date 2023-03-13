@@ -7,7 +7,7 @@ using Random, Dates
 
 path = "outputs/"*randstring(5)*"_"*Dates.format(now(),"yyyymmdd")
 # # path = "outputs/irxWK_20230223"
-# mkpath(path)
+mkpath(path)
 
 model_nm = "MichaelisMenten"
 include("reactions/MichaelisMenten.jl")

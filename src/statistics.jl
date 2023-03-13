@@ -2,6 +2,12 @@ function lotus(g,p::SparseVector{<:Number,Int})
     return sum(g.(p.nzind) .* p.nzval);
 end
 
+function sparselog(p::AbstractSparseArray)
+    nzp = nonzeros(p);
+    nzp .= log.(nzp);
+return p
+end
+
 function marginal(p::SparseVector{<:Number,Int},𝗻ₖ,dim)
     # Tensor contraction fashion
     𝓘 = getindex.(getfield.(CartesianIndices(𝗻ₖ)[p.nzind],:I),dim);
@@ -14,7 +20,7 @@ end
 
 function mean(p::SparseVector{<:Number,Int},𝗻ₖ,dim)
     pmarg = marginal(p,𝗻ₖ,dim)
-    return lotus(x -> identity(x - 1),pmarg)ß
+    return lotus(x -> identity(x - 1),pmarg)
 end
 
 # function variance(p::SparseVector{<:Number,Int},𝗻ₖ,dim)
@@ -29,23 +35,9 @@ function entropy(p::SparseVector{<:Number,Int})
 end
 
 function d_entropy(p::SparseVector{<:Number,Int},Q::SparseMatrixCSC{<:Real,<:Int64})
-    nzlog(x) = x <= 0 ? 0 : log(x);
-    g(i) = nzlog(p[i]);
+    nzp = sparselog(p);
+    g(i) = log(p[i]);
     return -lotus(g,Q*p)
-end
-
-function d_entropy11(p::SparseVector{<:Number,Int},Q::SparseMatrixCSC{<:Real,<:Int64},Δt::Real)
-    # nzlog(x) = x <= 0 ? 0 : log(x);
-
-    # g(x) = nzlog(sum(Q,dims=1)[x]/sum(Q,dims=2)[x]);
-
-    Q = Q - spdiagm(diag(Q));
-    logQ = copy(Q);
-    nzQ = nonzeros(logQ);
-    nzQ .= log.(nzQ);
-
-    g(x) = 
-    return lotus(g,Q*p)/Δt
 end
 
 function KLdivergence(p::SparseVector{<:Number,Int},q::SparseVector{<:Number,Int})
@@ -64,7 +56,7 @@ function entropy_flow(p::SparseVector{<:Number,Int},Q::SparseMatrixCSC{<:Real,<:
     return .5*sum(J .* (logQ - logQ'));
 end
 
-function entropy_production(p,Q)
+function entropy_production(p::SparseVector{<:Number,Int},Q::SparseMatrixCSC{<:Real,<:Int64})
     Q = Q - spdiagm(diag(Q));
     j = spdiagm(p)Q';
     J = j - j';
@@ -72,8 +64,22 @@ function entropy_production(p,Q)
     nzlogj = nonzeros(logj);
     nzlogj .= log.(nzlogj);
     return .5*sum(J .* (logj - logj'));
-    end
+end
 
+function free_energy(p::SparseVector{<:Number,Int},pss::SparseVector{<:Number,Int})
+    return KLdivergence(p,pss)
+end
+
+function energy_input_rate(pss::SparseVector{<:Number,Int},p::SparseVector{<:Number,Int},Q::SparseMatrixCSC{<:Real,<:Int64})
+    Q = Q - spdiagm(diag(Q));
+    j = spdiagm(p)Q';
+    J = j - j';
+    j = spdiagm(pss)Q';
+    logj = copy(j);
+    nzlogj = nonzeros(logj);
+    nzlogj .= log.(nzlogj);
+    return .5*sum(J .* (logj - logj'));
+end
 
 function time_reversed_entropy_production(p::SparseVector{<:Number,Int},Q::SparseMatrixCSC{<:Real,<:Int64})
     Q = Q - spdiagm(diag(Q));

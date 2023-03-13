@@ -1,5 +1,5 @@
 module ICRN
-    using LinearAlgebra, SparseArrays
+    using MKL, MKLSparse, LinearAlgebra, SparseArrays
 
     include("CME.jl")
 
@@ -11,7 +11,8 @@ module ICRN
 
     # include("utils.jl")
 
-    export operator, α, η, lotus, marginal, mean, entropy, KLdivergence
+    export operator, α, η, lotus, marginal, mean, entropy, 
+    entropy_production, entropy_flow, KLdivergence, energy_input_rate
     # export CMEOperator, CMESolver, Statistics, Statistics!, saveStatistics, Entropy, 
     # dEntropy, Mean, Variance, Skewness, 
     # Marginals, Gillespie, SSASolver, DetSolver, Jflux, GibbsFreeEnergy
