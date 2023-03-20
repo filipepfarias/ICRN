@@ -28,23 +28,22 @@ function d𝐱dt!(𝐱,p,t)
 end
 
 function macroscopic_entropy_production(𝐱)
-    Rₘ = [(R(𝐱,m)-R(𝐱,2m)) for m in 1:Int(size(K,1)/2)]';
-    logRₘ = [((R(𝐱,m) > 0)*log(R(𝐱,m)) - (R(𝐱,2m) > 0)*log(R(𝐱,2m))) for m in 1:Int(size(K,1)/2)];
+    Rₘ = -[(R(𝐱,m)-R(𝐱,2m)) for m in 1:Int(size(K,1)/2)]';
+    logRₘ = -[((R(𝐱,m) > 0)*(R(𝐱,2m) > 0)*(log(R(𝐱,m))-log(R(𝐱,2m)))) for m in 1:Int(size(K,1)/2)];
     return sum(Rₘ * logRₘ);
 end
 
 function generalized_free_energy(𝐱,𝐱ₛₛ)
     Rₘ = -[(R(𝐱,m)-R(𝐱,2m)) for m in 1:Int(size(K,1)/2)]';
-    logRₘ = -[((R(𝐱,m) > 0)*log(R(𝐱,m)) - (R(𝐱,2m) > 0)*log(R(𝐱,2m))) for m in 1:Int(size(K,1)/2)];
-    logRₛₛ = [((R(𝐱ₛₛ,m) > 0)*log(R(𝐱ₛₛ,m)) - (R(𝐱ₛₛ,2m) > 0)*log(R(𝐱ₛₛ,2m))) for m in 1:Int(size(K,1)/2)];
+    logRₘ = -[((R(𝐱,m) > 0)*(R(𝐱,2m) > 0)*(log(R(𝐱,m)) - log(R(𝐱,2m)))) for m in 1:Int(size(K,1)/2)];
+    logRₛₛ = [((R(𝐱ₛₛ,m) > 0)*(R(𝐱ₛₛ,2m) > 0)*(log(R(𝐱ₛₛ,m)) - log(R(𝐱ₛₛ,2m)))) for m in 1:Int(size(K,1)/2)];
     return sum(Rₘ * (logRₘ + logRₛₛ));
 end
 
 function macroscopic_energy_input(𝐱,𝐱ₛₛ)
     Rₘ = -[(R(𝐱,m)-R(𝐱,2m)) for m in 1:Int(size(K,1)/2)]';
-    logRₘ = [((R(𝐱,m) > 0)*log(R(𝐱,m)) - (R(𝐱,2m) > 0)*log(R(𝐱,2m))) for m in 1:Int(size(K,1)/2)];
-    logRₛₛ = -[((R(𝐱ₛₛ,m) > 0)*log(R(𝐱ₛₛ,m)) - (R(𝐱ₛₛ,2m) > 0)*log(R(𝐱ₛₛ,2m))) for m in 1:Int(size(K,1)/2)];
-    return sum(Rₘ * (logRₘ + logRₛₛ));
+    logRₛₛ = -[((R(𝐱ₛₛ,m) > 0)*(R(𝐱ₛₛ,2m) > 0)*(log(R(𝐱ₛₛ,m)) - log(R(𝐱ₛₛ,2m)))) for m in 1:Int(size(K,1)/2)];
+    return sum(Rₘ * logRₛₛ);
 end
 
 function rate_conversion(k,Reₘ)
