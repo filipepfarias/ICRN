@@ -4,7 +4,7 @@ using FileIO, JLD2
 using MKL, MKLSparse, SparseArrays, LinearAlgebra
 using DifferentialEquations
 
-mkpath(path)
+# mkpath(path)
 println("Building the CME operator...")
 comp_time = @elapsed begin
     model = "reactions/"*model_nm*".jl";
@@ -20,7 +20,7 @@ comp_time = @elapsed begin
 
     A = operator(𝛎,Re,K,𝗻ₖ);    # CME Operator 
     At = sparse(A');
-    cp(model,path*"/"*model_nm*".jl"; force=true)
+    # cp(model,path*"/"*model_nm*".jl"; force=true)
 end
 println("Computation time for the assemble of the operator: "*string(comp_time)*"s.")
 
@@ -81,5 +81,5 @@ for iT in eachindex(T)[1:end-1]
     ProgressMeter.next!(pgres)
 end
 
-mkpath(path*"/CME/")
+# mkpath(path*"/CME/")
 jldsave(path*"/CME/"*model_nm, pf_log=pf_log, pb_log=pb_log);
