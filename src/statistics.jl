@@ -35,9 +35,7 @@ function entropy(p::SparseVector{<:Number,Int})
 end
 
 function d_entropy(p::SparseVector{<:Number,Int},Q::SparseMatrixCSC{<:Real,<:Int64})
-    nzp = sparselog(p);
-    g(i) = log(p[i]);
-    return -lotus(g,Q*p)
+    return -sum(sparselog(p) .* (Q*p))
 end
 
 function KLdivergence(p::SparseVector{<:Number,Int},q::SparseVector{<:Number,Int})

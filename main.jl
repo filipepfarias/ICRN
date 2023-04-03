@@ -7,10 +7,10 @@ using Random, Dates
 
 path = "outputs/"*randstring(5)*"_"*Dates.format(now(),"yyyymmdd")
 # # path = "outputs/irxWK_20230223"
-mkpath(path)
+# mkpath(path)
 
-model_nm = "MichaelisMenten"
-include("reactions/MichaelisMenten.jl")
+model_nm = "Enzy_MichaelisMenten"
+include("reactions/Enzy_MichaelisMenten.jl")
 
 include("solve_CME.jl")
 
@@ -21,3 +21,6 @@ include("solve_CME.jl")
 # sol_Det = DetSolver(path*"/Det", model_nm; molecules=true)
 
 # plot(sol_CME[1]')
+
+using Plots
+

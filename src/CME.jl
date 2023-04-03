@@ -82,16 +82,53 @@ quantized tensor trains with sliding windows, Dinh and Sidje](https://doi.org/10
 diagη(𝓘,Re,m,𝛎) = reduce(kron,sparse.(reverse(Diagonal.(η(𝓘,Re[m,:],𝛎[m,:])))));
 
 """
-operator(𝛎,Re,K,𝗻ₖ)
+operatorη(𝛎,Re,K,𝗻ₖ)
 
 Builds the trasition rate matrix for the chemical master equation[^1].
 
 [^1]: See Eq. 7 in [An adaptive solution to the chemical master equation using 
 quantized tensor trains with sliding windows, Dinh and Sidje](https://doi.org/10.1088/1478-3975/aba1d2).
 """
-function operator(𝛎,Re,K,𝗻ₖ)
+function operatorη(𝛎,Re,K,𝗻ₖ)
     𝓘 = [collect.((:).(0,𝗻ₖ .-1))...,];
+    return operator(𝛎,Re,K,𝗻ₖ,𝓘);
+end
+
+"""
+operatorη(𝛎,Re,K,𝗻ₖ,𝓘)
+
+Builds the trasition rate matrix for the chemical master equation[^1].
+
+[^1]: See Eq. 7 in [An adaptive solution to the chemical master equation using 
+quantized tensor trains with sliding windows, Dinh and Sidje](https://doi.org/10.1088/1478-3975/aba1d2).
+"""
+function operatorη(𝛎,Re,K,𝗻ₖ,𝓘)
     return sum([(𝗝(𝛎[m,:],𝗻ₖ) - I)*K[m]*diagη(𝓘,Re,m,𝛎) for m in eachindex(𝛎[:,1])]);
+end
+
+"""
+operatorα(𝛎,Re,K,𝗻ₖ)
+
+Builds the trasition rate matrix for the chemical master equation[^1].
+
+[^1]: See Eq. 7 in [An adaptive solution to the chemical master equation using 
+quantized tensor trains with sliding windows, Dinh and Sidje](https://doi.org/10.1088/1478-3975/aba1d2).
+"""
+function operatorα(𝛎,Re,K,𝗻ₖ)
+    𝓘 = [collect.((:).(0,𝗻ₖ .-1))...,];
+    return operator(𝛎,Re,K,𝗻ₖ,𝓘);
+end
+
+"""
+operatorα(𝛎,Re,K,𝗻ₖ,𝓘)
+
+Builds the trasition rate matrix for the chemical master equation[^1].
+
+[^1]: See Eq. 7 in [An adaptive solution to the chemical master equation using 
+quantized tensor trains with sliding windows, Dinh and Sidje](https://doi.org/10.1088/1478-3975/aba1d2).
+"""
+function operatorα(𝛎,Re,K,𝗻ₖ,𝓘)
+    return sum([(𝗝(𝛎[m,:],𝗻ₖ) - I)*K[m]*diagα(𝓘,Re,m,𝛎) for m in eachindex(𝛎[:,1])]);
 end
 
 ################################## OLD

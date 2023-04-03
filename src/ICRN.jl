@@ -13,9 +13,9 @@ module ICRN
 
     # include("utils.jl")
 
-    export operator, α, η, lotus, marginal, mean, entropy, 
+    export operatorα, operatorη, α, η, lotus, marginal, mean, entropy, 
     entropy_production, entropy_flow, KLdivergence, energy_input_rate,
-    R, dxdt!
+    free_energy, d_entropy, sparselog, R, dxdt!
     # export CMEOperator, CMESolver, Statistics, Statistics!, saveStatistics, Entropy, 
     # dEntropy, Mean, Variance, Skewness, 
     # Marginals, Gillespie, SSASolver, DetSolver, Jflux, GibbsFreeEnergy

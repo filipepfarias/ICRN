@@ -12,7 +12,7 @@ comp_time = @elapsed begin
 
     p₀ = spzeros(prod(𝗻ₖ));                # Initial condition for Section 7.3
     # p₀ = zeros(prod(𝗻ₖ));                # Initial condition for Section 7.3
-    cart2lin = LinearIndices((:).(1,𝗻ₖ))[ℰ, ℰ𝒜, 𝒜, ℬ][:];
+    cart2lin = LinearIndices((:).(1,𝗻ₖ))[ℰ, ℰ𝒜][:];
     p₀[cart2lin] .= 1.0;                  # Uniform distribution
     
     nzp₀ = nonzeros(p₀); nzp₀ .= 1/sum(nonzeros(p₀)); # Renormalizing distribution
@@ -43,7 +43,7 @@ t = 0.0
 while abs(stop_ep) > eps()
     global pf, t, Δt, stop_ep
     prob = ODEProblem(f,pf, (t,t+Δt));
-    fw_sol = solve(prob, RK4();dt= .5/20, saveat=t+Δt,adaptive=false);
+    fw_sol = solve(prob, RK4();dt= .5/20, saveat=t+Δt);
     pf = fw_sol.u[end]/sum(fw_sol.u[end]);
     stop_ep = entropy_production(pf,A);
     t += Δt;
@@ -67,19 +67,6 @@ for iT in eachindex(T)[1:end-1]
 end
 
 pb = copy(pf_log[end]);
-pb_log = Vector{Any}();
-push!(pb_log,pb);
-
-pgres = Progress(length(T)-1; showspeed=true, desc="Solving the Backward CME...")
-for iT in eachindex(T)[1:end-1] 
-    global pb, pb_log     
-    # pb = pf_log[end-iT+1];
-    prob = ODEProblem(g,pb, (-T[iT],-T[iT+1]));
-    bw_sol = solve(prob, RK4();dt=-.5/12, saveat=-T[iT+1],adaptive=false);
-    pb = bw_sol.u[end]/sum(bw_sol.u[end]);
-    push!(pb_log,pb);
-    ProgressMeter.next!(pgres)
-end
 
 # mkpath(path*"/CME/")
-jldsave(path*"/CME/"*model_nm, pf_log=pf_log, pb_log=pb_log);
+jldsave(path*"/CME/"*model_nm, pf_log=pf_log);
