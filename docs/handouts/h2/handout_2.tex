@@ -1,0 +1,25 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\title{Tensor techniques for CMEs}
+\author{The Author}
+%\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+%\section{}
+%\subsection{}
+
+The first and more basic is the finite state projection (FSP)\footnote{Munsky, B., \& Khammash, M. (2006). The finite state projection algorithm for the solution of the chemical master equation. The Journal of Chemical Physics, 124(4), 044104. doi:10.1063/1.2145882}. When the CME describes a chemical reaction network that has a finite copy numbers (the system is closed and does not create species), the FSP method provides an exact analytical solution. When the system is allowed to have a large or even infinite variation of copy numbers, the FSP method truncates the state-space of the CME given a precision. This precision is quantified by the mass of probability that ``leaves'' the state-space due to jumps to out of it. The algorithm tries to expand the state-space until it reaches the precision, but at the cost of computing the whole probability at each trial. Another methods as sliding windows\footnote{Wolf, V., Goel, R., Mateescu, M., \& Henzinger, T. A. (2010). Solving the chemical master equation using sliding windows. BMC Systems Biology, 4(1), 42. doi:10.1186/1752-0509-4-42 } that are based on the probability of jumping out of the state-space in a given interval of time. The difference is that the state-space is ``slid'' according to such probabilities and iteratively.
+
+More recent advances try to address the curse of dimensionality using tensor decomposition techniques\footnote{Kolda, T. G., \& Bader, B. W. (2009). Tensor Decompositions and Applications. SIAM Review, 51(3), 455–500. doi:10.1137/07070111x }. In special, the called ``tensor-train'' decomposition, found by Oseledets\footnote{Oseledets, I. V. (2009). A new tensor decomposition. Doklady Mathematics, 80(1), 495–496. doi:10.1134/s1064562409040115} (cf. a more comprehensive review\footnote{Oseledets, I. V. (2011). Tensor-Train Decomposition. SIAM Journal on Scientific Computing, 33(5), 2295–2317. doi:10.1137/090752286}). The main idea is to decompose the tensors obtained from the CME operator and the state-space probabilities into product of lower-rank tensors, achieving a lower complexity for the evaluation of the evolution and a lower storage cost\footnote{Gelss, P. (2017). The Tensor-Train Format and Its Applications: Modeling and analysis of chemical reaction networks, catalytic processes, fluid flows, and Brownian dynamics. Dissertation, Freie Universität Berlin.}. The technique has been used for solving the chemical master equation\footnote{Ion, I. G., Wildner, C., Loukrezis, D., Koeppl, H., \& De Gersem, H. (2021). Tensor-train approximation of the chemical master equation and its application for parameter inference. The Journal of Chemical Physics, 155(3), 034102. doi:10.1063/5.0045521. \\ Gelß, P., Matera, S., \& Schütte, C. (2016). Solving the master equation without kinetic Monte Carlo: Tensor train approximations for a CO oxidation model. Journal of Computational Physics, 314, 489–502. doi:10.1016/j.jcp.2016.03.025. \\ Dinh, T., \& Sidje, R. B. (2020). An adaptive solution to the chemical master equation using quantized tensor trains with sliding windows. Physical Biology. doi:10.1088/1478-3975/aba1d2 }.
+
+
+\end{document}  

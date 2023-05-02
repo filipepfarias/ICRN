@@ -1,0 +1,155 @@
+% Gemini theme
+% https://github.com/anishathalye/gemini
+
+\documentclass[final]{beamer}
+
+% ====================
+% Packages
+% ====================
+
+\usepackage[T1]{fontenc}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[superscript,biblabel]{cite}
+\usepackage{lmodern}
+\usepackage[scale=1]{beamerposter}
+%\usepackage[size=custom,width=90,height=130,scale=1.25]{beamerposter}
+\usetheme{gemini}
+\usecolortheme{labsix}
+\usepackage{graphicx}
+\usepackage{svg}
+\svgsetup{inkscapeexe=/Applications/Inkscape.app/Contents/MacOS/inkscape}
+\DeclareGraphicsRule{.ai}{pdf}{.ai}{}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{fit,backgrounds}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+
+
+% ====================
+% Lengths
+% ====================
+
+% If you have N columns, choose \sepwidth and \colwidth such that
+% (N+1)*\sepwidth + N*\colwidth = \paperwidth
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.025\paperwidth}
+\setlength{\colwidth}{0.3\paperwidth}
+
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+
+% ====================
+% Title
+% ====================
+
+\title{Stochastic thermodynamic analysis of the Michaelis-Menten kinetics}
+
+% REMOVED \inst{1}
+\author{Filipe P. de Farias\inst{1} \and Francesco Corona\inst{1}  \and Michela Mulas\inst{1}}
+
+\institute[shortinst]{\inst{1}Dept.}
+
+% ====================
+% Footer (optional)
+% ====================
+ %% REMOVED {  %\href{https://www.example.com}{https://www.example.com} 
+  %\href{mailto:alyssa.p.hacker@example.com}{alyssa.p.hacker@example.com} }
+\footercontent{
+  \hfill
+  ???
+  \hfill
+}
+% (can be left out to remove footer)
+
+% ====================
+% Logo (optional)
+% ====================
+
+% use this to include logos on the left and/or right side of the header:
+\logoright{\includegraphics[height=10cm,
+%page=2,trim={17cm 21cm 3cm 5cm},clip
+]{"graphics/brasao2_vertical_monocromatico"}}
+\logoleft{\includegraphics[height=10cm]{"example-image-a"}}
+
+% ====================
+% Body
+% ====================
+
+\begin{document}
+
+\setlength{\abovedisplayskip}{40pt}
+\setlength{\belowdisplayskip}{40pt}
+
+\begin{frame}[t]
+\begin{columns}[t]
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+  \begin{block}{Introduction}
+{\bf Stochastic thermodynamics} (ST) deals with the interaction of mesoscopic, nonequilibrium physical systems with heat reservoirs in equilibrium.\cite{peliti2021stochastic} Such interactions are assumed to be the source of the randomness in the dynamics of the system, assigning to it a probability $p_x(t)$ of being in the state $x$ at time $t$.
+\begin{itemize}
+\item We will use the Michaelis-Menten kinetics as case of study for the ST.
+\end{itemize}
+\end{block}
+
+\begin{alertblock}{Michaelis-Menten kinetics (MM)}
+The system (MM) is composed by a single molecule of enzyme $E$. We assume the enzyme processes a single molecule of substrate $S$ per time. Then the system can be in two states: free enzyme $E$ and complexed $ES$.
+\begin{itemize}
+\item The reaction network that models the kinetics is:
+\begin{equation}
+E + S \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} ES \underset{k_{-2}}{\stackrel{k_2}{\rightleftharpoons}} E + P
+\end{equation}
+\item The substrate $S$ and the product $P$ are {\bf chemostated}.
+\end{itemize}
+\end{alertblock}
+
+\begin{figure}
+\begin{subfigure}[b]{0.45\textwidth}
+\label{fig 2-state-system}
+\includesvg{graphics/ST-1.svg}
+\caption{Representation of the MM[Massimiliano REF?].}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.45\textwidth}
+\label{fig 2-state-system}
+\includesvg{graphics/2-state-graph.svg}
+\caption{Single realization of the system.}
+\end{subfigure}
+\end{figure}
+
+
+The system is kept in contact with a heat bath with temperature $T$.
+\begin{itemize}
+\item The changes in state of the system are due to energy exchanges with the bath.
+\end{itemize}
+
+
+
+
+\end{column}
+
+\separatorcolumn
+
+\begin{column}{\colwidth}
+ \end{column}
+
+\separatorcolumn
+
+\begin{column}{\colwidth}
+  \begin{block}{References}
+
+    \nocite{*}
+    \footnotesize{\bibliographystyle{plain}\bibliography{poster}}
+    
+  \end{block}
+
+\end{column}
+
+\separatorcolumn
+\end{columns}
+\end{frame}
+
+\end{document}

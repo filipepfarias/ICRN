@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="620.93243"
+   height="433.30161"
+   viewBox="0 0 2483.7297 1733.2064"
+   version="1.1"
+   id="svg87"
+   sodipodi:docname="2-state-graph.svg"
+   inkscape:version="1.2.2 (b0a8486, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview89"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     showgrid="false"
+     inkscape:zoom="2.0371363"
+     inkscape:cx="285.44973"
+     inkscape:cy="282.01353"
+     inkscape:window-width="1461"
+     inkscape:window-height="813"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg87" />
+  <defs
+     id="defs5">
+    <clipPath
+       id="clip840">
+      <rect
+         x="0"
+         y="0"
+         width="2400"
+         height="1600"
+         id="rect2" />
+    </clipPath>
+  </defs>
+  <path
+     clip-path="url(#clip840)"
+     d="M 0,1600 H 2400 V 0 H 0 Z"
+     fill="#ffffff"
+     fill-rule="evenodd"
+     fill-opacity="1"
+     id="path7"
+     transform="scale(1.0348874,1.083254)"
+     style="display:none" />
+  <text
+     xml:space="preserve"
+     style="font-size:53.3333px;font-family:Courier;-inkscape-font-specification:'Courier, Normal';text-align:center;text-anchor:middle;display:inline;fill:none;stroke:#000000;stroke-width:8.54172;stroke-linecap:square;stroke-miterlimit:4.1;paint-order:markers stroke fill"
+     x="125.99411"
+     y="1005.4048"
+     id="text303-718-4"><tspan
+       sodipodi:role="line"
+       id="tspan301-78-8"
+       style="font-size:53.3333px;stroke-width:8.54173"
+       x="125.99411"
+       y="1005.4048">$E$</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:53.3333px;font-family:Courier;-inkscape-font-specification:'Courier, Normal';text-align:center;text-anchor:middle;display:inline;fill:none;stroke:#000000;stroke-width:8.54172;stroke-linecap:square;stroke-miterlimit:4.1;paint-order:markers stroke fill"
+     x="102.42655"
+     y="421.21811"
+     id="text303-718"><tspan
+       sodipodi:role="line"
+       id="tspan301-78"
+       style="font-size:53.3333px;stroke-width:8.54173"
+       x="102.42655"
+       y="421.21811">$ES$</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:53.3333px;font-family:Courier;-inkscape-font-specification:'Courier, Normal';text-align:center;text-anchor:middle;display:inline;fill:none;stroke:#000000;stroke-width:8.54172;stroke-linecap:square;stroke-miterlimit:4.1;paint-order:markers stroke fill"
+     x="2435.8303"
+     y="1574.2557"
+     id="text303-71"><tspan
+       sodipodi:role="line"
+       id="tspan301-3"
+       style="font-size:53.3333px;stroke-width:8.54173"
+       x="2435.8303"
+       y="1574.2557">{\small 25}</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:53.3333px;font-family:Courier;-inkscape-font-specification:'Courier, Normal';text-align:center;text-anchor:middle;display:inline;fill:none;stroke:#000000;stroke-width:8.54172;stroke-linecap:square;stroke-miterlimit:4.1;paint-order:markers stroke fill"
+     x="1997.7456"
+     y="1574.5908"
+     id="text303-3"><tspan
+       sodipodi:role="line"
+       id="tspan301-6"
+       style="font-size:53.3333px;stroke-width:8.54173"
+       x="1997.7456"
+       y="1574.5908">{\small 20}</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:85.3332px;font-family:Courier;-inkscape-font-specification:'Courier, Normal';text-align:center;text-anchor:middle;display:inline;fill:none;stroke:#000000;stroke-width:8.54172;stroke-linecap:square;stroke-miterlimit:4.1;paint-order:markers stroke fill"
+     x="1330.3806"
+     y="1649.9883"
+     id="text303-7"><tspan
+       sodipodi:role="line"
+       id="tspan301-0"
+       style="stroke-width:8.54173"
+       x="1330.3806"
+       y="1649.9883">t(s)</tspan></text>
+  <defs
+     id="defs12">
+    <clipPath
+       id="clip841">
+      <rect
+         x="480"
+         y="0"
+         width="1681"
+         height="1600"
+         id="rect9" />
+    </clipPath>
+  </defs>
+  <path
+     clip-path="url(#clip840)"
+     d="M 139.746,1423.18 H 2352.76 V 47.2441 H 139.746 Z"
+     fill="#ffffff"
+     fill-rule="evenodd"
+     fill-opacity="1"
+     id="path14"
+     sodipodi:nodetypes="ccccc"
+     transform="translate(83.729766)"
+     inkscape:label="path14"
+     style="display:none" />
+  <defs
+     id="defs19">
+    <clipPath
+       id="clip842">
+      <rect
+         x="139"
+         y="47"
+         width="2214"
+         height="1377"
+         id="rect16" />
+    </clipPath>
+  </defs>
+  <polyline
+     clip-path="url(#clip842)"
+     style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.1"
+     points="139.746,1423.18 139.746,47.2441 "
+     id="polyline21"
+     transform="translate(83.729766)" />
+  <polyline
+     clip-path="url(#clip842)"
+     style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.1"
+     points="582.348,1423.18 582.348,47.2441 "
+     id="polyline23"
+     transform="translate(83.729766)" />
+  <polyline
+     clip-path="url(#clip842)"
+     style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.1"
+     points="1024.95,1423.18 1024.95,47.2441 "
+     id="polyline25"
+     transform="translate(83.729766)" />
+  <polyline
+     clip-path="url(#clip842)"
+     style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.1"
+     points="1467.55,1423.18 1467.55,47.2441 "
+     id="polyline27"
+     transform="translate(83.729766)" />
+  <polyline
+     clip-path="url(#clip842)"
+     style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.1"
+     points="1910.15,1423.18 1910.15,47.2441 "
+     id="polyline29"
+     transform="translate(83.729766)" />
+  <polyline
+     clip-path="url(#clip842)"
+     style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.1"
+     points="2352.76,1423.18 2352.76,47.2441 "
+     id="polyline31"
+     transform="translate(83.729766)" />
+  <polyline
+     clip-path="url(#clip840)"
+     style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+     points="139.746,1423.18 2352.76,1423.18 "
+     id="polyline33"
+     transform="translate(83.729766)" />
+  <polyline
+     clip-path="url(#clip840)"
+     style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+     points="139.746,1423.18 139.746,1404.28 "
+     id="polyline35"
+     transform="translate(83.729766)" />
+  <polyline
+     clip-path="url(#clip840)"
+     style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+     points="582.348,1423.18 582.348,1404.28 "
+     id="polyline37"
+     transform="translate(83.729766)" />
+  <polyline
+     clip-path="url(#clip840)"
+     style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+     points="1024.95,1423.18 1024.95,1404.28 "
+     id="polyline39"
+     transform="translate(83.729766)" />
+  <polyline
+     clip-path="url(#clip840)"
+     style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+     points="1467.55,1423.18 1467.55,1404.28 "
+     id="polyline41"
+     transform="translate(83.729766)" />
+  <polyline
+     clip-path="url(#clip840)"
+     style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+     points="1910.15,1423.18 1910.15,1404.28 "
+     id="polyline43"
+     transform="translate(83.729766)" />
+  <polyline
+     clip-path="url(#clip840)"
+     style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+     points="2352.76,1423.18 2352.76,1404.28 "
+     id="polyline45"
+     transform="translate(83.729766)" />
+  <polyline
+     clip-path="url(#clip842)"
+     style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.1"
+     points="139.746,1384.24 2352.76,1384.24 "
+     id="polyline69"
+     transform="translate(89.199766,-399.3403)" />
+  <polyline
+     clip-path="url(#clip842)"
+     style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.1"
+     points="139.746,86.1857 2352.76,86.1857 "
+     id="polyline71"
+     transform="translate(84.983763,310.52719)" />
+  <polyline
+     clip-path="url(#clip840)"
+     style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+     points="139.746,1423.18 139.746,47.2441 "
+     id="polyline73"
+     transform="translate(83.729766)" />
+  <polyline
+     clip-path="url(#clip840)"
+     style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+     points="139.746,1384.24 158.644,1384.24 "
+     id="polyline75"
+     transform="translate(89.199766,-399.3403)" />
+  <polyline
+     clip-path="url(#clip840)"
+     style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+     points="139.746,86.1857 158.644,86.1857 "
+     id="polyline77"
+     transform="translate(84.983763,310.52719)" />
+  <path
+     id="polyline85"
+     clip-path="url(#clip842)"
+     style="fill:none;stroke:#005386;stroke-width:8;stroke-linecap:round;stroke-linejoin:round"
+     inkscape:label="polyline85"
+     transform="translate(83.729766)"
+     d="m 139.746,984.8997 h 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 l 2.216,-586.18681 h 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 l 2.215,586.18681 h 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.216 2.215 2.215 2.215 2.215 2.216 2.216 2.21 2.22 2.21 l 2.22,-586.18681 h 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 L 1079,984.8997 h 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 l 2.21,-586.18681 h 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 l 2.22,586.18681 h 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 l 2.21,-586.18681 h 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.21 2.22 2.22 2.21 2.22 2.21 2.22"
+     sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
+  <text
+     xml:space="preserve"
+     style="font-size:53.3333px;font-family:Courier;-inkscape-font-specification:'Courier, Normal';text-align:center;text-anchor:middle;display:inline;fill:none;stroke:#000000;stroke-width:8.54172;stroke-linecap:square;stroke-miterlimit:4.1;paint-order:markers stroke fill"
+     x="223.47627"
+     y="1574.5908"
+     id="text303"><tspan
+       sodipodi:role="line"
+       id="tspan301"
+       style="font-size:53.3333px;stroke-width:8.54173"
+       x="223.47627"
+       y="1574.5908">{\small 0}</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:53.3333px;font-family:Courier;-inkscape-font-specification:'Courier, Normal';text-align:center;text-anchor:middle;display:inline;fill:none;stroke:#000000;stroke-width:8.54172;stroke-linecap:square;stroke-miterlimit:4.1;paint-order:markers stroke fill"
+     x="666.07825"
+     y="1574.9058"
+     id="text303-2"><tspan
+       sodipodi:role="line"
+       id="tspan301-2"
+       style="font-size:53.3333px;stroke-width:8.54173"
+       x="666.07825"
+       y="1574.9058">{\small 5}</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:53.3333px;font-family:Courier;-inkscape-font-specification:'Courier, Normal';text-align:center;text-anchor:middle;display:inline;fill:none;stroke:#000000;stroke-width:8.54172;stroke-linecap:square;stroke-miterlimit:4.1;paint-order:markers stroke fill"
+     x="1109.6339"
+     y="1574.5908"
+     id="text303-23"><tspan
+       sodipodi:role="line"
+       id="tspan301-9"
+       style="font-size:53.3333px;stroke-width:8.54173"
+       x="1109.6339"
+       y="1574.5908">{\small 10}</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:53.3333px;font-family:Courier;-inkscape-font-specification:'Courier, Normal';text-align:center;text-anchor:middle;display:inline;fill:none;stroke:#000000;stroke-width:8.54172;stroke-linecap:square;stroke-miterlimit:4.1;paint-order:markers stroke fill"
+     x="1553.2223"
+     y="1574.7808"
+     id="text303-5"><tspan
+       sodipodi:role="line"
+       id="tspan301-7"
+       style="font-size:53.3333px;stroke-width:8.54173"
+       x="1553.2223"
+       y="1574.7808">{\small 15}</tspan></text>
+</svg>
