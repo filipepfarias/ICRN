@@ -88,7 +88,7 @@
 
 \begin{column}{\colwidth}
 
-  \begin{block}{Introduction}
+\begin{block}{Introduction}
 {\bf Stochastic thermodynamics} (ST) deals with the interaction of mesoscopic, nonequilibrium physical systems with heat reservoirs in equilibrium.\cite{peliti2021stochastic} Such interactions are assumed to be the source of the randomness in the dynamics of the system, assigning to it a probability $p_x(t)$ of being in the state $x$ at time $t$.
 \begin{itemize}
 \item We will use the Michaelis-Menten kinetics as case of study for the ST.
@@ -107,17 +107,19 @@ E + S \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} ES \underset{k_{-2}}
 \end{alertblock}
 
 \begin{figure}
+\label{fig 1}
 \begin{subfigure}[b]{0.45\textwidth}
-\label{fig 2-state-system}
 \includesvg{graphics/ST-1.svg}
-\caption{Representation of the MM[Massimiliano REF?].}
+\caption{}
+\label{fig 2-state-system}
 \end{subfigure}
 \hfill
 \begin{subfigure}[b]{0.45\textwidth}
-\label{fig 2-state-system}
 \includesvg{graphics/2-state-graph.svg}
-\caption{Single realization of the system.}
+\caption{}
+\label{fig 2-state-graph}
 \end{subfigure}
+\caption{In (\subref{fig 2-state-system}) the representation of the MM[Massimiliano REF?] and in (\subref{fig 2-state-graph}) a single realization of the system.}
 \end{figure}
 
 
@@ -126,25 +128,82 @@ The system is kept in contact with a heat bath with temperature $T$.
 \item The changes in state of the system are due to energy exchanges with the bath.
 \end{itemize}
 
-
-
+\begin{block}{Master Equation}
+How the probability $p_x(t)$ of the system being in $x \in \{E,ES\}$ change with time, is given by a {\bf master equation}\cite{van2007stochastic}. It reads:
+%
+\begin{equation}
+\frac{dp_x(t)}{dt} = \sum_x W_{x^\prime x} p_x(t) -  W_{x x^\prime}p_{x^\prime}(t) \label{eq CME}
+\end{equation}
+\begin{itemize}
+\item The $W_{x^\prime x}$ is the {\bf probability transition rate} from the state $x^\prime$ to $x$.
+\item $W_{x^\prime x}$ forms a {\bf stochastic matrix} $W$ dependent on the kinetics of the chemical reactions.
+\item Integrating or sampling \eqref{eq CME} allow us to obtain the probabilities $p_x(t)$.
+\end{itemize}
+\end{block}
 
 \end{column}
 
 \separatorcolumn
 
 \begin{column}{\colwidth}
- \end{column}
+\begin{figure}
+\label{fig 1}
+\begin{subfigure}[b]{0.45\textwidth}
+\includesvg{graphics/ST-MM.svg}
+\caption{}
+\label{fig 2-state-system}
+\end{subfigure}
+\begin{subfigure}[b]{0.45\textwidth}
+\includesvg{graphics/ST-MM-prob.svg}
+\caption{}
+\label{fig 2-state-system}
+\end{subfigure}
+\caption{In (\subref{fig 2-state-system}) the representation of the MM[Massimiliano REF?] and in (\subref{fig 2-state-graph}) a single realization of the system.}
+\end{figure}
+
+\begin{block}{Stochastic Thermodynamics}
+The classical thermodynamics is defined assumed an {\bf equilibrium} situation of the system.
+\begin{itemize}
+\item In the ST, the equilibrium is held by the bath, the system is allowed to be in nonequilibrium.
+%\item When the system reaches the equilibrium, it is also in equilibrium with the bath (Zero-th law).
+\item In such case, ST gives that the system has nonnegative average entropy production rate $\dot{S}^{sys}$:
+%
+\begin{equation}
+\frac{\dot{S}^{sys}}{k_B} = \frac{1}{2} \sum_{x \neq x^\prime} \left[ W_{x^\prime x} p_x(t) -  W_{x x^\prime}p_{x^\prime} \right] \ln \frac{p_x(t)}{p_{x^\prime}(t)}.
+\end{equation}
+%
+This expression can be separated in two parts:
+
+\begin{equation}
+\frac{\dot{S}^{tot}}{k_B}  = \frac{1}{2} \sum_{x \neq x^\prime} \left[ W_{x^\prime x} p_x(t) -  W_{x x^\prime}p_{x^\prime} \right] \ln \frac{W_{x^\prime x} p_x(t)}{W_{xx^\prime}p_{x^\prime}(t)}
+\quad 
+\frac{\dot{S}^{bath}}{k_B}  = \frac{1}{2} \sum_{x \neq x^\prime} \left[ W_{x^\prime x} p_x(t) -  W_{x x^\prime}p_{x^\prime} \right] \ln \frac{W_{x^\prime x}}{W_{xx^\prime}}
+\end{equation}
+The term $\frac{\dot{S}^{bath}}{k_B}$ is the average heat absorbed by the bath when the system jumps between the states, while $\frac{\dot{S}^{tot}}{k_B}$ is the total entropy change (or balance) of both system and bath.
+
+\item If $p_x^{eq}$ is the probability of the system when in equilibrium, ST gives us the {\bf free energy}
+%
+\begin{equation}
+\frac{\dot{F}(t)}{k_B T} = \sum_{x \neq x^\prime} \left[ W_{x^\prime x} p_x(t) -  W_{x x^\prime}p_{x^\prime} \right] \ln \frac{p_x(t)}{p_{x^\prime}^{eq}} = w - T \dot{S}^{tot}.
+\end{equation}
+The average work $w$ that can be done in the system is then defined in terms of $p_x^{eq}$
+\begin{equation}
+w(t) = \frac{1}{2} \sum_{x \neq x^\prime} \left[ W_{x^\prime x} p_x(t) -  W_{x x^\prime}p_{x^\prime} \right] \ln \frac{W_{x^\prime x} p_x^{eq}}{W_{xx^\prime}p_{x^\prime}^{eq}}.
+\end{equation}
+\end{itemize}
+\end{block}
+
+\end{column}
 
 \separatorcolumn
 
 \begin{column}{\colwidth}
-  \begin{block}{References}
+\begin{block}{References}
 
-    \nocite{*}
-    \footnotesize{\bibliographystyle{plain}\bibliography{poster}}
-    
-  \end{block}
+\nocite{*}
+\footnotesize{\bibliographystyle{plain}\bibliography{poster}}
+
+\end{block}
 
 \end{column}
 

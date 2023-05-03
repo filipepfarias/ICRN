@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.6.6)  2 MAY 2023 13:01
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.6.6)  3 MAY 2023 20:03
  system commands enabled.
  file:line:error style messages enabled.
 **poster.tex
@@ -1388,6 +1388,15 @@ Package luatex.def Info: example-image-a.pdf  used on input line 74.
 (luatex.def)             Requested size: 379.4048pt x 284.52756pt.
  (./poster.aux
 
+LaTeX Warning: Label `fig 1' multiply defined.
+
+
+LaTeX Warning: Label `fig 2-state-system' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig 2-state-system' multiply defined.
+
+
 LaTeX Warning: Label `fig 2-state-system' multiply defined.
 
 
@@ -1576,7 +1585,7 @@ Package luatex.def Info: graphics/brasao2_vertical_monocromatico.pdf  used on i
 nput line 80.
 (luatex.def)             Requested size: 417.42955pt x 284.52756pt.
 Package svg Info: Last page of `./svg-inkscape/ST-1_svg-tex.pdf' is 1 on input 
-line 153.
+line 212.
 (./svg-inkscape/ST-1_svg-tex.pdf_tex
 <./svg-inkscape/ST-1_svg-tex.pdf, id=17, page=1, 452.38676pt x 298.86656pt>
 File: ./svg-inkscape/ST-1_svg-tex.pdf Graphic file (type pdf)
@@ -1587,64 +1596,117 @@ line 56.
 )
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 1
-53.
+(caption)                Try setting it with `size=' explicitly on input line 2
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 1
-53.
+(caption)                Try setting it with `size=' explicitly on input line 2
+12.
 See the caption package documentation for explanation.
 
-Package svg Info: Calling Inkscape on input line 153.
-runsystem(/Applications/Inkscape.app/Contents/MacOS/inkscape "graphics/2-state-g
-raph.svg" -D --export-latex --export-filename="2-state-graph_svg-tex.pdf")...exe
-cuted
-runsystem(mkdir -p "./svg-inkscape/")...executed
-runsystem(mv "2-state-graph_svg-tex.pdf" "./svg-inkscape/2-state-graph_svg-tex.p
-df")...executed
-runsystem(mv "2-state-graph_svg-tex.pdf_tex" "./svg-inkscape/2-state-graph_svg-t
-ex.pdf_tex")...executed
 Package svg Info: Last page of `./svg-inkscape/2-state-graph_svg-tex.pdf' is 1 
-on input line 153.
+on input line 212.
 (./svg-inkscape/2-state-graph_svg-tex.pdf_tex
-<./svg-inkscape/2-state-graph_svg-tex.pdf, id=19, page=1, 483.5752pt x 305.9662
-2pt>
+<./svg-inkscape/2-state-graph_svg-tex.pdf, id=19, page=1, 483.5752pt x 308.9774
+6pt>
 File: ./svg-inkscape/2-state-graph_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/2-state-graph_svg-tex.pdf, page 1>
 Package luatex.def Info: ./svg-inkscape/2-state-graph_svg-tex.pdf , page1 used 
 on input line 61.
-(luatex.def)             Requested size: 483.5752pt x 305.97012pt.
+(luatex.def)             Requested size: 483.5752pt x 308.9814pt.
 )
-Overfull \hbox (26.86427pt too wide) in paragraph at lines 153--153
+Overfull \hbox (26.86427pt too wide) in paragraph at lines 212--212
 [][] 
  []
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 1
-53.
+(caption)                Try setting it with `size=' explicitly on input line 2
+12.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
-(caption)                Try setting it with `size=' explicitly on input line 1
-53.
+(caption)                Try setting it with `size=' explicitly on input line 2
+12.
 See the caption package documentation for explanation.
+
+Package svg Info: Last page of `./svg-inkscape/ST-MM_svg-tex.pdf' is 1 on input
+ line 212.
+(./svg-inkscape/ST-MM_svg-tex.pdf_tex
+<./svg-inkscape/ST-MM_svg-tex.pdf, id=27, page=1, 451.6875pt x 301.125pt>
+File: ./svg-inkscape/ST-MM_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/ST-MM_svg-tex.pdf, page 1>
+Package luatex.def Info: ./svg-inkscape/ST-MM_svg-tex.pdf , page1 used on input
+ line 56.
+(luatex.def)             Requested size: 451.6875pt x 301.14262pt.
+)
+
+Package caption Warning: Cannot determine current font size.
+(caption)                Try setting it with `size=' explicitly on input line 2
+12.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: Cannot determine current font size.
+(caption)                Try setting it with `size=' explicitly on input line 2
+12.
+See the caption package documentation for explanation.
+
+Package svg Info: Last page of `./svg-inkscape/ST-MM-prob_svg-tex.pdf' is 1 on 
+input line 212.
+(./svg-inkscape/ST-MM-prob_svg-tex.pdf_tex
+<./svg-inkscape/ST-MM-prob_svg-tex.pdf, id=29, page=1, 468.21947pt x 141.33441p
+t>
+File: ./svg-inkscape/ST-MM-prob_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/ST-MM-prob_svg-tex.pdf, page 1>
+Package luatex.def Info: ./svg-inkscape/ST-MM-prob_svg-tex.pdf , page1 used on 
+input line 56.
+(luatex.def)             Requested size: 468.21945pt x 141.34268pt.
+)
+Overfull \hbox (11.50853pt too wide) in paragraph at lines 212--212
+[][] 
+ []
+
+
+Package caption Warning: Cannot determine current font size.
+(caption)                Try setting it with `size=' explicitly on input line 2
+12.
+See the caption package documentation for explanation.
+
+
+Package caption Warning: Cannot determine current font size.
+(caption)                Try setting it with `size=' explicitly on input line 2
+12.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (2.54004pt too wide) detected at line 212
+[][] \OT1/lmr/m/n/24.88 = [] [] [] [] [] [] = [] [] [] [] []
+ []
 
 (./poster.bbl)
 File: example-image-a.pdf Graphic file (type pdf)
 <use example-image-a.pdf>
-Package luatex.def Info: example-image-a.pdf  used on input line 153.
+Package luatex.def Info: example-image-a.pdf  used on input line 212.
 (luatex.def)             Requested size: 379.4048pt x 284.52756pt.
 File: graphics/brasao2_vertical_monocromatico.pdf Graphic file (type pdf)
 <use graphics/brasao2_vertical_monocromatico.pdf>
 Package luatex.def Info: graphics/brasao2_vertical_monocromatico.pdf  used on i
-nput line 153.
+nput line 212.
 (luatex.def)             Requested size: 417.42955pt x 284.52756pt.
  [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
+
+warning  (pdf backend): ignoring duplicate destination with the name 'fig\0401'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'fig\0402-s
+tate-system'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'sub@fig\04
+02-state-system'
 
 warning  (pdf backend): ignoring duplicate destination with the name 'fig\0402-s
 tate-system'
@@ -1653,7 +1715,8 @@ warning  (pdf backend): ignoring duplicate destination with the name 'sub@fig\04
 02-state-system'
 </usr/local/texlive/2022/texmf-dist/tex/latex/mwe/example-image-a.pdf><./graphic
 s/brasao2_vertical_monocromatico.pdf><./svg-inkscape/ST-1_svg-tex.pdf><./svg-ink
-scape/2-state-graph_svg-tex.pdf>]
+scape/2-state-graph_svg-tex.pdf><./svg-inkscape/ST-MM_svg-tex.pdf><./svg-inkscap
+e/ST-MM-prob_svg-tex.pdf>]
 \tf@nav=\write6
 
 \openout6 = poster.nav
@@ -1676,33 +1739,37 @@ Package rerunfilecheck Info: File `poster.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 43564 strings out of 477785
- 125009,1648299 words of node,token memory allocated
- 26646 words of node memory still in use:
-   328 hlist, 67 vlist, 48 rule, 107 disc, 46 local_par, 76 math, 772 glue, 312 
-kern, 115 penalty, 1204 glyph, 809 attribute, 83 glue_spec, 809 attribute_list, 
-13 write, 120 pdf_literal, 1 pdf_start_link, 1 pdf_end_link, 5 pdf_dest, 1 pdf_a
-ction, 182 pdf_colorstack, 4 pdf_setmatrix, 4 pdf_save, 4 pdf_restore nodes
-   avail lists: 2:495,3:796,4:717,5:978,6:147,7:6386,8:28,9:1479,10:16,11:321
- 62225 multiletter control sequences out of 65536+600000
+ 43651 strings out of 477785
+ 244179,1648299 words of node,token memory allocated
+ 55954 words of node memory still in use:
+   816 hlist, 144 vlist, 104 rule, 223 disc, 81 local_par, 142 math, 1493 glue, 
+659 kern, 231 penalty, 2773 glyph, 1507 attribute, 83 glue_spec, 1507 attribute_
+list, 27 write, 136 pdf_literal, 7 pdf_start_link, 7 pdf_end_link, 13 pdf_dest, 
+7 pdf_action, 330 pdf_colorstack, 6 pdf_setmatrix, 6 pdf_save, 6 pdf_restore nod
+es
+   avail lists: 1:1,2:495,3:1273,4:1161,5:2029,6:252,7:13567,8:99,9:3345,10:18,1
+1:682
+ 62255 multiletter control sequences out of 65536+600000
  117 fonts using 17991863 bytes
- 128i,20n,115p,733b,1257s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,22n,115p,733b,1280s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2022/texmf-dist/fonts/truetype/typoland/lato/Lato-LightItali
-c.ttf>{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr
-/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/
+c.ttf>{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/loc
+al/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/
 2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}</usr/local/texlive/2022/texmf-
 dist/fonts/truetype/typoland/lato/Lato-Light.ttf></usr/local/texlive/2022/texmf-
 dist/fonts/truetype/typoland/lato/Lato-Regular.ttf></usr/local/texlive/2022/texm
 f-dist/fonts/opentype/impallari/raleway/Raleway-Regular.otf></usr/local/texlive/
 2022/texmf-dist/fonts/opentype/impallari/raleway/Raleway-Bold.otf></usr/local/te
-xlive/2022/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2022/
-texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2022/texmf-dist/f
-onts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/
-public/amsfonts/symbols/msam10.pfb>
-Output written on poster.pdf (1 page, 424395 bytes).
+xlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texl
+ive/2022/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2022/te
+xmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2022/texmf-dist/fon
+ts/type1/public/lm/lmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/pub
+lic/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfont
+s/symbols/msam10.pfb>
+Output written on poster.pdf (1 page, 555229 bytes).
 
-PDF statistics: 175 PDF objects out of 1000 (max. 8388607)
- 104 compressed objects within 2 object streams
- 6 named destinations out of 1000 (max. 131072)
+PDF statistics: 589 PDF objects out of 1000 (max. 8388607)
+ 377 compressed objects within 4 object streams
+ 11 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 100000000)
 

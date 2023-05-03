@@ -4,8 +4,6 @@
 <svg
    version="1.1"
    id="Layer_1"
-   inkscape:version="1.2.2 (b0a8486, 2022-12-01)"
-   sodipodi:docname="ST-1.svg"
    x="0px"
    y="0px"
    width="627.5px"
@@ -13,17 +11,14 @@
    viewBox="0 0 627.5 470.63"
    style="enable-background:new 0 0 627.5 470.63;"
    xml:space="preserve"
+   sodipodi:docname="ST-1.svg"
+   inkscape:version="1.2.2 (b0a8486, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg"><defs
-   id="defs133"><rect
-     x="473.58154"
-     y="68.30503"
-     width="70.374879"
-     height="23.596283"
-     id="rect397" /></defs><sodipodi:namedview
-   id="namedview131"
+   id="defs1312" /><sodipodi:namedview
+   id="namedview1310"
    pagecolor="#505050"
    bordercolor="#eeeeee"
    borderopacity="1"
@@ -32,53 +27,49 @@
    inkscape:pagecheckerboard="0"
    inkscape:deskcolor="#505050"
    showgrid="false"
-   inkscape:zoom="1.0129929"
-   inkscape:cx="277.88942"
-   inkscape:cy="236.42812"
-   inkscape:window-width="1460"
-   inkscape:window-height="691"
+   inkscape:zoom="2.1421447"
+   inkscape:cx="449.54947"
+   inkscape:cy="165.25495"
+   inkscape:window-width="1276"
+   inkscape:window-height="742"
    inkscape:window-x="0"
    inkscape:window-y="25"
    inkscape:window-maximized="0"
    inkscape:current-layer="Layer_1" />
 <style
    type="text/css"
-   id="style2">
+   id="style1179">
 	.st0{fill:#FF001E;}
 	.st1{fill:#291212;stroke:#000000;stroke-miterlimit:10;}
 	.st2{fill:none;stroke:#000000;stroke-miterlimit:10;}
 	.st3{fill:none;stroke:#FFA600;stroke-width:2;stroke-miterlimit:10;}
 	.st4{fill:#FFA600;stroke:#FFA600;stroke-miterlimit:10;}
-	.st5{fill:none;stroke:#000000;stroke-width:2.1354;stroke-linecap:square;stroke-miterlimit:4.1;}
-	.st6{font-family:'CourierNewPSMT';}
-	.st7{font-size:21.3333px;}
-	.st8{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:4.1;stroke-dasharray:0,0,0,0,0,0;}
 </style>
 <path
-   id="path1181"
    class="st0"
-   d="M114.5,36.81c0,0,119.04,58.57,119.04,198.5c0,142.35-119.04,198.5-119.04,198.5  S114.5,36.81,114.5,36.81z" />
+   d="M114.5,36.81c0,0,119.04,58.57,119.04,198.5c0,142.35-119.04,198.5-119.04,198.5V36.81z"
+   id="path1181" />
 <circle
-   id="circle1183"
    class="st1"
    cx="379.16"
    cy="361.18"
-   r="6.14" />
+   r="6.14"
+   id="circle1183" />
 <circle
-   id="circle1185"
    class="st1"
    cx="501.94"
    cy="103.35"
-   r="6.14" />
+   r="6.14"
+   id="circle1185" />
 <g
    id="g1191">
 	<path
-   id="path1187"
    class="st2"
-   d="M495.8,103.35c0,0-167.85,53.82-118.69,251.7" />
+   d="M495.8,103.35c0,0-167.85,53.82-118.69,251.7"
+   id="path1187" />
 	<path
-   id="path1189"
-   d="M378.04,354.66l2.54-10.6c0.2-0.85-0.56-1.62-1.41-1.43l-9.39,2.12c-0.85,0.19-1.21,1.22-0.66,1.9l6.85,8.48   C376.58,355.89,377.81,355.61,378.04,354.66z" />
+   d="M378.04,354.66l2.54-10.6c0.2-0.85-0.56-1.62-1.41-1.43l-9.39,2.12c-0.85,0.19-1.21,1.22-0.66,1.9l6.85,8.48   C376.58,355.89,377.81,355.61,378.04,354.66z"
+   id="path1189" />
 </g>
 <g
    id="g1255">
@@ -89,79 +80,79 @@
 			<g
    id="g1197">
 				<path
-   id="path1193"
    class="st3"
-   d="M443.45,295.5c3.95,8.11,11.82,8.14,15.79,0" />
+   d="M443.45,295.5c3.95,8.11,11.82,8.14,15.79,0"
+   id="path1193" />
 				<path
-   id="path1195"
    class="st3"
-   d="M475.03,295.5c-3.95-8.23-11.82-8.26-15.79,0" />
+   d="M475.03,295.5c-3.95-8.23-11.82-8.26-15.79,0"
+   id="path1195" />
 			</g>
 			<g
    id="g1203">
 				<path
-   id="path1199"
    class="st3"
-   d="M411.88,295.5c3.95,8.11,11.82,8.14,15.79,0" />
+   d="M411.88,295.5c3.95,8.11,11.82,8.14,15.79,0"
+   id="path1199" />
 				<path
-   id="path1201"
    class="st3"
-   d="M443.45,295.5c-3.95-8.23-11.82-8.26-15.79,0" />
+   d="M443.45,295.5c-3.95-8.23-11.82-8.26-15.79,0"
+   id="path1201" />
 			</g>
 			<g
    id="g1209">
 				<path
-   id="path1205"
    class="st3"
-   d="M380.31,295.5c3.95,8.11,11.82,8.14,15.79,0" />
+   d="M380.31,295.5c3.95,8.11,11.82,8.14,15.79,0"
+   id="path1205" />
 				<path
-   id="path1207"
    class="st3"
-   d="M411.88,295.5c-3.95-8.23-11.82-8.26-15.79,0" />
+   d="M411.88,295.5c-3.95-8.23-11.82-8.26-15.79,0"
+   id="path1207" />
 			</g>
 			<g
    id="g1215">
 				<path
-   id="path1211"
    class="st3"
-   d="M348.74,295.5c3.95,8.11,11.82,8.14,15.79,0" />
+   d="M348.74,295.5c3.95,8.11,11.82,8.14,15.79,0"
+   id="path1211" />
 				<path
-   id="path1213"
    class="st3"
-   d="M380.31,295.5c-3.95-8.23-11.82-8.26-15.79,0" />
+   d="M380.31,295.5c-3.95-8.23-11.82-8.26-15.79,0"
+   id="path1213" />
 			</g>
 			<g
    id="g1221">
 				<path
-   id="path1217"
    class="st3"
-   d="M317.17,295.5c3.95,8.11,11.82,8.14,15.79,0" />
+   d="M317.17,295.5c3.95,8.11,11.82,8.14,15.79,0"
+   id="path1217" />
 				<path
-   id="path1219"
    class="st3"
-   d="M348.74,295.5c-3.95-8.23-11.82-8.26-15.79,0" />
+   d="M348.74,295.5c-3.95-8.23-11.82-8.26-15.79,0"
+   id="path1219" />
 			</g>
 			<g
    id="g1227">
 				<path
-   id="path1223"
    class="st3"
-   d="M285.6,295.5c3.95,8.11,11.82,8.14,15.79,0" />
+   d="M285.6,295.5c3.95,8.11,11.82,8.14,15.79,0"
+   id="path1223" />
 				<path
-   id="path1225"
    class="st3"
-   d="M317.17,295.5c-3.95-8.23-11.82-8.26-15.79,0" />
+   d="M317.17,295.5c-3.95-8.23-11.82-8.26-15.79,0"
+   id="path1225" />
 			</g>
 			<g
    id="g1233">
 				<path
-   id="path1229"
    class="st3"
-   d="M254.02,295.5c3.95,8.11,11.82,8.14,15.79,0" />
+   d="M254.02,295.5c3.95,8.11,11.82,8.14,15.79,0"
+   id="path1229" />
 				<path
-   id="path1231"
    class="st3"
-   d="M285.6,295.5c-3.95-8.23-11.82-8.26-15.79,0" />
+   d="M285.6,295.5c-3.95-8.23-11.82-8.26-15.79,0"
+   id="path1231" />
 			</g>
 		</g>
 		<g
@@ -169,31 +160,31 @@
 			<g
    id="g1241">
 				<path
-   id="path1237"
    class="st3"
-   d="M222.45,295.55c3.95,8.11,11.82,8.14,15.79,0" />
+   d="M222.45,295.55c3.95,8.11,11.82,8.14,15.79,0"
+   id="path1237" />
 				<path
-   id="path1239"
    class="st3"
-   d="M254.02,295.55c-3.95-8.23-11.82-8.26-15.79,0" />
+   d="M254.02,295.55c-3.95-8.23-11.82-8.26-15.79,0"
+   id="path1239" />
 			</g>
 			<g
    id="g1247">
 				<path
-   id="path1243"
    class="st3"
-   d="M190.88,295.55c3.95,8.11,11.82,8.14,15.79,0" />
+   d="M190.88,295.55c3.95,8.11,11.82,8.14,15.79,0"
+   id="path1243" />
 				<path
-   id="path1245"
    class="st3"
-   d="M222.45,295.55c-3.95-8.23-11.82-8.26-15.79,0" />
+   d="M222.45,295.55c-3.95-8.23-11.82-8.26-15.79,0"
+   id="path1245" />
 			</g>
 		</g>
 	</g>
 	<path
-   id="path1253"
    class="st4"
-   d="M180.23,296.54l9.78,4.82c0.79,0.39,1.71-0.19,1.71-1.06v-9.63c0-0.88-0.92-1.45-1.71-1.06   l-9.78,4.82C179.35,294.85,179.35,296.11,180.23,296.54z" />
+   d="M180.23,296.54l9.78,4.82c0.79,0.39,1.71-0.19,1.71-1.06v-9.63c0-0.88-0.92-1.45-1.71-1.06l-9.78,4.82   C179.35,294.85,179.35,296.11,180.23,296.54z"
+   id="path1253" />
 </g>
 <g
    id="g1301">
@@ -204,46 +195,46 @@
 			<g
    id="g1261">
 				<path
-   id="path1257"
    class="st3"
-   d="M221.08,194.49c-3.95-8.11-11.82-8.14-15.79,0" />
+   d="M221.08,194.49c-3.95-8.11-11.82-8.14-15.79,0"
+   id="path1257" />
 				<path
-   id="path1259"
    class="st3"
-   d="M189.51,194.49c3.95,8.23,11.82,8.26,15.79,0" />
+   d="M189.51,194.49c3.95,8.23,11.82,8.26,15.79,0"
+   id="path1259" />
 			</g>
 			<g
    id="g1267">
 				<path
-   id="path1263"
    class="st3"
-   d="M252.65,194.49c-3.95-8.11-11.82-8.14-15.79,0" />
+   d="M252.65,194.49c-3.95-8.11-11.82-8.14-15.79,0"
+   id="path1263" />
 				<path
-   id="path1265"
    class="st3"
-   d="M221.08,194.49c3.95,8.23,11.82,8.26,15.79,0" />
+   d="M221.08,194.49c3.95,8.23,11.82,8.26,15.79,0"
+   id="path1265" />
 			</g>
 			<g
    id="g1273">
 				<path
-   id="path1269"
    class="st3"
-   d="M284.22,194.49c-3.95-8.11-11.82-8.14-15.79,0" />
+   d="M284.22,194.49c-3.95-8.11-11.82-8.14-15.79,0"
+   id="path1269" />
 				<path
-   id="path1271"
    class="st3"
-   d="M252.65,194.49c3.95,8.23,11.82,8.26,15.79,0" />
+   d="M252.65,194.49c3.95,8.23,11.82,8.26,15.79,0"
+   id="path1271" />
 			</g>
 			<g
    id="g1279">
 				<path
-   id="path1275"
    class="st3"
-   d="M315.79,194.49c-3.95-8.11-11.82-8.14-15.79,0" />
+   d="M315.79,194.49c-3.95-8.11-11.82-8.14-15.79,0"
+   id="path1275" />
 				<path
-   id="path1277"
    class="st3"
-   d="M284.22,194.49c3.95,8.23,11.82,8.26,15.79,0" />
+   d="M284.22,194.49c3.95,8.23,11.82,8.26,15.79,0"
+   id="path1277" />
 			</g>
 		</g>
 		<g
@@ -251,103 +242,88 @@
 			<g
    id="g1287">
 				<path
-   id="path1283"
    class="st3"
-   d="M347.36,194.45c-3.95-8.11-11.82-8.14-15.79,0" />
+   d="M347.36,194.45c-3.95-8.11-11.82-8.14-15.79,0"
+   id="path1283" />
 				<path
-   id="path1285"
    class="st3"
-   d="M315.79,194.45c3.95,8.23,11.82,8.26,15.79,0" />
+   d="M315.79,194.45c3.95,8.23,11.82,8.26,15.79,0"
+   id="path1285" />
 			</g>
 			<g
    id="g1293">
 				<path
-   id="path1289"
    class="st3"
-   d="M378.94,194.45c-3.95-8.11-11.82-8.14-15.79,0" />
+   d="M378.94,194.45c-3.95-8.11-11.82-8.14-15.79,0"
+   id="path1289" />
 				<path
-   id="path1291"
    class="st3"
-   d="M347.36,194.45c3.95,8.23,11.82,8.26,15.79,0" />
+   d="M347.36,194.45c3.95,8.23,11.82,8.26,15.79,0"
+   id="path1291" />
 			</g>
 		</g>
 	</g>
 	<path
-   id="path1299"
    class="st4"
-   d="M389.59,193.46l-9.78-4.82c-0.79-0.39-1.71,0.19-1.71,1.06v9.63c0,0.88,0.92,1.45,1.71,1.06   l9.78-4.82C390.47,195.14,390.47,193.89,389.59,193.46z" />
+   d="M389.59,193.46l-9.78-4.82c-0.79-0.39-1.71,0.19-1.71,1.06v9.63c0,0.88,0.92,1.45,1.71,1.06l9.78-4.82   C390.47,195.14,390.47,193.89,389.59,193.46z"
+   id="path1299" />
 </g>
 <g
    id="g1307">
 	<path
-   id="path1303"
    class="st2"
-   d="M385.3,361.18c0,0,167.85-53.82,118.69-251.7" />
+   d="M385.3,361.18c0,0,167.85-53.82,118.69-251.7"
+   id="path1303" />
 	<path
-   id="path1305"
-   d="M503.06,109.88l-2.54,10.6c-0.2,0.85,0.56,1.62,1.41,1.43l9.39-2.12c0.85-0.19,1.21-1.22,0.66-1.9   l-6.85-8.48C504.51,108.64,503.29,108.92,503.06,109.88z" />
+   d="M503.06,109.88l-2.54,10.6c-0.2,0.85,0.56,1.62,1.41,1.43l9.39-2.12c0.85-0.19,1.21-1.22,0.66-1.9l-6.85-8.48   C504.51,108.64,503.29,108.92,503.06,109.88z"
+   id="path1305" />
 </g>
 <text
-   class="st5 st6 st7"
-   id="text68"
-   x="18.588512"
-   y="0"
-   style="text-align:center;text-anchor:middle"
-   transform="translate(134.6138,241.6381)">$T$</text><text
-   class="st5 st6 st7"
-   id="text68-3"
-   x="501.87228"
-   y="79.26899"
-   style="font-size:21.3333px;font-family:CourierNewPSMT;text-align:center;text-anchor:middle;fill:none;stroke:#000000;stroke-width:2.1354;stroke-linecap:square;stroke-miterlimit:4.1">$ES$</text><text
-   class="st5 st6 st7"
-   id="text68-0"
-   x="379.09229"
-   y="400.10004"
-   style="font-size:21.3333px;font-family:CourierNewPSMT;text-align:center;text-anchor:middle;fill:none;stroke:#000000;stroke-width:2.1354;stroke-linecap:square;stroke-miterlimit:4.1">$E$</text>
-<text
-   transform="translate(488.83,91.8819)"
-   class="st8 st6 st7"
-   id="text70" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<text
    xml:space="preserve"
-   id="text395"
-   style="font-size:21.3333px;font-family:Courier;-inkscape-font-specification:'Courier, Normal';text-align:center;white-space:pre;shape-inside:url(#rect397);display:inline;fill:none;stroke:#000000;stroke-width:2.13543;stroke-linecap:square;stroke-miterlimit:4.1;paint-order:markers stroke fill" /><text
-   class="st5 st6 st7"
-   id="text68-38"
-   x="581.37769"
-   y="242.48187"
-   style="font-size:21.3333px;font-family:CourierNewPSMT;text-align:center;text-anchor:middle;fill:none;stroke:#000000;stroke-width:2.1354;stroke-linecap:square;stroke-miterlimit:4.1">System</text><text
-   class="st5 st6 st7"
-   id="text68-38-3"
-   x="43.266418"
-   y="242.48187"
-   style="font-size:21.3333px;font-family:CourierNewPSMT;text-align:center;text-anchor:middle;fill:none;stroke:#000000;stroke-width:2.1354;stroke-linecap:square;stroke-miterlimit:4.1">Bath</text></svg>
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Courier;-inkscape-font-specification:'Courier, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:none;stroke:#000000;stroke-width:2.13543;stroke-linecap:square;stroke-miterlimit:4.1;paint-order:markers stroke fill;text-anchor:middle;text-align:center"
+   x="170.87418"
+   y="241.63812"
+   id="text4690"><tspan
+     id="tspan4688"
+     x="153.81691"
+     y="241.63812"
+     sodipodi:role="line"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Courier;-inkscape-font-specification:'Courier, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;text-align:center">$T$</tspan></text><text
+   xml:space="preserve"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Courier;-inkscape-font-specification:'Courier, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:none;stroke:#000000;stroke-width:2.13543;stroke-linecap:square;stroke-miterlimit:4.1;paint-order:markers stroke fill;text-anchor:middle;text-align:center"
+   x="525.09039"
+   y="91.881874"
+   id="text4690-8"><tspan
+     sodipodi:role="line"
+     id="tspan4769"
+     x="508.03314"
+     y="91.881874">$i$</tspan></text><text
+   xml:space="preserve"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Courier;-inkscape-font-specification:'Courier, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:none;stroke:#000000;stroke-width:2.13543;stroke-linecap:square;stroke-miterlimit:4.1;paint-order:markers stroke fill"
+   x="404.05804"
+   y="382.77234"
+   id="text4690-8-7"><tspan
+     sodipodi:role="line"
+     id="tspan4769-2"
+     x="404.05804"
+     y="382.77234">$j$</tspan></text><text
+   xml:space="preserve"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Courier;-inkscape-font-specification:'Courier, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:none;stroke:#000000;stroke-width:2.13543;stroke-linecap:square;stroke-miterlimit:4.1;paint-order:markers stroke fill"
+   x="95.950699"
+   y="457.28375"
+   id="text4690-8-6"><tspan
+     sodipodi:role="line"
+     id="tspan4769-5"
+     x="95.950699"
+     y="457.28375"
+     dx="0 0 0 0 0 0 0">$\text{Bath}$</tspan></text><text
+   xml:space="preserve"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Courier;-inkscape-font-specification:'Courier, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:none;stroke:#000000;stroke-width:2.13543;stroke-linecap:square;stroke-miterlimit:4.1;paint-order:markers stroke fill"
+   x="339.19873"
+   y="457.14835"
+   id="text4690-8-6-5"><tspan
+     sodipodi:role="line"
+     id="tspan4769-5-5"
+     x="339.19873"
+     y="457.14835"
+     dx="0 0 0 0 0 0 0 0 0.82766998">$\text{System}$</tspan></text></svg>

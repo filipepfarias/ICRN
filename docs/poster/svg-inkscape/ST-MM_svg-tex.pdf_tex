@@ -1,6 +1,6 @@
 %% Creator: Inkscape 1.2.2 (b0a8486, 2022-12-01), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file '2-state-graph_svg-tex.pdf' (pdf, eps, ps)
+%% Accompanies image file 'ST-MM_svg-tex.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{481.76856854bp}%
+    \setlength{\unitlength}{450bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,18 +50,9 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.63894399)%
+  \begin{picture}(1,0.66666667)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0.03372983,0.26525807){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$E$\end{tabular}}}}%
-    \put(0.02455755,0.49261828){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$ES$\end{tabular}}}}%
-    \put(0.93269735,0.04386639){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}{\small 25}\end{tabular}}}}%
-    \put(0.76219871,0.04373598){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}{\small 20}\end{tabular}}}}%
-    \put(0.50246624,0.00816491){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}{\small t(s)}\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{2-state-graph_svg-tex.pdf}}%
-    \put(0.07166901,0.04373598){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}{\small 0}\end{tabular}}}}%
-    \put(0.24392572,0.0436134){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}{\small 5}\end{tabular}}}}%
-    \put(0.41655361,0.04373598){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}{\small 10}\end{tabular}}}}%
-    \put(0.58919422,0.04366205){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}{\small 15}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{ST-MM_svg-tex.pdf}}%
   \end{picture}%
 \endgroup%
