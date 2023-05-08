@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{450bp}%
+    \setlength{\unitlength}{653.67670799bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,9 +50,27 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.66666667)%
+  \begin{picture}(1,0.31964651)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{ST-MM_svg-tex.pdf}}%
+    \put(0.69252177,0.21590579){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\dot{w}$\end{tabular}}}}%
+    \put(0.6915716,0.18260783){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\dot{S}^{bath}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{ST-MM_svg-tex.pdf}}%
+    \put(0.69346177,0.28065142){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\dot{S}^{tot}$\end{tabular}}}}%
+    \put(0.69371486,0.24816398){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\dot{S}^{sys}$\end{tabular}}}}%
+    \put(0.69132064,0.15116078){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\dot{F}$\end{tabular}}}}%
+    \put(0.12661655,0.04170557){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}{\small 0}\end{tabular}}}}%
+    \put(0.24559933,0.04170557){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}{\small 5}\end{tabular}}}}%
+    \put(0.36525822,0.04170557){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}{\small 10}\end{tabular}}}}%
+    \put(0.48296594,0.04170557){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}{\small 15}\end{tabular}}}}%
+    \put(0.6033834,0.04170557){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}{\small 20}\end{tabular}}}}%
+    \put(0.7207353,0.04170557){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}{\small 25}\end{tabular}}}}%
+    \put(0.41129918,0.00307754){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}t(s)\end{tabular}}}}%
+    \put(0.10625596,0.29844326){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}{\small 0.3}\end{tabular}}}}%
+    \put(0.10625653,0.23648717){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}{\small 0.2}\end{tabular}}}}%
+    \put(0.10604702,0.17452879){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}{\small 0.1}\end{tabular}}}}%
+    \put(0.06282311,0.20206019){\rotatebox{90}{\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}{\small $k_B T$}\end{tabular}}}}}%
+    \put(0.10625596,0.112575){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}{\small 0.0}\end{tabular}}}}%
   \end{picture}%
 \endgroup%

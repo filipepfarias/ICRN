@@ -1,12 +1,23 @@
 \begin{thebibliography}{1}
 
+\bibitem{esposito2023}
+Massimiliano Esposito.
+\newblock Introduction to stochastic thermodynamics.
+\newblock https://enabla.com/set/144, 2023. Nordita Winter School 2023.
+
+\bibitem{GILLESPIE1976403}
+Daniel~T Gillespie.
+\newblock A general method for numerically simulating the stochastic time
+  evolution of coupled chemical reactions.
+\newblock {\em Journal of Computational Physics}, 22(4):403--434, 1976.
+
 \bibitem{peliti2021stochastic}
 Luca Peliti and Simone Pigolotti.
 \newblock {\em Stochastic Thermodynamics: An Introduction}.
 \newblock Princeton University Press, 2021.
 
 \bibitem{van2007stochastic}
-N.G. VAN~KAMPEN.
+N.G. Van~Kampen.
 \newblock {\em Stochastic processes in physics and chemistry}.
 \newblock North-Holland personal library. Elsevier, 2007.
 

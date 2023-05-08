@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{450.69664574bp}%
+    \setlength{\unitlength}{310.91980242bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,14 +50,14 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.66064392)%
+  \begin{picture}(1,0.91315056)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{ST-1_svg-tex.pdf}}%
-    \put(0.22230934,0.31979143){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$T$\end{tabular}}}}%
-    \put(0.80252773,0.58998832){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$ES$\end{tabular}}}}%
-    \put(0.5982107,0.05609643){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$E$\end{tabular}}}}%
-    \put(0.9348319,0.31838732){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}System\end{tabular}}}}%
-    \put(0.03936607,0.31838732){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Bath\end{tabular}}}}%
+    \put(0.09335763,0.47930849){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$T$\end{tabular}}}}%
+    \put(0.93441849,0.87097487){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$ES$\end{tabular}}}}%
+    \put(0.63824888,0.09706699){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$E$\end{tabular}}}}%
+    \put(0.791864,0.01292784){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}System\end{tabular}}}}%
+    \put(0.09323198,0.01246296){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Bath\end{tabular}}}}%
   \end{picture}%
 \endgroup%
