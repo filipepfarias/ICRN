@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.6.6)  8 MAY 2023 15:51
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.6.6)  11 MAY 2023 16:54
  system commands enabled.
  file:line:error style messages enabled.
 **poster.tex
@@ -1675,25 +1675,29 @@ LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <15.96692> not available
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <11.405> not available
 (Font)              size <10.95> substituted on input line 254.
 
-Package svg Info: Last page of `./svg-inkscape/ST-MM_svg-tex.pdf' is 2 on input
- line 254.
-(./svg-inkscape/ST-MM_svg-tex.pdf_tex
-<./svg-inkscape/ST-MM_svg-tex.pdf, id=32, page=1, 656.12799pt x 209.72902pt>
-File: ./svg-inkscape/ST-MM_svg-tex.pdf Graphic file (type pdf)
-<use ./svg-inkscape/ST-MM_svg-tex.pdf, page 1>
-Package luatex.def Info: ./svg-inkscape/ST-MM_svg-tex.pdf , page1 used on input
- line 56.
-(luatex.def)             Requested size: 1181.03238pt x 377.51193pt.
-<./svg-inkscape/ST-MM_svg-tex.pdf, id=33, page=2, 656.12799pt x 209.72902pt>
-File: ./svg-inkscape/ST-MM_svg-tex.pdf Graphic file (type pdf)
-<use ./svg-inkscape/ST-MM_svg-tex.pdf, page 2>
-Package luatex.def Info: ./svg-inkscape/ST-MM_svg-tex.pdf , page2 used on input
- line 59.
-(luatex.def)             Requested size: 1181.03238pt x 377.51193pt.
+Package svg Info: Last page of `./svg-inkscape/ST-MM-2_svg-tex.pdf' is 2 on inp
+ut line 254.
+(./svg-inkscape/ST-MM-2_svg-tex.pdf_tex
+<./svg-inkscape/ST-MM-2_svg-tex.pdf, id=32, page=1, 884.16275pt x 602.25pt>
+File: ./svg-inkscape/ST-MM-2_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/ST-MM-2_svg-tex.pdf, page 1>
+Package luatex.def Info: ./svg-inkscape/ST-MM-2_svg-tex.pdf , page1 used on inp
+ut line 56.
+(luatex.def)             Requested size: 1105.20343pt x 752.83821pt.
+<./svg-inkscape/ST-MM-2_svg-tex.pdf, id=33, page=2, 884.16275pt x 602.25pt>
+File: ./svg-inkscape/ST-MM-2_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/ST-MM-2_svg-tex.pdf, page 2>
+Package luatex.def Info: ./svg-inkscape/ST-MM-2_svg-tex.pdf , page2 used on inp
+ut line 59.
+(luatex.def)             Requested size: 1105.20343pt x 752.83821pt.
 )
-Overfull \hbox (166.1123pt too wide) in paragraph at lines 254--254
+Overfull \hbox (90.28336pt too wide) in paragraph at lines 254--254
  [] 
  []
+
+
+LaTeX Warning: Reference `eq therm-flux-force' on page 1 undefined on input lin
+e 254.
 
 (./poster.bbl
 LaTeX Font Info:    Calculating math sizes for size <19.01> on input line 1.
@@ -1728,7 +1732,7 @@ tate-system'
 </usr/local/texlive/2022/texmf-dist/tex/latex/mwe/example-image-a.pdf><./graphic
 s/brasao2_vertical_monocromatico.pdf><./svg-inkscape/2-state-graph_svg-tex.pdf><
 ./svg-inkscape/ST-1_svg-tex.pdf><./svg-inkscape/ST-MM-prob_svg-tex.pdf><./svg-in
-kscape/ST-MM_svg-tex.pdf><./svg-inkscape/ST-MM_svg-tex.pdf>]
+kscape/ST-MM-2_svg-tex.pdf><./svg-inkscape/ST-MM-2_svg-tex.pdf>]
 \tf@nav=\write6
 
 \openout6 = poster.nav
@@ -1738,10 +1742,14 @@ kscape/ST-MM_svg-tex.pdf><./svg-inkscape/ST-MM_svg-tex.pdf>]
 \tf@snm=\write8
 
 \openout8 = poster.snm
- (./poster.aux)
+
+(./poster.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 14.53pt have occurred.
+
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1753,17 +1761,20 @@ Package rerunfilecheck Info: File `poster.out' has not changed.
 Here is how much of LuaTeX's memory you used:
  43716 strings out of 477785
  305237,1648299 words of node,token memory allocated
- 72562 words of node memory still in use:
-   1050 hlist, 182 vlist, 122 rule, 303 disc, 91 local_par, 190 math, 1927 glue,
- 874 kern, 266 penalty, 3756 glyph, 1853 attribute, 83 glue_spec, 1853 attribute
-_list, 23 write, 144 pdf_literal, 8 pdf_start_link, 8 pdf_end_link, 13 pdf_dest,
- 8 pdf_action, 378 pdf_colorstack, 8 pdf_setmatrix, 8 pdf_save, 8 pdf_restore no
+ 76627 words of node memory still in use:
+   1098 hlist, 211 vlist, 132 rule, 313 disc, 89 local_par, 231 math, 2082 glue,
+ 911 kern, 263 penalty, 3861 glyph, 2030 attribute, 83 glue_spec, 2030 attribute
+_list, 21 write, 144 pdf_literal, 8 pdf_start_link, 8 pdf_end_link, 12 pdf_dest,
+ 8 pdf_action, 432 pdf_colorstack, 7 pdf_setmatrix, 7 pdf_save, 7 pdf_restore no
 des
-   avail lists: 1:1,2:495,3:1412,4:1305,5:2675,6:282,7:17951,8:75,9:4218,10:18,1
-1:918
+   avail lists: 2:495,3:1388,4:1467,5:2786,6:276,7:18854,8:72,9:4479,10:22,11:94
+8
  62310 multiletter control sequences out of 65536+600000
  149 fonts using 21355527 bytes
- 128i,23n,115p,733b,1532s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,22n,115p,733b,1532s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+warning  (pdf backend): unreferenced destination with name 'eq\040therm-flux-for
+ce'
 </usr/local/texlive/2022/texmf-dist/fonts/truetype/typoland/lato/Lato-LightItali
 c.ttf>{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr
 /local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/
@@ -1778,10 +1789,10 @@ xmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2022/texmf-dist/fon
 ts/type1/public/lm/lmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/pub
 lic/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfont
 s/symbols/msam10.pfb>
-Output written on poster.pdf (1 page, 519144 bytes).
+Output written on poster.pdf (1 page, 521553 bytes).
 
-PDF statistics: 323 PDF objects out of 1000 (max. 8388607)
- 202 compressed objects within 3 object streams
+PDF statistics: 241 PDF objects out of 1000 (max. 8388607)
+ 148 compressed objects within 2 object streams
  15 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 100000000)
 

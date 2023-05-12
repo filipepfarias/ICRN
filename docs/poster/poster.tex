@@ -198,18 +198,18 @@ The term $\dot{S}^{bath}$ is the average heat absorbed by the bath when the syst
 \item If $p_x^{eq}$ is the probability of the system when in equilibrium, ST gives us the {\bf free energy}
 %
 \begin{equation}
-\frac{\dot{F}(t)}{k_B T} = \sum_{x \neq x^\prime} \left[ W_{x^\prime x} p_x(t) -  W_{x x^\prime}p_{x^\prime} \right] \ln \frac{p_x(t)}{p_{x^\prime}^{eq}} = \dot{w} - T \dot{S}^{tot}.
+\dot{F}^{eq}= \sum_{x \neq x^\prime} \left[ W_{x^\prime x} p_x(t) -  W_{x x^\prime}p_{x^\prime} \right] \ln \frac{p_x(t)}{p_{x^\prime}^{eq}} = \dot{w} - k_BT \dot{S}^{tot}.
 \end{equation}
-The average work $w$ that can be done in the system is then defined in terms of $p_x^{eq}$
+The difference between  the rate of work which is done when we manipulate the system $\dot{w}$ and the one available to be extracted $\dot{F}^{eq}$ is
 \begin{equation}
-w(t) = \frac{1}{2} \sum_{x \neq x^\prime} \left[ W_{x^\prime x} p_x(t) -  W_{x x^\prime}p_{x^\prime} \right] \ln \frac{W_{x^\prime x} p_x^{eq}}{W_{xx^\prime}p_{x^\prime}^{eq}}.
+\dot{w} - \dot{F}^{eq}= \frac{1}{2} \sum_{x \neq x^\prime} \left[ W_{x^\prime x} p_x(t) - W_{x x^\prime}p_{x^\prime} \right] \ln \frac{W_{x^\prime x} p_x^{eq}}{W_{xx^\prime}p_{x^\prime}^{eq}}.
 \end{equation}
-\item The thermodynamic flux and force are defined as, respectively
-%
-\begin{equation}
-J_{xx^\prime} = W_{x^\prime x} p_x(t) -  W_{x x^\prime}p_{x^\prime}(t) \qquad A_{xx^\prime} =  \ln \frac{W_{x^\prime x} p_x(t)}{W_{xx^\prime}p_{x^\prime}(t)}
-\label{eq therm-flux-force}
-\end{equation}
+%\item The thermodynamic flux and force are defined as, respectively
+%%
+%\begin{equation}
+%J_{xx^\prime} = W_{x^\prime x} p_x(t) -  W_{x x^\prime}p_{x^\prime}(t) \qquad A_{xx^\prime} =  \ln \frac{W_{x^\prime x} p_x(t)}{W_{xx^\prime}p_{x^\prime}(t)}
+%\label{eq therm-flux-force}
+%\end{equation}
 \end{itemize}
 \end{block}
 
@@ -222,18 +222,18 @@ J_{xx^\prime} = W_{x^\prime x} p_x(t) -  W_{x x^\prime}p_{x^\prime}(t) \qquad A_
 \begin{block}{Analysis}
 \begin{figure}
 \begin{center}
-\includesvg[scale=1.8]{graphics/ST-MM.svg}
+\includesvg[scale=1.25]{graphics/ST-MM-2.svg}
 \end{center}
 \label{fig 2-state-system}
-\caption{}
+\caption{On top the evaluations of equations (4) to (6), to MM system with $k_{1} = 0.5$, $k_{-1} = 0.005$, $k_{2} = 0.1$ and $k_{-2} = 0.0$. On the bottom, the time evolution of the probability of the system $p_{x}$ in each state and the respective equilibrium probability $p_{x}^{eq}$.}
 \end{figure}
 
 The system reaches the steady-state, which for the case of study happens to be also the equilibrium in about 10 seconds:
 %
 \begin{itemize}
-\item By \eqref{eq therm-flux-force} both the thermodynamic force and flux vanish in the steady-state.
+\item By \eqref{eq therm-flux-force} both the thermodynamic force and flux vanish in the steady-state, which is also an equilibrium.
 
-\item If $W_{x^\prime x} p_x^{eq}=W_{xx^\prime}p_{x^\prime}^{eq}$ we have {\bf detailed balance}, which connects the math and the physics by recovering the Boltzmann distribution.
+%\item It can be verified that the system obeys {\bf detailed balance}, which connects the math and the physics by recovering the Boltzmann distribution.
 
 \item It can be noticed also that all the free energy is used to produce entropy.
 
