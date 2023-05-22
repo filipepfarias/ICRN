@@ -1,6 +1,7 @@
 using Pkg
 Pkg.activate(".")
 using ICRN
+using LinearAlgebra
 using Random, Dates
 # using Plots
 

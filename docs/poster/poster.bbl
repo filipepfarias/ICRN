@@ -1,5 +1,10 @@
 \begin{thebibliography}{1}
 
+\bibitem{Esposito_2011}
+M.~Esposito and C.~Van den Broeck.
+\newblock Second law and landauer principle far from equilibrium.
+\newblock {\em Europhysics Letters}, 95(4):40004, aug 2011.
+
 \bibitem{esposito2023}
 Massimiliano Esposito.
 \newblock Introduction to stochastic thermodynamics.
@@ -15,6 +20,11 @@ Daniel~T Gillespie.
 Luca Peliti and Simone Pigolotti.
 \newblock {\em Stochastic Thermodynamics: An Introduction}.
 \newblock Princeton University Press, 2021.
+
+\bibitem{Qian_2021}
+Hong Qian and Hao Ge.
+\newblock {\em Stochastic Chemical Reaction Systems in Biology}.
+\newblock Springer International Publishing, 2021.
 
 \bibitem{van2007stochastic}
 N.G. Van~Kampen.

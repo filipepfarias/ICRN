@@ -4,45 +4,45 @@ The top-level auxiliary file: poster.aux
 The style file: plain.bst
 Database file #1: poster.bib
 Warning--empty booktitle in esposito2023
-You've used 4 entries,
+You've used 6 entries,
             2118 wiz_defined-function locations,
-            521 strings with 4559 characters,
-and the built_in function-call counts, 1028 in all, are:
-= -- 99
-> -- 34
+            534 strings with 4820 characters,
+and the built_in function-call counts, 1583 in all, are:
+= -- 150
+> -- 60
 < -- 0
-+ -- 15
-- -- 10
-* -- 54
-:= -- 184
-add.period$ -- 14
-call.type$ -- 4
-change.case$ -- 15
++ -- 25
+- -- 18
+* -- 91
+:= -- 280
+add.period$ -- 20
+call.type$ -- 6
+change.case$ -- 24
 chr.to.int$ -- 0
-cite$ -- 5
-duplicate$ -- 48
-empty$ -- 96
-format.name$ -- 10
-if$ -- 218
+cite$ -- 7
+duplicate$ -- 71
+empty$ -- 143
+format.name$ -- 18
+if$ -- 333
 int.to.chr$ -- 0
-int.to.str$ -- 4
-missing$ -- 6
-newline$ -- 23
-num.names$ -- 8
-pop$ -- 25
+int.to.str$ -- 6
+missing$ -- 9
+newline$ -- 33
+num.names$ -- 12
+pop$ -- 37
 preamble$ -- 1
-purify$ -- 13
+purify$ -- 21
 quote$ -- 0
-skip$ -- 25
+skip$ -- 40
 stack$ -- 0
-substring$ -- 42
-swap$ -- 3
+substring$ -- 67
+swap$ -- 5
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 12
+type$ -- 18
 warning$ -- 1
-while$ -- 9
-width$ -- 5
-write$ -- 45
+while$ -- 14
+width$ -- 7
+write$ -- 66
 (There was 1 warning)

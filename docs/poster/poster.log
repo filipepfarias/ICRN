@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.6.6)  11 MAY 2023 16:54
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.6.6)  22 MAY 2023 13:17
  system commands enabled.
  file:line:error style messages enabled.
 **poster.tex
@@ -8,8 +8,8 @@ Lua module: luaotfload 2022-03-18 3.21 Lua based OpenType font support
 Lua module: lualibs 2021-05-20 2.74 ConTeXt Lua standard libraries.
 Lua module: lualibs-extended 2021-05-20 2.74 ConTeXt Lua libraries -- extended c
 ollection.
-luaotfload | conf : Root cache directory is "/Users/filipepfarias/Library/texliv
-e/2022/texmf-var/luatex-cache/generic/names".
+luaotfload | conf : Root cache directory is "/usr/local/texlive/2022/texmf-var/l
+uatex-cache/generic/names".
 luaotfload | init : Loading fontloader "fontloader-2022-02-24.lua" from kpse-res
 olved path "/usr/local/texlive/2022/texmf-dist/tex/luatex/luaotfload/fontloader-
 2022-02-24.lua".
@@ -20,8 +20,8 @@ Inserting `luaotfload.node_processor' at position 1 in `hpack_filter'.
 Inserting `luaotfload.glyph_stream' at position 1 in `glyph_stream_provider'.
 Inserting `luaotfload.define_font' at position 1 in `define_font'.
 Lua-only attribute luaotfload_color_attribute = 2
-luaotfload | conf : Root cache directory is "/Users/filipepfarias/Library/texliv
-e/2022/texmf-var/luatex-cache/generic/names".
+luaotfload | conf : Root cache directory is "/usr/local/texlive/2022/texmf-var/l
+uatex-cache/generic/names".
 Inserting `luaotfload.harf.strip_prefix' at position 1 in `find_opentype_file'.
 Inserting `luaotfload.harf.strip_prefix' at position 1 in `find_truetype_file'.
 Removing  `luaotfload.glyph_stream' from `glyph_stream_provider'.
@@ -212,8 +212,8 @@ erarithmetics.code.tex)))
 \c@pgfmathroundto@lastzeros=\count283
 ))) (/usr/local/texlive/2022/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
-luaotfload | db : Font names database loaded from /Users/filipepfarias/Library/t
-exlive/2022/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz)
+luaotfload | db : Font names database loaded from /usr/local/texlive/2022/texmf-
+var/luatex-cache/generic/names/luaotfload-names.luc.gz)
 (/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
 (/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
@@ -986,8 +986,8 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count363
 \calc@Cskip=\skip80
 )
-luaotfload | cache : Lookup cache loaded from /Users/filipepfarias/Library/texli
-ve/2022/texmf-var/luatex-cache/generic/names/luaotfload-lookup-cache.luc.
+luaotfload | cache : Lookup cache loaded from /usr/local/texlive/2022/texmf-var/
+luatex-cache/generic/names/luaotfload-lookup-cache.luc.
 
 Package fontspec Info: Font family 'Raleway(0)' created for font 'Raleway'
 (fontspec)             with options [Ligatures=TeX].
@@ -1594,7 +1594,7 @@ Package luatex.def Info: graphics/brasao2_vertical_monocromatico.pdf  used on i
 nput line 80.
 (luatex.def)             Requested size: 417.42955pt x 284.52756pt.
 Package svg Info: Last page of `./svg-inkscape/2-state-graph_svg-tex.pdf' is 1 
-on input line 254.
+on input line 267.
 (./svg-inkscape/2-state-graph_svg-tex.pdf_tex
 <./svg-inkscape/2-state-graph_svg-tex.pdf, id=17, page=1, 483.5752pt x 308.9774
 6pt>
@@ -1604,17 +1604,17 @@ Package luatex.def Info: ./svg-inkscape/2-state-graph_svg-tex.pdf , page1 used
 on input line 61.
 (luatex.def)             Requested size: 483.5752pt x 308.9814pt.
 )
-Overfull \hbox (53.73212pt too wide) in paragraph at lines 254--254
+Overfull \hbox (53.73212pt too wide) in paragraph at lines 267--267
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 254--254
+Underfull \hbox (badness 10000) in paragraph at lines 267--267
 
  []
 
 Package svg Info: Last page of `./svg-inkscape/ST-1_svg-tex.pdf' is 1 on input 
-line 254.
+line 267.
 (./svg-inkscape/ST-1_svg-tex.pdf_tex
 <./svg-inkscape/ST-1_svg-tex.pdf, id=22, page=1, 312.08575pt x 284.98128pt>
 File: ./svg-inkscape/ST-1_svg-tex.pdf Graphic file (type pdf)
@@ -1626,17 +1626,17 @@ line 56.
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 2
-54.
+67.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 2
-54.
+67.
 See the caption package documentation for explanation.
 
 Package svg Info: Last page of `./svg-inkscape/ST-MM-prob_svg-tex.pdf' is 1 on 
-input line 254.
+input line 267.
 (./svg-inkscape/ST-MM-prob_svg-tex.pdf_tex
 <./svg-inkscape/ST-MM-prob_svg-tex.pdf, id=24, page=1, 483.36177pt x 214.94777p
 t>
@@ -1646,58 +1646,54 @@ Package luatex.def Info: ./svg-inkscape/ST-MM-prob_svg-tex.pdf , page1 used on
 input line 56.
 (luatex.def)             Requested size: 531.70087pt x 236.46622pt.
 )
-Overfull \hbox (74.98994pt too wide) in paragraph at lines 254--254
+Overfull \hbox (74.98994pt too wide) in paragraph at lines 267--267
  [][] 
  []
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 2
-54.
+67.
 See the caption package documentation for explanation.
 
 
 Package caption Warning: Cannot determine current font size.
 (caption)                Try setting it with `size=' explicitly on input line 2
-54.
+67.
 See the caption package documentation for explanation.
 
-LaTeX Font Info:    Calculating math sizes for size <22.81> on input line 254.
+LaTeX Font Info:    Calculating math sizes for size <22.81> on input line 267.
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <22.81> not available
-(Font)              size <20.74> substituted on input line 254.
+(Font)              size <20.74> substituted on input line 267.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <15.96692> not available
-(Font)              size <17.28> substituted on input line 254.
+(Font)              size <17.28> substituted on input line 267.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <11.405> not available
-(Font)              size <10.95> substituted on input line 254.
+(Font)              size <10.95> substituted on input line 267.
 
 Package svg Info: Last page of `./svg-inkscape/ST-MM-2_svg-tex.pdf' is 2 on inp
-ut line 254.
+ut line 267.
 (./svg-inkscape/ST-MM-2_svg-tex.pdf_tex
-<./svg-inkscape/ST-MM-2_svg-tex.pdf, id=32, page=1, 884.16275pt x 602.25pt>
+<./svg-inkscape/ST-MM-2_svg-tex.pdf, id=35, page=1, 906.44489pt x 602.25pt>
 File: ./svg-inkscape/ST-MM-2_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/ST-MM-2_svg-tex.pdf, page 1>
 Package luatex.def Info: ./svg-inkscape/ST-MM-2_svg-tex.pdf , page1 used on inp
 ut line 56.
-(luatex.def)             Requested size: 1105.20343pt x 752.83821pt.
-<./svg-inkscape/ST-MM-2_svg-tex.pdf, id=33, page=2, 884.16275pt x 602.25pt>
+(luatex.def)             Requested size: 1133.05608pt x 752.86578pt.
+<./svg-inkscape/ST-MM-2_svg-tex.pdf, id=36, page=2, 906.44489pt x 602.25pt>
 File: ./svg-inkscape/ST-MM-2_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/ST-MM-2_svg-tex.pdf, page 2>
 Package luatex.def Info: ./svg-inkscape/ST-MM-2_svg-tex.pdf , page2 used on inp
-ut line 59.
-(luatex.def)             Requested size: 1105.20343pt x 752.83821pt.
+ut line 61.
+(luatex.def)             Requested size: 1133.05608pt x 752.86578pt.
 )
-Overfull \hbox (90.28336pt too wide) in paragraph at lines 254--254
+Overfull \hbox (118.136pt too wide) in paragraph at lines 267--267
  [] 
  []
-
-
-LaTeX Warning: Reference `eq therm-flux-force' on page 1 undefined on input lin
-e 254.
 
 (./poster.bbl
 LaTeX Font Info:    Calculating math sizes for size <19.01> on input line 1.
@@ -1717,12 +1713,12 @@ LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <9.50499> not available
 )
 File: example-image-a.pdf Graphic file (type pdf)
 <use example-image-a.pdf>
-Package luatex.def Info: example-image-a.pdf  used on input line 254.
+Package luatex.def Info: example-image-a.pdf  used on input line 267.
 (luatex.def)             Requested size: 379.4048pt x 284.52756pt.
 File: graphics/brasao2_vertical_monocromatico.pdf Graphic file (type pdf)
 <use graphics/brasao2_vertical_monocromatico.pdf>
 Package luatex.def Info: graphics/brasao2_vertical_monocromatico.pdf  used on i
-nput line 254.
+nput line 267.
 (luatex.def)             Requested size: 417.42955pt x 284.52756pt.
  [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -1749,9 +1745,6 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 14.53pt have occurred.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `poster.out' has not changed.
@@ -1759,22 +1752,19 @@ Package rerunfilecheck Info: File `poster.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 43716 strings out of 477785
- 305237,1648299 words of node,token memory allocated
- 76627 words of node memory still in use:
-   1098 hlist, 211 vlist, 132 rule, 313 disc, 89 local_par, 231 math, 2082 glue,
- 911 kern, 263 penalty, 3861 glyph, 2030 attribute, 83 glue_spec, 2030 attribute
-_list, 21 write, 144 pdf_literal, 8 pdf_start_link, 8 pdf_end_link, 12 pdf_dest,
- 8 pdf_action, 432 pdf_colorstack, 7 pdf_setmatrix, 7 pdf_save, 7 pdf_restore no
-des
-   avail lists: 2:495,3:1388,4:1467,5:2786,6:276,7:18854,8:72,9:4479,10:22,11:94
-8
- 62310 multiletter control sequences out of 65536+600000
+ 43722 strings out of 477785
+ 381573,1648299 words of node,token memory allocated
+ 82067 words of node memory still in use:
+   1100 hlist, 204 vlist, 131 rule, 362 disc, 97 local_par, 244 math, 2190 glue,
+ 983 kern, 284 penalty, 4309 glyph, 2111 attribute, 83 glue_spec, 2111 attribute
+_list, 23 write, 144 pdf_literal, 11 pdf_start_link, 11 pdf_end_link, 15 pdf_des
+t, 11 pdf_action, 456 pdf_colorstack, 7 pdf_setmatrix, 7 pdf_save, 7 pdf_restore
+ nodes
+   avail lists: 2:495,3:1466,4:1539,5:3002,6:300,7:20561,8:90,9:4461,10:23,11:10
+95
+ 62314 multiletter control sequences out of 65536+600000
  149 fonts using 21355527 bytes
  128i,22n,115p,733b,1532s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-warning  (pdf backend): unreferenced destination with name 'eq\040therm-flux-for
-ce'
 </usr/local/texlive/2022/texmf-dist/fonts/truetype/typoland/lato/Lato-LightItali
 c.ttf>{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr
 /local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/
@@ -1789,10 +1779,10 @@ xmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2022/texmf-dist/fon
 ts/type1/public/lm/lmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/pub
 lic/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfont
 s/symbols/msam10.pfb>
-Output written on poster.pdf (1 page, 521553 bytes).
+Output written on poster.pdf (1 page, 523066 bytes).
 
-PDF statistics: 241 PDF objects out of 1000 (max. 8388607)
- 148 compressed objects within 2 object streams
- 15 named destinations out of 1000 (max. 131072)
+PDF statistics: 246 PDF objects out of 1000 (max. 8388607)
+ 153 compressed objects within 2 object streams
+ 17 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 100000000)
 

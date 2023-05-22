@@ -116,7 +116,7 @@ quantized tensor trains with sliding windows, Dinh and Sidje](https://doi.org/10
 """
 function operatorα(𝛎,Re,K,𝗻ₖ)
     𝓘 = [collect.((:).(0,𝗻ₖ .-1))...,];
-    return operator(𝛎,Re,K,𝗻ₖ,𝓘);
+    return operatorα(𝛎,Re,K,𝗻ₖ,𝓘);
 end
 
 """
