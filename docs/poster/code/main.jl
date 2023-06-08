@@ -50,7 +50,7 @@ f = Figure()
 ax1 = Axis(f[1, 1], title = "Entropy rates")
 
 # labels=["Ṡ_sys" "Ṡ_bath" "Ṡ_tot" "F" "Ḟ"]
-labels=["Ṡ_sys" "Ṡ_bath" "Ṡ_tot" "Ḟ"]
+labels=["Ṡ_sys" "Ṡ_bath" "Ṡ_tot" "Ḟ-Ḟᵉ "]
 # for (i,y) in enumerate([vec_Ṡ_sys,vec_Ṡ_bath,vec_Ṡ_tot,vec_F,vec_Ḟ])
 for (i,y) in enumerate([vec_Ṡ_sys,vec_Ṡ_bath,vec_Ṡ_tot,vec_Ḟ])
     # if i == 5
