@@ -1,0 +1,33 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}				% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}				% ... or a4paper or a5paper or ... 
+%\geometry{landscape}				% Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{color}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage[superscript,biblabel]{cite}
+
+\title{Mesoscopic thermodynamics of single-particle enzymatic reactions}
+\author{Filipe P. de Farias$^{1}$, Francesco Corona, Michela Mulas}
+\address{\textsuperscript{1}Place.}
+
+%\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+
+
+In this work, we consider the framework of mesoscopic non-equilibrium thermodynamics \cite{PRIGOGINE1953241,MAZUR1998451,doi:10.1021/jp052904i} to study the stochastic energetics of enzymatic reactions described in terms of classic Michaelis-Menten/Briggs-Haldane theories. We consider a system comprising of a single enzyme which can exist in one of two states: either as free enzyme or complexed with substrate. Moreover, we assume that the system is in contact with a static thermal bath and that the formation of product is reversible. We also assume that the kinetics of the reaction network can be expressed using elementary reactions, each of which describing a random event characterised by a single parameter, the rate constant. Such a characterisation leads to model the reaction network as a continuous-time Markov process with discrete state-space, a Markovian jump process. The resulting stochastic kinetics of such a system are represented with two complementary formulations of the dynamics: either in terms of the fluctuating number of molecular species that follow the Gillespie algorithm \cite{GILLESPIE1976403}, or in terms of the their probability distribution that satisfies the chemical master equation \cite{GILLESPIE1992404}.
+
+{\color{red}To compute thermodynamic quantities such as heat, entropy, and free energy, we utilize the stochastic thermodynamics framework. These quantities are exchanged with the thermal bath, and their calculation relies on an information-theoretic approach to entropy. By considering the probability distribution of the system, we obtain a stochastic entropy that is proportional to the Shannon entropy and depends on the bath temperature and Boltzmann constant. Averaging over the states of the system and differentiating with respect to time, we can determine the entropy balance rate, which represents the entropy produced internally by the system and the entropy exchanged with the bath. Additionally, the free energy is computed as proportional to the Kullback-Leibler divergence between the system's probability distribution and its equilibrium distribution.
+
+In summary, this model incorporates the Michaelis-Menten chemical reaction network with reversible product formation. We utilize kinetic Monte Carlo methods and ordinary differential equation solutions to examine the system's behavior, while employing the stochastic thermodynamics framework to compute thermodynamic quantities such as heat, entropy, and free energy. These approaches provide valuable insights into the system's dynamics and thermodynamic properties.}
+
+\nocite{*}
+
+\footnotesize{\bibliographystyle{plain}\bibliography{abstract}}
+\end{document}  
