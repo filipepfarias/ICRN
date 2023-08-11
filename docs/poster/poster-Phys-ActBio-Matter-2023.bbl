@@ -1,20 +1,31 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Esposito_2011}
 M.~Esposito and C.~Van den Broeck.
 \newblock Second law and landauer principle far from equilibrium.
 \newblock {\em Europhysics Letters}, 95(4):40004, aug 2011.
 
-\bibitem{esposito2023}
-Massimiliano Esposito.
-\newblock Introduction to stochastic thermodynamics.
-\newblock https://enabla.com/set/144, 2023. Nordita Winter School 2023.
+\bibitem{Falasco:2023aa}
+Gianmaria Falasco and Massimiliano Esposito.
+\newblock Macroscopic stochastic thermodynamics.
+\newblock 07 2023.
 
 \bibitem{GILLESPIE1976403}
 Daniel~T Gillespie.
 \newblock A general method for numerically simulating the stochastic time
   evolution of coupled chemical reactions.
 \newblock {\em Journal of Computational Physics}, 22(4):403--434, 1976.
+
+\bibitem{10.21468/SciPostPhysLectNotes.32}
+Christian Maes.
+\newblock {Local detailed balance}.
+\newblock {\em SciPost Phys. Lect. Notes}, page~32, 2021.
+
+\bibitem{Munsky_2006}
+Brian Munsky and Mustafa Khammash.
+\newblock The finite state projection algorithm for the solution of the
+  chemical master equation.
+\newblock {\em The Journal of Chemical Physics}, 124(4), jan 2006.
 
 \bibitem{peliti2021stochastic}
 Luca Peliti and Simone Pigolotti.
@@ -25,6 +36,17 @@ Luca Peliti and Simone Pigolotti.
 Hong Qian and Hao Ge.
 \newblock {\em Stochastic Chemical Reaction Systems in Biology}.
 \newblock Springer International Publishing, 2021.
+
+\bibitem{Schnakenberg:1976aa}
+J.~Schnakenberg.
+\newblock Network theory of microscopic and macroscopic behavior of master
+  equation systems.
+\newblock {\em Reviews of Modern Physics}, 48(4):571--585, 1976.
+
+\bibitem{Seifert:2010aa}
+Udo Seifert.
+\newblock Stochastic thermodynamics of single enzymes and molecular motors.
+\newblock {\em Eur. Phys. J. E 34, 26, 2011}, 12 2010.
 
 \bibitem{van2007stochastic}
 N.G. Van~Kampen.
