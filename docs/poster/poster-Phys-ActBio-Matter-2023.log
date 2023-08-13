@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.6.6)  11 AUG 2023 07:47
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.6.6)  13 AUG 2023 08:26
  system commands enabled.
  file:line:error style messages enabled.
 **poster-Phys-ActBio-Matter-2023.tex
@@ -1158,6 +1158,11 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@lastruleclass=\count369
 \@thisrulewidth=\dimen318
 )
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyphenat/hyphenat.sty
+Package: hyphenat 2009/09/02 v2.3c hyphenation utilities
+\langwohyphens=\language2
+LaTeX Info: Redefining \_ on input line 43.
+)
 (/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
@@ -1390,57 +1395,45 @@ ts.decorations.softclip.code.tex))
 File: graphics/brasao2_vertical_monocromatico.pdf Graphic file (type pdf)
 <use graphics/brasao2_vertical_monocromatico.pdf>
 Package luatex.def Info: graphics/brasao2_vertical_monocromatico.pdf  used on i
-nput line 73.
+nput line 76.
 (luatex.def)             Requested size: 417.42955pt x 284.52756pt.
 <graphics/logo-31148-1.pdf, id=11, 288.546pt x 270.54274pt>
 File: graphics/logo-31148-1.pdf Graphic file (type pdf)
 <use graphics/logo-31148-1.pdf>
-Package luatex.def Info: graphics/logo-31148-1.pdf  used on input line 74.
+Package luatex.def Info: graphics/logo-31148-1.pdf  used on input line 77.
 (luatex.def)             Requested size: 314.64888pt x 284.52756pt.
  (./poster-Phys-ActBio-Matter-2023.aux
-
-LaTeX Warning: Label `fig 2-state-system' multiply defined.
-
-
-LaTeX Warning: Label `fig 2-state-system' multiply defined.
-
-
-LaTeX Warning: Label `fig 2-state-system' multiply defined.
-
-
-LaTeX Warning: Label `fig 2-state-system' multiply defined.
-
 
 LaTeX Warning: Label `fig 2-state-system' multiply defined.
 
 )
 \openout1 = poster-Phys-ActBio-Matter-2023.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 80.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 83.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 8
-0.
+3.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -1498,7 +1491,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 80.
+Package hyperref Info: Link coloring OFF on input line 83.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -1512,9 +1505,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count393
 )
-LaTeX Info: Redefining \ref on input line 80.
-LaTeX Info: Redefining \pageref on input line 80.
-LaTeX Info: Redefining \nameref on input line 80.
+LaTeX Info: Redefining \ref on input line 83.
+LaTeX Info: Redefining \pageref on input line 83.
+LaTeX Info: Redefining \nameref on input line 83.
  (./poster-Phys-ActBio-Matter-2023.out)
 (./poster-Phys-ActBio-Matter-2023.out)
 \@outlinefile=\write5
@@ -1555,84 +1548,80 @@ Package caption Info: End \AtBeginDocument code.
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into 
 your preamble.
- on input line 80.
+ on input line 83.
 
 (./poster-Phys-ActBio-Matter-2023.nav)
 File: graphics/logo-31148-1.pdf Graphic file (type pdf)
 <use graphics/logo-31148-1.pdf>
-Package luatex.def Info: graphics/logo-31148-1.pdf  used on input line 80.
+Package luatex.def Info: graphics/logo-31148-1.pdf  used on input line 83.
 (luatex.def)             Requested size: 314.64888pt x 284.52756pt.
-LaTeX Font Info:    Calculating math sizes for size <13.8> on input line 80.
+LaTeX Font Info:    Calculating math sizes for size <13.8> on input line 83.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 8
-0.
+3.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 8
-0.
+3.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-80.
+83.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <13.8> not available
-(Font)              size <14.4> substituted on input line 80.
+(Font)              size <14.4> substituted on input line 83.
 
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <6.9> on input line 80.
-LaTeX Font Info:    Calculating math sizes for size <41.2> on input line 80.
+(Font)              <6.9> on input line 83.
+LaTeX Font Info:    Calculating math sizes for size <41.2> on input line 83.
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <41.2> not available
-(Font)              size <24.88> substituted on input line 80.
+(Font)              size <24.88> substituted on input line 83.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <28.83986> not available
-(Font)              size <24.88> substituted on input line 80.
+(Font)              size <24.88> substituted on input line 83.
 
-LaTeX Font Info:    Calculating math sizes for size <28.61> on input line 80.
+LaTeX Font Info:    Calculating math sizes for size <28.61> on input line 83.
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <28.61> not available
-(Font)              size <24.88> substituted on input line 80.
+(Font)              size <24.88> substituted on input line 83.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <20.0269> not available
-(Font)              size <20.74> substituted on input line 80.
+(Font)              size <20.74> substituted on input line 83.
 
 File: graphics/brasao2_vertical_monocromatico.pdf Graphic file (type pdf)
 <use graphics/brasao2_vertical_monocromatico.pdf>
 Package luatex.def Info: graphics/brasao2_vertical_monocromatico.pdf  used on i
-nput line 80.
+nput line 83.
 (luatex.def)             Requested size: 417.42955pt x 284.52756pt.
+
+Underfull \hbox (badness 1917) in paragraph at lines 507--507
+[]\TU/Lato(1)/m/n/28.61 The Michaelis-Menten ki-net-ics mod-els the ki-net-ics 
+of
+ []
+
 <graphics/MichaelisMenten.pdf, id=18, 1927.2pt x 1084.05pt>
 File: graphics/MichaelisMenten.pdf Graphic file (type pdf)
 <use graphics/MichaelisMenten.pdf>
-Package luatex.def Info: graphics/MichaelisMenten.pdf  used on input line 438.
+Package luatex.def Info: graphics/MichaelisMenten.pdf  used on input line 507.
 (luatex.def)             Requested size: 574.29848pt x 323.03406pt.
-LaTeX Font Info:    Calculating math sizes for size <23.85> on input line 438.
+LaTeX Font Info:    Calculating math sizes for size <23.85> on input line 507.
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <23.85> not available
-(Font)              size <24.88> substituted on input line 438.
+(Font)              size <24.88> substituted on input line 507.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <16.69493> not available
-(Font)              size <17.28> substituted on input line 438.
-
-
-Overfull \hbox (27.70348pt too wide) in paragraph at lines 438--438
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 438--438
-
- []
+(Font)              size <17.28> substituted on input line 507.
 
 (./poster-Phys-ActBio-Matter-2023.bbl
 LaTeX Font Info:    Calculating math sizes for size <19.87> on input line 1.
@@ -1646,99 +1635,83 @@ LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <13.90894> not available
 (Font)              size <14.4> substituted on input line 1.
 
 )
-<graphics/f1.pdf, id=34, 602.25pt x 200.75pt>
+Underfull \hbox (badness 10000) in paragraph at lines 507--507
+[]\TU/Lato(1)/m/n/28.61 The en-ergy trans-fer in sys-tems mod-eled at the
+ []
+
+
+Underfull \hbox (badness 2229) in paragraph at lines 507--507
+\TU/Lato(1)/m/n/28.61 meso-scopic scale with stochas-tic dy-nam-ics which are
+ []
+
+<graphics/f8.pdf, id=32, 615.29875pt x 213.79875pt>
+File: graphics/f8.pdf Graphic file (type pdf)
+<use graphics/f8.pdf>
+Package luatex.def Info: graphics/f8.pdf  used on input line 507.
+(luatex.def)             Requested size: 738.3548pt x 256.5572pt.
+
+Overfull \hbox (20.48442pt too wide) in paragraph at lines 507--507
+ [] 
+ []
+
+
+Underfull \hbox (badness 2035) in paragraph at lines 507--507
+[][][]\TU/Lato(1)/m/n/23.85 Fig-ure 2[][].[] |Sin-gle tra-jec-tory of the Markov
+ jump pro-cess for the
+ []
+
+<graphics/f1.pdf, id=33, 605.26125pt x 206.7725pt>
 File: graphics/f1.pdf Graphic file (type pdf)
 <use graphics/f1.pdf>
-Package luatex.def Info: graphics/f1.pdf  used on input line 438.
-(luatex.def)             Requested size: 722.69638pt x 240.89877pt.
+Package luatex.def Info: graphics/f1.pdf  used on input line 507.
+(luatex.def)             Requested size: 726.30984pt x 248.12575pt.
 
-Overfull \hbox (4.826pt too wide) in paragraph at lines 438--438
+Overfull \hbox (8.43947pt too wide) in paragraph at lines 507--507
  [] 
  []
 
-<graphics/f2.pdf, id=35, 602.25pt x 200.75pt>
+
+Underfull \hbox (badness 1122) in paragraph at lines 507--507
+\OML/lmm/m/it/23.85 p[]$ \TU/Lato(1)/m/n/23.85 and $\OML/lmm/m/it/23.85 p[]$\TU
+/Lato(1)/m/n/23.85 , and the prob-a-bil-ity of the states for the sys-tem in
+ []
+
+<graphics/f2.pdf, id=34, 609.27625pt x 206.7725pt>
 File: graphics/f2.pdf Graphic file (type pdf)
 <use graphics/f2.pdf>
-Package luatex.def Info: graphics/f2.pdf  used on input line 438.
-(luatex.def)             Requested size: 722.69638pt x 240.89877pt.
+Package luatex.def Info: graphics/f2.pdf  used on input line 507.
+(luatex.def)             Requested size: 731.12784pt x 248.12575pt.
 
-Overfull \hbox (4.826pt too wide) in paragraph at lines 438--438
- [] 
- []
-
-<graphics/f6.pdf, id=36, 602.25pt x 200.75pt>
-File: graphics/f6.pdf Graphic file (type pdf)
-<use graphics/f6.pdf>
-Package luatex.def Info: graphics/f6.pdf  used on input line 438.
-(luatex.def)             Requested size: 722.69638pt x 240.89877pt.
-
-Overfull \hbox (4.826pt too wide) in paragraph at lines 438--438
- [] 
- []
-
-<graphics/f3.pdf, id=37, 602.25pt x 200.75pt>
-File: graphics/f3.pdf Graphic file (type pdf)
-<use graphics/f3.pdf>
-Package luatex.def Info: graphics/f3.pdf  used on input line 438.
-(luatex.def)             Requested size: 722.69638pt x 240.89877pt.
-
-Overfull \hbox (4.826pt too wide) in paragraph at lines 438--438
- [] 
- []
-
-<graphics/f4.pdf, id=38, 602.25pt x 200.75pt>
-File: graphics/f4.pdf Graphic file (type pdf)
-<use graphics/f4.pdf>
-Package luatex.def Info: graphics/f4.pdf  used on input line 438.
-(luatex.def)             Requested size: 722.69638pt x 240.89877pt.
-
-Overfull \hbox (4.826pt too wide) in paragraph at lines 438--438
- [] 
- []
-
-<graphics/f5.pdf, id=39, 602.25pt x 200.75pt>
-File: graphics/f5.pdf Graphic file (type pdf)
-<use graphics/f5.pdf>
-Package luatex.def Info: graphics/f5.pdf  used on input line 438.
-(luatex.def)             Requested size: 722.69638pt x 240.89877pt.
-
-Overfull \hbox (4.826pt too wide) in paragraph at lines 438--438
+Overfull \hbox (13.25746pt too wide) in paragraph at lines 507--507
  [] 
  []
 
 
-Overfull \vbox (3.38pt too high) detected at line 438
+Underfull \hbox (badness 1406) in paragraph at lines 507--507
+\TU/Lato(1)/m/n/28.61 ap-proach is to use Gille-spie al-go-rithm to ob-tain an
+ []
+
+
+Overfull \vbox (378.5391pt too high) detected at line 507
  []
 
 File: graphics/logo-31148-1.pdf Graphic file (type pdf)
 <use graphics/logo-31148-1.pdf>
-Package luatex.def Info: graphics/logo-31148-1.pdf  used on input line 438.
+Package luatex.def Info: graphics/logo-31148-1.pdf  used on input line 507.
 (luatex.def)             Requested size: 314.64888pt x 284.52756pt.
 File: graphics/brasao2_vertical_monocromatico.pdf Graphic file (type pdf)
 <use graphics/brasao2_vertical_monocromatico.pdf>
 Package luatex.def Info: graphics/brasao2_vertical_monocromatico.pdf  used on i
-nput line 438.
+nput line 507.
 (luatex.def)             Requested size: 417.42955pt x 284.52756pt.
 [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 warning  (pdf backend): ignoring duplicate destination with the name 'fig\0402-s
 tate-system'
-
-warning  (pdf backend): ignoring duplicate destination with the name 'fig\0402-s
-tate-system'
-
-warning  (pdf backend): ignoring duplicate destination with the name 'fig\0402-s
-tate-system'
-
-warning  (pdf backend): ignoring duplicate destination with the name 'fig\0402-s
-tate-system'
-
-warning  (pdf backend): ignoring duplicate destination with the name 'fig\0402-s
-tate-system'
 <./graphics/logo-31148-1.pdf><./graphics/brasao2_vertical_monocromatico.pdf><./g
-raphics/MichaelisMenten.pdf><./graphics/f1.pdf><./graphics/f2.pdf><./graphics/f6
-.pdf><./graphics/f3.pdf><./graphics/f4.pdf><./graphics/f5.pdf>]
+raphics/MichaelisMenten.pdf><./graphics/f8.pdf><./graphics/f1.pdf><./graphics/f2
+.pdf>]
 \tf@nav=\write6
 
 \openout6 = poster-Phys-ActBio-Matter-2023.nav
@@ -1748,8 +1721,7 @@ raphics/MichaelisMenten.pdf><./graphics/f1.pdf><./graphics/f2.pdf><./graphics/f6
 \tf@snm=\write8
 
 \openout8 = poster-Phys-ActBio-Matter-2023.snm
-
-(./poster-Phys-ActBio-Matter-2023.aux)
+ (./poster-Phys-ActBio-Matter-2023.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 16.31999pt have occurred.
@@ -1763,19 +1735,19 @@ changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 43637 strings out of 477785
- 381546,1648299 words of node,token memory allocated
- 90417 words of node memory still in use:
-   926 hlist, 82 vlist, 87 rule, 528 disc, 118 local_par, 131 math, 2098 glue, 1
-167 kern, 405 penalty, 5915 glyph, 1725 attribute, 83 glue_spec, 1725 attribute_
-list, 21 write, 144 pdf_literal, 15 pdf_start_link, 15 pdf_end_link, 18 pdf_dest
-, 15 pdf_action, 408 pdf_colorstack, 9 pdf_setmatrix, 9 pdf_save, 9 pdf_restore 
+ 43663 strings out of 477785
+ 381551,1648299 words of node,token memory allocated
+ 92209 words of node memory still in use:
+   893 hlist, 78 vlist, 75 rule, 547 disc, 108 local_par, 184 math, 2092 glue, 1
+227 kern, 374 penalty, 6252 glyph, 1597 attribute, 83 glue_spec, 1597 attribute_
+list, 21 write, 128 pdf_literal, 15 pdf_start_link, 15 pdf_end_link, 18 pdf_dest
+, 15 pdf_action, 352 pdf_colorstack, 6 pdf_setmatrix, 6 pdf_save, 6 pdf_restore 
 nodes
-   avail lists: 1:3,2:511,3:1851,4:1395,5:3576,6:363,7:24858,8:110,9:3421,10:16,
-11:1605
- 62296 multiletter control sequences out of 65536+600000
+   avail lists: 2:511,3:1683,4:1227,5:3756,6:333,7:26011,8:110,9:3274,10:12,11:1
+662
+ 62327 multiletter control sequences out of 65536+600000
  146 fonts using 21170079 bytes
- 128i,21n,115p,757b,1332s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,21n,115p,757b,1251s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2022/texmf-dist/fonts/truetype/typoland/lato/Lato-LightItali
 c.ttf></usr/local/texlive/2022/texmf-dist/fonts/truetype/typoland/lato/Lato-Regu
 lar.ttf>{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/u
@@ -1790,10 +1762,10 @@ xmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2022/texmf-dist/fon
 ts/type1/public/lm/lmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/pub
 lic/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfont
 s/symbols/msam10.pfb>
-Output written on poster-Phys-ActBio-Matter-2023.pdf (1 page, 545857 bytes).
+Output written on poster-Phys-ActBio-Matter-2023.pdf (1 page, 760934 bytes).
 
-PDF statistics: 152 PDF objects out of 1000 (max. 8388607)
- 92 compressed objects within 1 object stream
- 16 named destinations out of 1000 (max. 131072)
+PDF statistics: 2349 PDF objects out of 2487 (max. 8388607)
+ 1550 compressed objects within 16 object streams
+ 20 named destinations out of 1000 (max. 131072)
  46 words of extra memory for PDF output out of 10000 (max. 100000000)
 
