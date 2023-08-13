@@ -94,7 +94,7 @@
 \begin{column}{\colwidth}
 
 \begin{block}{Michaelis-Menten theory}
-The Michaelis-Menten kinetics models the kinetics of enzyme $E$ reacting with substrate $S$ forming complex $ES$ which releases product $P$ and enzyme according to the following chemical reaction network: 
+The Michaelis-Menten reaction models the kinetics of enzyme $E$ reacting with substrate $S$ to form complex $ES$ and release product $P$ and the enzyme: 
 \begin{equation*}
 E + S \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} ES \underset{k_{-2}}{\stackrel{k_2}{\rightleftharpoons}} E + P.
 \end{equation*}
@@ -102,18 +102,19 @@ E + S \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} ES \underset{k_{-2}}
 In this analysis, it is assumed that:
 \begin{itemize}
 \justifying
-\item The amounts of $S$ and $P$ are considered to be much larger than of $E$ and $ES$ such that a reaction does not change considerably the quantities of $S$ and $P$;
-\item The reactions are modeled as random interactions of the enzyme with the reservoir in equilibrium at temperature T formed by the solution of $S$ and $P$\cite{Seifert:2010aa}.
+\item There is a single molecule enzyme in either $E$ or $ES$ form and the number of molecules of $S$ and $P$ is large enough to not be affected by the reaction.
+
+\item The reactions are modeled as random interactions in an environment at temperature $T$ in contact with a thermal reservoir which is assumed to be in equilibrium\cite{Seifert:2010aa}.
 \end{itemize}
 %
 \begin{figure}
 \centering
 \includegraphics[width=.8\textwidth]{graphics/MichaelisMenten.pdf}
-\caption{\justifying Figure adapted from Seifert (2010)\cite{Seifert:2010aa}, where the solution is composed by substrate (filled circle), product (empty circle) and single enzyme (red square). The single enzyme is interacting with the solution changing its state.}
+\caption{\justifying Figure adapted from Seifert (2010)\cite{Seifert:2010aa}, where the solution is composed by substrate (filled circle), product (empty circle) and single enzyme (red square). The single enzyme interacts with the solution and changes its state.}
 \vskip-20pt
 \end{figure}
 %
-The system considered for this analysis consists of $n_E$ molecules of $E$ and $n_{ES}$ molecules of $ES$, being the system states $\{ x \in \mathcal{X} | x = (x_i,x_{i^\prime}) \}$ with $ \mathcal{X} = \{0,...,n_E\}\!\times\! \{0,...,n_E\}$.
+The system consists of $n_E$ molecules of $E$ and $n_{ES}$ molecules of $ES$, being the system states $\{ x \in \mathcal{X} | x = (x_i,x_{i^\prime}) \}$ with $ \mathcal{X} = \{0,...,n_E\}\!\times\! \{0,...,n_{ES}\}$.
 
 %Considering only one enzyme, the states in which it is found is $E$ or $ES$, thus the number of molecules of each of them are $n_E \in \{0,1\}$ and $n_{ES} \in \{0,1\}$, respectively.
 \begin{itemize}
@@ -140,7 +141,7 @@ where the following terms were defined:\\
 \end{itemize}
 %
 
-Considering the system with $n_E=n_{ES}=1$, it can be verified that the states $(0,0)$ and $(1,1)$ have no transitions coming to or leaving them, thus $W$ can be reduced to $2 \times 2$ and set $p_x(t) = 0$ for those states. 
+Considering the system with $n_E+n_{ES}=1$, it can be verified that the states $(0,0)$ and $(1,1)$ have no transitions coming to or leaving them, thus $W$ can be reduced to $2 \times 2$ and set $p_x(t) = 0$ for those states. 
 \end{block}
 
 
