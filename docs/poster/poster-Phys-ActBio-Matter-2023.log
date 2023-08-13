@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.6.6)  13 AUG 2023 08:26
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.6.6)  13 AUG 2023 12:05
  system commands enabled.
  file:line:error style messages enabled.
 **poster-Phys-ActBio-Matter-2023.tex
@@ -1604,7 +1604,7 @@ Package luatex.def Info: graphics/brasao2_vertical_monocromatico.pdf  used on i
 nput line 83.
 (luatex.def)             Requested size: 417.42955pt x 284.52756pt.
 
-Underfull \hbox (badness 1917) in paragraph at lines 507--507
+Underfull \hbox (badness 1917) in paragraph at lines 288--288
 []\TU/Lato(1)/m/n/28.61 The Michaelis-Menten ki-net-ics mod-els the ki-net-ics 
 of
  []
@@ -1612,16 +1612,16 @@ of
 <graphics/MichaelisMenten.pdf, id=18, 1927.2pt x 1084.05pt>
 File: graphics/MichaelisMenten.pdf Graphic file (type pdf)
 <use graphics/MichaelisMenten.pdf>
-Package luatex.def Info: graphics/MichaelisMenten.pdf  used on input line 507.
+Package luatex.def Info: graphics/MichaelisMenten.pdf  used on input line 288.
 (luatex.def)             Requested size: 574.29848pt x 323.03406pt.
-LaTeX Font Info:    Calculating math sizes for size <23.85> on input line 507.
+LaTeX Font Info:    Calculating math sizes for size <23.85> on input line 288.
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <23.85> not available
-(Font)              size <24.88> substituted on input line 507.
+(Font)              size <24.88> substituted on input line 288.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <16.69493> not available
-(Font)              size <17.28> substituted on input line 507.
+(Font)              size <17.28> substituted on input line 288.
 
 (./poster-Phys-ActBio-Matter-2023.bbl
 LaTeX Font Info:    Calculating math sizes for size <19.87> on input line 1.
@@ -1635,27 +1635,27 @@ LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <13.90894> not available
 (Font)              size <14.4> substituted on input line 1.
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 507--507
+Underfull \hbox (badness 10000) in paragraph at lines 288--288
 []\TU/Lato(1)/m/n/28.61 The en-ergy trans-fer in sys-tems mod-eled at the
  []
 
 
-Underfull \hbox (badness 2229) in paragraph at lines 507--507
+Underfull \hbox (badness 2229) in paragraph at lines 288--288
 \TU/Lato(1)/m/n/28.61 meso-scopic scale with stochas-tic dy-nam-ics which are
  []
 
-<graphics/f8.pdf, id=32, 615.29875pt x 213.79875pt>
+<graphics/f8.pdf, id=32, 610.28pt x 209.78375pt>
 File: graphics/f8.pdf Graphic file (type pdf)
 <use graphics/f8.pdf>
-Package luatex.def Info: graphics/f8.pdf  used on input line 507.
-(luatex.def)             Requested size: 738.3548pt x 256.5572pt.
+Package luatex.def Info: graphics/f8.pdf  used on input line 288.
+(luatex.def)             Requested size: 732.33234pt x 251.73921pt.
 
-Overfull \hbox (20.48442pt too wide) in paragraph at lines 507--507
+Overfull \hbox (14.46196pt too wide) in paragraph at lines 288--288
  [] 
  []
 
 
-Underfull \hbox (badness 2035) in paragraph at lines 507--507
+Underfull \hbox (badness 2035) in paragraph at lines 288--288
 [][][]\TU/Lato(1)/m/n/23.85 Fig-ure 2[][].[] |Sin-gle tra-jec-tory of the Markov
  jump pro-cess for the
  []
@@ -1663,15 +1663,15 @@ Underfull \hbox (badness 2035) in paragraph at lines 507--507
 <graphics/f1.pdf, id=33, 605.26125pt x 206.7725pt>
 File: graphics/f1.pdf Graphic file (type pdf)
 <use graphics/f1.pdf>
-Package luatex.def Info: graphics/f1.pdf  used on input line 507.
+Package luatex.def Info: graphics/f1.pdf  used on input line 288.
 (luatex.def)             Requested size: 726.30984pt x 248.12575pt.
 
-Overfull \hbox (8.43947pt too wide) in paragraph at lines 507--507
+Overfull \hbox (8.43947pt too wide) in paragraph at lines 288--288
  [] 
  []
 
 
-Underfull \hbox (badness 1122) in paragraph at lines 507--507
+Underfull \hbox (badness 1122) in paragraph at lines 288--288
 \OML/lmm/m/it/23.85 p[]$ \TU/Lato(1)/m/n/23.85 and $\OML/lmm/m/it/23.85 p[]$\TU
 /Lato(1)/m/n/23.85 , and the prob-a-bil-ity of the states for the sys-tem in
  []
@@ -1679,30 +1679,30 @@ Underfull \hbox (badness 1122) in paragraph at lines 507--507
 <graphics/f2.pdf, id=34, 609.27625pt x 206.7725pt>
 File: graphics/f2.pdf Graphic file (type pdf)
 <use graphics/f2.pdf>
-Package luatex.def Info: graphics/f2.pdf  used on input line 507.
+Package luatex.def Info: graphics/f2.pdf  used on input line 288.
 (luatex.def)             Requested size: 731.12784pt x 248.12575pt.
 
-Overfull \hbox (13.25746pt too wide) in paragraph at lines 507--507
+Overfull \hbox (13.25746pt too wide) in paragraph at lines 288--288
  [] 
  []
 
 
-Underfull \hbox (badness 1406) in paragraph at lines 507--507
+Underfull \hbox (badness 1406) in paragraph at lines 288--288
 \TU/Lato(1)/m/n/28.61 ap-proach is to use Gille-spie al-go-rithm to ob-tain an
  []
 
 
-Overfull \vbox (378.5391pt too high) detected at line 507
+Overfull \vbox (378.5391pt too high) detected at line 288
  []
 
 File: graphics/logo-31148-1.pdf Graphic file (type pdf)
 <use graphics/logo-31148-1.pdf>
-Package luatex.def Info: graphics/logo-31148-1.pdf  used on input line 507.
+Package luatex.def Info: graphics/logo-31148-1.pdf  used on input line 288.
 (luatex.def)             Requested size: 314.64888pt x 284.52756pt.
 File: graphics/brasao2_vertical_monocromatico.pdf Graphic file (type pdf)
 <use graphics/brasao2_vertical_monocromatico.pdf>
 Package luatex.def Info: graphics/brasao2_vertical_monocromatico.pdf  used on i
-nput line 507.
+nput line 288.
 (luatex.def)             Requested size: 417.42955pt x 284.52756pt.
 [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -1736,15 +1736,15 @@ changed.
 
 Here is how much of LuaTeX's memory you used:
  43663 strings out of 477785
- 381551,1648299 words of node,token memory allocated
- 92209 words of node memory still in use:
-   893 hlist, 78 vlist, 75 rule, 547 disc, 108 local_par, 184 math, 2092 glue, 1
-227 kern, 374 penalty, 6252 glyph, 1597 attribute, 83 glue_spec, 1597 attribute_
+ 381544,1648299 words of node,token memory allocated
+ 93292 words of node memory still in use:
+   897 hlist, 78 vlist, 75 rule, 556 disc, 108 local_par, 187 math, 2109 glue, 1
+247 kern, 376 penalty, 6350 glyph, 1601 attribute, 83 glue_spec, 1601 attribute_
 list, 21 write, 128 pdf_literal, 15 pdf_start_link, 15 pdf_end_link, 18 pdf_dest
 , 15 pdf_action, 352 pdf_colorstack, 6 pdf_setmatrix, 6 pdf_save, 6 pdf_restore 
 nodes
-   avail lists: 2:511,3:1683,4:1227,5:3756,6:333,7:26011,8:110,9:3274,10:12,11:1
-662
+   avail lists: 1:2,2:511,3:1689,4:1227,5:3816,6:333,7:26365,8:110,9:3286,10:12,
+11:1689
  62327 multiletter control sequences out of 65536+600000
  146 fonts using 21170079 bytes
  128i,21n,115p,757b,1251s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1762,10 +1762,10 @@ xmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2022/texmf-dist/fon
 ts/type1/public/lm/lmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/pub
 lic/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfont
 s/symbols/msam10.pfb>
-Output written on poster-Phys-ActBio-Matter-2023.pdf (1 page, 760934 bytes).
+Output written on poster-Phys-ActBio-Matter-2023.pdf (1 page, 768766 bytes).
 
-PDF statistics: 2349 PDF objects out of 2487 (max. 8388607)
- 1550 compressed objects within 16 object streams
+PDF statistics: 2424 PDF objects out of 2487 (max. 8388607)
+ 1600 compressed objects within 16 object streams
  20 named destinations out of 1000 (max. 131072)
  46 words of extra memory for PDF output out of 10000 (max. 100000000)
 
