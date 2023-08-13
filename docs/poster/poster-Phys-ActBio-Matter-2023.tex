@@ -122,7 +122,7 @@ The system considered for this analysis consists of $n_E$ molecules of $E$ and $
 \item The evolution of the system is modeled as a Markov jump process between states $x$ whose probability $p_x(t)$ solves the following {\bf master equation}\cite{van2007stochastic,GILLESPIE1976403}
 %
 \begin{equation}
-\frac{dp_{x}(t)}{dt} = \sum_{\mathcal{X}} W_{x^\prime x} p_{x}(t) -  W_{x x^\prime}p_{x^\prime}(t) \label{eq CME}
+\frac{dp_{x}(t)}{dt} = \sum_{\mathcal{X}} W_{xx^\prime} p_{x^\prime}(t) -  W_{x^\prime x}p_{x}(t) \label{eq CME}
 \end{equation}
 %\item $W_{x x^\prime }(k_\nu)$ is the {\bf probability transition rate} from a state $x^\prime$ to state $x$, it depends on the kinetics, and it is an element of the $2 \times 2$ rate transition matrix $W$\cite{Munsky_2006}:
 \item $W_{x x^\prime }(k_\nu)$ is the {\bf probability transition rate} from a state $x^\prime$ to state $x$, it depends on the kinetics, and it is an element of the $|\mathcal{X}|\times|\mathcal{X}|$ rate transition matrix $W$ equal to\cite{Munsky_2006}:
@@ -134,7 +134,7 @@ where the following terms were defined:\\
 
 - $a_\nu({x},k_\nu) = \prod_{x_i \in x} k_\nu \cfrac{{x_i}!}{({x}_{i} - s_{i,\nu})!}$ is the propensity function for the $\nu$-th reaction with rate $k_\nu$;\\
 
-- $s_{i,\nu} $ is the change in the number of molecules of $x_i \in x$ participating in the $\nu$-th reaction;\\
+- $S_\nu = (s_{i,\nu},s_{i^\prime,\nu})$ is the change in the number of molecules of $x_i \in x$ participating in the $\nu$-th reaction;\\
 - $\delta(x) = 1$ only if $x \equiv (0,0)$, otherwise is $0$.
 %
 \end{itemize}
@@ -181,7 +181,7 @@ s^{prod}_{x^\prime \rightarrow x} = k_B T \ln \frac{W_{xx^\prime}p_{x^\prime}(t)
 \item The entropy balance during the transition is
 %
 \begin{equation*}
-s^{bal}_{x^\prime \rightarrow x} = k_B T \ln \frac{p_x^\prime(t)}{p_x(t)}.
+s^{bal}_{x^\prime \rightarrow x} = k_B T \ln \frac{p_{x^\prime(t)}}{p_x(t)}.
 \label{eq stoch ent bal}
 \end{equation*}
 %
@@ -190,7 +190,7 @@ which is equal to $s^{prod}_{x^\prime \rightarrow x} - s^{flu}_{x^\prime \righta
 The average of \eqref{eq stoch ent res} over the probability of the system to transition to $x$ gives the {\bf average entropy flux rate}\cite{peliti2021stochastic}:
 %
 \begin{equation*}
-\dot{S}^{flu} = k_B T \frac{1}{2} \sum_{x \neq x^\prime} \left[ W_{x^\prime x} p_x(t) -  W_{x x^\prime}p_{x^\prime}(t) \right] \ln \frac{W_{x^\prime x}}{W_{xx^\prime}}
+\dot{S}^{flu} = k_B T \frac{1}{2} \sum_{x \neq x^\prime} \left[ W_{xx^\prime} p_{x^\prime}(t) -  W_{x^\prime x}p_{x}(t) \right] \ln \frac{W_{xx^\prime}}{W_{x^\prime x}}
 \end{equation*}
 %
 \begin{itemize}
@@ -198,10 +198,10 @@ The average of \eqref{eq stoch ent res} over the probability of the system to tr
 %
 \begin{subequations}
 \begin{equation*}
-\dot{S}^{prod}  = k_B T\frac{1}{2} \sum_{x \neq x^\prime} \left[ W_{x^\prime x} p_x(t) -  W_{x x^\prime}p_{x^\prime}(t) \right] \ln \frac{W_{x^\prime x} p_x(t)}{W_{xx^\prime}p_{x^\prime}(t)};
+\dot{S}^{prod}  = k_B T\frac{1}{2} \sum_{x \neq x^\prime} \left[ W_{xx^\prime} p_{x^\prime}(t) -  W_{x^\prime x}p_{x}(t) \right] \ln \frac{W_{xx^\prime}p_{x^\prime}(t)}{W_{x^\prime x} p_x(t)};
 \end{equation*}
 \begin{equation*}
- \dot{S}^{bal} = k_B T \frac{1}{2} \sum_{x \neq x^\prime} \left[ W_{x^\prime x} p_x(t) -  W_{x x^\prime}p_{x^\prime}(t) \right] \ln \frac{p_x(t)}{p_{x^\prime}(t)}.
+ \dot{S}^{bal} = k_B T \frac{1}{2} \sum_{x \neq x^\prime} \left[ W_{x^\prime x} p_x(t) -  W_{x x^\prime}p_{x^\prime}(t) \right] \ln \frac{p_{x^\prime}(t)}{p_x(t)}.
 \end{equation*}
 \end{subequations}
 
@@ -237,7 +237,7 @@ D_{KL}(p(t) || p^{eq}) = \sum_{\mathcal{X}} p_x(t) \ln \frac{p_x(t)}{p_x^{eq}}.
 \begin{itemize}
 \item The {\bf nonequilibrium free energy rate} is given by the derivative of \eqref{eq noneq free energy} with respect to time 
 \begin{equation*}
-\dot{F}(t) = k_B T \sum_{x \neq x^\prime} \left[ W_{x^\prime x} p_x(t) -  W_{x x^\prime}p_{x^\prime}(t) \right] \ln \frac{p_x(t)}{p_x^{eq}}.
+\dot{F}(t) = k_B T \sum_{x \neq x^\prime} \left[W_{x x^\prime}p_{x^\prime}(t) -  W_{x^\prime x} p_x(t)  \right] \ln \frac{p_x(t)}{p_x^{eq}}.
 \end{equation*}
 \end{itemize}
 \begin{block}{Results}
@@ -290,8 +290,8 @@ Some conclusions are:
 \begin{alertblock}{References}
 
 %\nocite{*}
-\begin{minipage}[t][5cm][t]{\textwidth}
-\begin{multicols}{3}
+\begin{minipage}[t][10cm][t]{\textwidth}
+\begin{multicols}{4}
 \footnotesize{\bibliographystyle{plain}
 \bibliography{poster-Phys-ActBio-Matter-2023}}
 \end{multicols}
