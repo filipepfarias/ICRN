@@ -21,6 +21,8 @@
 \svgsetup{inkscapeexe=/Applications/Inkscape.app/Contents/MacOS/inkscape}
 \DeclareGraphicsRule{.ai}{pdf}{.ai}{}
 \usepackage{booktabs}
+\usepackage{multicol}
+
 \usepackage[none]{hyphenat}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -142,12 +144,7 @@ Considering the system with $n_E=n_{ES}=1$, it can be verified that the states $
 \end{block}
 
 
-\begin{alertblock}{References}
 
-%\nocite{*}
-\footnotesize{\bibliographystyle{plain}\bibliography{poster-Phys-ActBio-Matter-2023}}
-
-\end{alertblock}
 \end{column}
 
 \separatorcolumn
@@ -225,10 +222,10 @@ where ${F}^{eq}$ is the time-independent {\bf equilibrium free energy}.
 \begin{equation*}
 D_{KL}(p(t) || p^{eq}) = \sum_{\mathcal{X}} p_x(t) \ln \frac{p_x(t)}{p_x^{eq}}.
 \end{equation*}
-\item The {\bf nonequilibrium free energy rate} is given by the derivative of \eqref{eq noneq free energy} with respect to time 
-\begin{equation*}
-\dot{F}(t) = k_B T \sum_{x \neq x^\prime} \left[ W_{x^\prime x} p_x(t) -  W_{x x^\prime}p_{x^\prime}(t) \right] \ln \frac{p_x(t)}{p_x^{eq}}.
-\end{equation*}
+%\item The {\bf nonequilibrium free energy rate} is given by the derivative of \eqref{eq noneq free energy} with respect to time 
+%\begin{equation*}
+%\dot{F}(t) = k_B T \sum_{x \neq x^\prime} \left[ W_{x^\prime x} p_x(t) -  W_{x x^\prime}p_{x^\prime}(t) \right] \ln \frac{p_x(t)}{p_x^{eq}}.
+%\end{equation*}
 \end{itemize}
 \end{block}
 \end{column}
@@ -237,7 +234,12 @@ D_{KL}(p(t) || p^{eq}) = \sum_{\mathcal{X}} p_x(t) \ln \frac{p_x(t)}{p_x^{eq}}.
 
 \begin{column}{\colwidth}
 
-
+\begin{itemize}
+\item The {\bf nonequilibrium free energy rate} is given by the derivative of \eqref{eq noneq free energy} with respect to time 
+\begin{equation*}
+\dot{F}(t) = k_B T \sum_{x \neq x^\prime} \left[ W_{x^\prime x} p_x(t) -  W_{x x^\prime}p_{x^\prime}(t) \right] \ln \frac{p_x(t)}{p_x^{eq}}.
+\end{equation*}
+\end{itemize}
 \begin{block}{Results}
 \begin{figure}
 %\vskip-30pt 
@@ -285,5 +287,16 @@ Some conclusions are:
 
 \separatorcolumn
 \end{columns}
+\begin{alertblock}{References}
+
+%\nocite{*}
+\begin{minipage}[t][5cm][t]{\textwidth}
+\begin{multicols}{3}
+\footnotesize{\bibliographystyle{plain}
+\bibliography{poster-Phys-ActBio-Matter-2023}}
+\end{multicols}
+\end{minipage}
+
+\end{alertblock}
  \end{frame}
 \end{document}
