@@ -1,15 +1,13 @@
 \documentclass[11pt]{amsart}
+
 \usepackage{geometry}				% See geometry.pdf to learn the layout options. There are lots.
-\geometry{letterpaper}				% ... or a4paper or a5paper or ... 
-%\geometry{landscape}				% Activate for for rotated page geometry
-%\usepackage[parfill]{parskip}		% Activate to begin paragraphs with an empty line rather than an indent
+\geometry{a4paper}	
+			% ... or a4paper or a5paper or ... 
 \usepackage{graphicx}
 \usepackage{amssymb}
+
 \usepackage{epstopdf}
 \usepackage{color}
-\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
-\usepackage[superscript,biblabel]{cite}
-
 
 \usepackage{xpatch}
 
@@ -24,21 +22,21 @@
 }{\typeout{Patch successful}}{\typeout{Patch failed}}
 \makeatother
 
-\title{Mesoscopic thermodynamics of single-particle enzymatic reactions}
+\title{Mesoscopic thermodynamics of \\ single-particle enzymatic reactions}
 \vskip-0.250cm
 \author{Filipe P. de Farias\textsuperscript{1}, Francesco Corona\textsuperscript{2}, Michela Mulas\textsuperscript{1}}
-\address{\vskip-0.500cm\textsuperscript{1}\scriptsize Post-graduate Programme in Teleinformatics Engineering, Federal University of Cear\'a, Brazil.}
-\address{\vskip-0.750cm\textsuperscript{2} \scriptsize School of Chemical Engineering, Aalto University, Finland.}
+\address{\vskip-0.250cm\textsuperscript{1}\scriptsize Post-graduate Programme in Teleinformatics Engineering, Federal University of Cear\'a, Brazil.}
+\address{\vskip-0.570cm\textsuperscript{2} \scriptsize School of Chemical Engineering, Aalto University, Finland.}
 
 \begin{document}
 \maketitle
 
+\vskip-0.250cm
+In this work, we consider the framework of mesoscopic non-equilibrium thermodynamics \cite{Prigogine1953,Mazur1998,Reguera2005} to evaluate the stochastic energetics of enzymatic reactions described in terms of classic Michaelis-Menten/Briggs-Haldane theories. We consider a system comprising of a single enzyme which can exist in one of two states, either in free form or complexed with the substrate, and that the formation of product is reversible. Moreover, we assume that the kinetics of the reaction network can be expressed using elementary reactions and that the system is coupled to a heat reservoir. Because the interactions with the heat bath are assumed to be uncontrolled and intrinsically stochastic, each reaction will be described as a random event characterised by a single parameter, the rate constant. It is thus expected that a different evolution of the system is observed each time the experiment is repeated. Such a description leads to model the system as a continuous-time Markov process with discrete state-space, a Markovian jump process. 
 
-\vskip-0.500cmIn this work, we consider the framework of mesoscopic non-equilibrium thermodynamics \cite{PRIGOGINE1953241,MAZUR1998451,doi:10.1021/jp052904i} to evaluate the stochastic energetics of enzymatic reactions described in terms of classic Michaelis-Menten/Briggs-Haldane theories. We consider a system comprising of a single enzyme which can exist in one of two states, either in free form or complexed with the substrate, and that the formation of product is reversible. Moreover, we assume that the kinetics of the reaction network can be expressed using elementary reactions and that the system is coupled to a heat reservoir. Because the interactions with the heat bath are assumed to be uncontrolled and intrinsically stochastic, each reaction will be described as a random event characterised by a single parameter, the rate constant. It is thus expected that a different evolution of the system is observed each time the experiment is repeated. Such a description leads to model the system as a continuous-time Markov process with discrete state-space, a Markovian jump process. The resulting stochastic kinetics of such a system are represented with two complementary formulations of the dynamics: either in terms of the fluctuating number of molecular species that follow the Gillespie algorithm \cite{GILLESPIE1976403}, or in terms of the probability distribution that satisfies the chemical master equation \cite{GILLESPIE1992404}.
+The resulting stochastic kinetics are represented with two complementary formulations of the dynamics: either in terms of the fluctuating number of molecular species that follow the Gillespie algorithm \cite{Gillespie1976}, or in terms of the probability distribution that satisfies the chemical master equation \cite{Gillespie1992}. We discuss how thermodynamic observables of relevance, like the stochastic heat and the stochastic work, are defined at the level of single trajectories and compute their value for this system. We establish the stochastic counterpart of the first and second law of thermodynamics and we establish the fundamental fluctuation relations. The energetic analysis relies on the irreversible nature of non-equilibrium processes and the definition of non-equilibrium entropy and entropy production. Free energy is computed as the quantity proportional to the Kullback-Leibler divergence between the system's probability distribution and its equilibrium distribution.
 
-We discuss how thermodynamic observables of relevance, like the stochastic heat and the stochastic work, are defined at the level of single trajectories and compute their value for this system. We establish the stochastic counterpart of the first and second law of thermodynamics and establish the fundamental fluctuation relations. The analysis relies on irreversible nature of non-equilibrium processes and the definition of non-equilibrium entropy and entropy production. Free energy is computed as proportional to the Kullback-Leibler divergence between the system's probability distribution and its equilibrium distribution.
 
-%\nocite{*}
-
-\footnotesize{\bibliographystyle{plain}\bibliography{abstract}}
+\bibliographystyle{article}
+\bibliography{abstract-Phys-ActBio-Matter-2023}
 \end{document}  

@@ -1,59 +1,30 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{1}
 
-\bibitem{Esposito_2011}
-M.~Esposito and C.~Van den Broeck.
-\newblock Second law and landauer principle far from equilibrium.
-\newblock {\em Europhysics Letters}, 95(4):40004, aug 2011.
-
-\bibitem{esposito2023}
-Massimiliano Esposito.
-\newblock Introduction to stochastic thermodynamics.
-\newblock https://enabla.com/set/144, 2023. Nordita Winter School 2023.
-
-\bibitem{GILLESPIE1976403}
-Daniel~T Gillespie.
+\bibitem{Gillespie1976}
+D.~T. Gillespie.
 \newblock A general method for numerically simulating the stochastic time
   evolution of coupled chemical reactions.
 \newblock {\em Journal of Computational Physics}, 22(4):403--434, 1976.
 
-\bibitem{GILLESPIE1992404}
-Daniel~T. Gillespie.
+\bibitem{Gillespie1992}
+D.~T. Gillespie.
 \newblock A rigorous derivation of the chemical master equation.
 \newblock {\em Physica A: Statistical Mechanics and its Applications},
   188(1):404--425, 1992.
 
-\bibitem{MAZUR1998451}
+\bibitem{Mazur1998}
 P.~Mazur.
 \newblock Fluctuations and non-equilibrium thermodynamics.
 \newblock {\em Physica A: Statistical Mechanics and its Applications},
   261(3):451--457, 1998.
 
-\bibitem{peliti2021stochastic}
-Luca Peliti and Simone Pigolotti.
-\newblock {\em Stochastic Thermodynamics: An Introduction}.
-\newblock Princeton University Press, 2021.
-
-\bibitem{PRIGOGINE1953241}
+\bibitem{Prigogine1953}
 I.~Prigogine and P.~Mazur.
-\newblock Sur l'extension de la thermodynamique aux phénomènes irreversibles
-  liés aux degrés de liberté internes.
-\newblock {\em Physica}, 19(1):241--254, 1953.
 
-\bibitem{Qian_2021}
-Hong Qian and Hao Ge.
-\newblock {\em Stochastic Chemical Reaction Systems in Biology}.
-\newblock Springer International Publishing, 2021.
-
-\bibitem{doi:10.1021/jp052904i}
+\bibitem{Reguera2005}
 D.~Reguera, J.~M. Rubí, and J.~M.~G. Vilar.
 \newblock The mesoscopic dynamics of thermodynamic systems.
 \newblock {\em The Journal of Physical Chemistry B}, 109(46):21502--21515,
   2005.
-\newblock PMID: 16853792.
-
-\bibitem{van2007stochastic}
-N.G. Van~Kampen.
-\newblock {\em Stochastic processes in physics and chemistry}.
-\newblock North-Holland personal library. Elsevier, 2007.
 
 \end{thebibliography}
